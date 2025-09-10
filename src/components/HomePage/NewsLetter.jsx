@@ -6,7 +6,7 @@ import { Button } from '../ui/button'
 export const NewsLetter = () => {
     return (
         <div>
-            <section className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 py-16 lg:py-20">
+            <section className="bg-[#040E28] py-16 lg:py-20">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ export const NewsLetter = () => {
                             >
                                 <i className="fas fa-envelope-open text-white text-2xl"></i>
                             </motion.div>
-                            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-balance">Stay Connected</h2>
+                            <h2 className="text-3xl lg:text-4xl text-[#FBC2EB] font-bold mb-4 text-balance">Stay Connected</h2>
                             <p className="text-lg text-blue-100 max-w-2xl mx-auto text-pretty">
                                 Get the latest updates on twin events, community highlights, and platform features delivered to your
                                 inbox.

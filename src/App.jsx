@@ -6,6 +6,7 @@ import { FeatureTwo } from './components/HomePage/FeatureTwo'
 import { CallToAction } from './components/HomePage/CallToAction'
 import { QuickHighlight } from './components/HomePage/QuickHighLight'
 import { NewsLetter } from './components/HomePage/NewsLetter'
+import { TwinCommunity } from './components/HomePage/TwinCommunity'
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       <Header />
 
       <FeatureOne />
+
+      <TwinCommunity />
 
       <FeatureTwo />
 

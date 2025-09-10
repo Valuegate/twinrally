@@ -23,7 +23,7 @@ export const FeatureTwo = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">Explore Our Features</h2>
+            <h2 className="text-3xl lg:text-4xl text-[#FBC2EB] font-bold mb-4 text-balance">Explore Our Features</h2>
             <p className="text-lg max-w-2xl mx-auto text-pretty">
               Dive deeper into what makes our twins community platform special. Click on each feature to learn more.
             </p>
@@ -67,7 +67,7 @@ export const FeatureTwo = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6 pt-2">
-                        <div className="pl-16">
+                        <div className="pl-3">
                           <ul className="space-y-3">
                             {feature.features.map((item, itemIndex) => (
                               <motion.li

@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 export const QuickHighlight = () => {
   return (
     <div>
-         <section className="bg-background py-16 lg:py-20 text-white">
+         <section className="bg-[#040E28] py-16 lg:py-20 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -13,7 +13,7 @@ export const QuickHighlight = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">
+            <h2 className="text-3xl lg:text-4xl text-[#FBC2EB] font-bold mb-4 text-balance">
               Everything You Need in One Place
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">

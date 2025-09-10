@@ -24,7 +24,7 @@ export const CallToAction = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 text-balance">Join the Twin Revolution</h2>
+            <h2 className="text-5xl lg:text-7xl font-bold text-[#FBC2EB] mb-6 text-balance">Join the Twin Revolution</h2>
             <p className="text-xl lg:text-2xl text-white/90 mb-12 max-w-3xl mx-auto text-pretty">
               Connect with twins worldwide, celebrate your unique bond, and be part of a community that truly
               understands you.

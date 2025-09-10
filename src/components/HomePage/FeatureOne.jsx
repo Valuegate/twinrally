@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from "framer-motion"
-import { Button } from '../ui/button'
 
 export const FeatureOne = () => {
   return (
@@ -15,7 +14,7 @@ export const FeatureOne = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+            <h2 className="text-3xl text-[#FBC2EB] lg:text-4xl font-bold mb-4 text-balance">
               Connect, Celebrate, and Grow Together
             </h2>
             <p className="text-lg max-w-3xl mx-auto text-pretty">
@@ -55,21 +54,21 @@ export const FeatureOne = () => {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
-              className="bg-card rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-[#FBC2EB] rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-b-[#A6C0EE] border-b-[5px] border-b-[#FBC2EB]"
             >
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200 }}
-                className="flex items-center mb-4"
+                className="flex items-center mb-4 text-white"
               >
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-[#A6C0EE] rounded-lg flex items-center justify-center mr-4">
                   <i className="fas fa-users text-primary-foreground text-xl"></i>
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Community & Networking</h3>
               </motion.div>
-              <div className="space-y-3 text-muted-foreground">
+              <div className="space-y-3">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -129,7 +128,7 @@ export const FeatureOne = () => {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
-              className="bg-card rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-[#A6C0EE] rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-b-[#FBC2EB] border-b-[5px] border-b-[#A6C0EE]"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -138,12 +137,12 @@ export const FeatureOne = () => {
                 transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200 }}
                 className="flex items-center mb-4"
               >
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-calendar-alt text-accent-foreground text-xl"></i>
+                <div className="w-12 h-12 bg-[#FBC2EB] rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-calendar-alt text-white text-xl"></i>
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Event Hosting</h3>
               </motion.div>
-              <div className="space-y-3 text-muted-foreground">
+              <div className="space-y-3 text-white">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -151,7 +150,7 @@ export const FeatureOne = () => {
                   transition={{ duration: 0.4, delay: 0.3 }}
                   className="flex items-start gap-2"
                 >
-                  <i className="fas fa-star text-primary mt-1 text-sm"></i>
+                  <i className="fas fa-star text-white mt-1 text-sm"></i>
                   <span className="text-sm">Annual twins festivals celebrating twin culture</span>
                 </motion.div>
                 <motion.div
@@ -161,7 +160,7 @@ export const FeatureOne = () => {
                   transition={{ duration: 0.4, delay: 0.4 }}
                   className="flex items-start gap-2"
                 >
-                  <i className="fas fa-plus-circle text-primary mt-1 text-sm"></i>
+                  <i className="fas fa-plus-circle mt-1 text-sm"></i>
                   <span className="text-sm">Create local meetups, workshops, and talent shows</span>
                 </motion.div>
                 <motion.div
@@ -171,7 +170,7 @@ export const FeatureOne = () => {
                   transition={{ duration: 0.4, delay: 0.5 }}
                   className="flex items-start gap-2"
                 >
-                  <i className="fas fa-ticket-alt text-primary mt-1 text-sm"></i>
+                  <i className="fas fa-ticket-alt mt-1 text-sm"></i>
                   <span className="text-sm">Integrated ticketing and RSVP system</span>
                 </motion.div>
                 <motion.div
@@ -181,7 +180,7 @@ export const FeatureOne = () => {
                   transition={{ duration: 0.4, delay: 0.6 }}
                   className="flex items-start gap-2"
                 >
-                  <i className="fas fa-video text-primary mt-1 text-sm"></i>
+                  <i className="fas fa-video mt-1 text-sm"></i>
                   <span className="text-sm">Live streaming for global participation</span>
                 </motion.div>
               </div>
@@ -203,7 +202,8 @@ export const FeatureOne = () => {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
-              className="bg-card rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer
+              hover:border-b-[#FBC2EB] border-b-[5px] border-b-blue-800"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -217,7 +217,7 @@ export const FeatureOne = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Communication</h3>
               </motion.div>
-              <div className="space-y-3 text-muted-foreground">
+              <div className="space-y-3 ">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -277,7 +277,7 @@ export const FeatureOne = () => {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
-              className="bg-card rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-[#A6C0EE] rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -341,7 +341,7 @@ export const FeatureOne = () => {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
-              className="bg-card rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1 cursor-pointer"
+              className="bg-[#FBC2EB]  rounded-lg border border-border p-6 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1 cursor-pointer"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -375,44 +375,6 @@ export const FeatureOne = () => {
                 >
                   <i className="fas fa-globe text-primary mt-1 text-sm"></i>
                   <span className="text-sm">Multilingual support for global community</span>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-center mt-16"
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 lg:p-12 border border-border"
-            >
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4 text-balance">
-                Ready to Connect with Your Twin Community?
-              </h3>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
-                Join thousands of twins worldwide who are already building meaningful connections, sharing experiences,
-                and celebrating their unique bond.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button className=" hover:bg-primary/90 text-white px-8 py-3 focus:ring-3 focus:ring-black focus:outline-none">
-                    Get Started Today
-                  </Button>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button
-                    variant="outline"
-                    className="border-primary text-primary hover:bg-primary/10 px-8 py-3 bg-transparent"
-                  >
-                    Learn More
-                  </Button>
                 </motion.div>
               </div>
             </motion.div>
