@@ -27,8 +27,8 @@ export const TwinCommunity = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                variant='ghost' className="bg-blue-800  hover:bg-blue-600 text-white px-8 py-3 
-             focus:border-2 focus:border-white focus:outline-none"
+                variant='ghost' className="bg-[#FBC2EB] text-white rounded-full hover:bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] px-8 py-3 
+             focus:border-2 focus:border-white focus:outline-none hover:text-white"
               >
                 Get Started Today
               </Button>
@@ -36,7 +36,8 @@ export const TwinCommunity = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
-                className="border-primary bg-[#A6C0EE] text-white hover:bg-pink-300 px-8 py-3
+                className="border-primary bg-transparent text-white hover:
+                hover:bg-transparent hover:text-white px-8 py-3
              focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:outline-none"
               >
                 Learn More

@@ -26,7 +26,7 @@ export const NewsLetter = () => {
                                 <i className="fas fa-envelope-open text-white text-2xl"></i>
                             </motion.div>
                             <h2 className="text-3xl lg:text-4xl text-[#FBC2EB] font-bold mb-4 text-balance">Stay Connected</h2>
-                            <p className="text-lg text-blue-100 max-w-2xl mx-auto text-pretty">
+                            <p className="text-lg max-w-2xl mx-auto text-muted-foreground text-pretty">
                                 Get the latest updates on twin events, community highlights, and platform features delivered to your
                                 inbox.
                             </p>
@@ -43,7 +43,7 @@ export const NewsLetter = () => {
                                 <Input
                                     type="email"
                                     placeholder="Enter your email address"
-                                    className="flex-1 px-6 rounded-full border-0 bg-white/10 backdrop-blur-sm text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                    className="flex-1 px-6 py-5 rounded-full border-0 bg-white/10 backdrop-blur-sm text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 />
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                     <Button className="bg-white text-blue-900 hover:bg-blue-50 px-8 rounded-full font-semibold whitespace-nowrap">

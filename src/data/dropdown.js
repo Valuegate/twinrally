@@ -4,7 +4,7 @@ export const resourceItems = [
         items: ["Help Center", "Contact Us"]
     },
     {
-        title: "Blogs / Insights",
+        title: "Blogs Insights",
         items: ["Latest Articles", "Industry Insights", "Company News"]
 
     },
