@@ -1,0 +1,4 @@
+# pack-refs with: peeled fully-peeled sorted 
+57340c162a0264601d377ee5fcd69e756808cf2c refs/remotes/origin/main
+29e2a3175be2a901496bd98c2b0df854dd6f52b8 refs/remotes/origin/precious-branch
+29e2a3175be2a901496bd98c2b0df854dd6f52b8 refs/remotes/origin/swain-branch
