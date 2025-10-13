@@ -3,21 +3,19 @@
 import { Button } from "../ui/button"
 import { resourceItems } from "@/data/dropdown"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
-import { ChevronDown, Menu } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { Heropage } from "./Heropage"
 import { useState } from "react"
+import { Link } from "react-router-dom"
+import { FaBars } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
 
 export const Header = () => {
-  const [openHeader, setOpenHeader] = useState(false)
-  const [menu, setMenu] = useState(false);
+  const [openHeader, setOpenHeader] = useState(false);
   const [resources, setResources] = useState(false);
 
   function handleToogle() {
     setOpenHeader(!openHeader)
-  }
-
-  function handleOpen() {
-    setMenu(!menu)
   }
 
   return (
@@ -31,7 +29,7 @@ export const Header = () => {
             className="p-2 rounded-lg bg-transparent hover:bg-transparent transition-colors duration-200"
             aria-label="Toggle menu"
           >
-            <i className={`fa-solid ${openHeader ? "fa-times" : "fa-bars"} text-white text-xl`}></i>
+            <FaBars className={` ${openHeader ? <FaBars/> :   <FaTimes />} text-white`} />
           </Button>
         </div>
 
@@ -116,7 +114,6 @@ export const Header = () => {
             </div>
           </nav>
         </div>
-        <Heropage />
       </div>
       {/* Desktop Navigation */}
       <div className="hidden lg:block">
@@ -174,12 +171,14 @@ export const Header = () => {
             </ul>
 
             <div className="flex gap-3">
-              <Button
-                className="h-10 px-6 bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white hover:border-white/40 transition-all duration-200 rounded-full"
-                variant="outline"
-              >
-                Login
-              </Button>
+              <Link to='/login'>
+                <Button
+                  className="h-10 px-6 bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white hover:border-white/40 transition-all duration-200 rounded-full"
+                  variant="outline"
+                >
+                  Login
+                </Button>
+              </Link>
               <Button
                 className="h-10 px-6 bg-[#FBC2EB] text-white rounded-full hover:bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] border-0 transition-all duration-200 shadow-lg"
                 variant="default"
@@ -195,7 +194,6 @@ export const Header = () => {
             </div>
           </nav>
         </div>
-        <Heropage />
       </div>
     </div>
   )

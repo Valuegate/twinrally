@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * App.jsx - TwinRally Main Application
  *
@@ -14,6 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FeaturesPage from "./pages/FeaturesPage";
 import PricingPage from "./pages/PricingPage";
 import { LoginPage, SignupPage } from "./pages/AuthPages";
+import LandingPage from "./components/HomePage";
 
 const App = () => {
   return (
@@ -24,46 +24,17 @@ const App = () => {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="*" element={<FeaturesPage />} />
+          <Route path="/page" element={<FeaturesPage />} />
         </Routes>
+      </div>
+      <div>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
+        
       </div>
     </Router>
   );
 };
 
 export default App;
-=======
-import './App.css'
-
-import { Header } from './components/HomePage/Header'
-import { FeatureOne } from './components/HomePage/FeatureOne'
-import { FeatureTwo } from './components/HomePage/FeatureTwo'
-import { CallToAction } from './components/HomePage/CallToAction'
-import { QuickHighlight } from './components/HomePage/QuickHighLight'
-import { NewsLetter } from './components/HomePage/NewsLetter'
-import { TwinCommunity } from './components/HomePage/TwinCommunity'
-
-
-function App() {
-
-  return (
-    <div className='bg-[#040E28]'>
-      <Header />
-
-      <FeatureOne />
-
-      <TwinCommunity />
-
-      <FeatureTwo />
-
-      <CallToAction />
-
-      <QuickHighlight />
-
-      <NewsLetter />
-    </div>
-  )
-}
-
-export default App
->>>>>>> precious-branch

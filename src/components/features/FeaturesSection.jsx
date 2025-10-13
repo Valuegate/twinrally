@@ -1,19 +1,3 @@
-/**
- * FeaturesSection Component
- *
- * Displays TwinRally's core features in an engaging grid layout with smooth animations.
- * Each feature card includes an icon, title, and description with hover effects.
- *
- * Features:
- * - Responsive 3-column grid (collapses to 1-2 columns on mobile)
- * - Staggered entrance animations using custom CSS classes
- * - Interactive hover effects with scale and glow
- * - Glassmorphism design with gradient backgrounds
- * - Semantic accessibility with proper heading hierarchy
- *
- * Dependencies: Custom animations in index.css (animate-slide-up, animate-fade-in)
- */
-
 import React from "react";
 import {
   Users,
@@ -23,6 +7,8 @@ import {
   LayoutDashboard,
   Sparkles,
 } from "lucide-react";
+
+
 
 const FeaturesSection = () => {
   // Feature configuration - easily maintainable and extendable

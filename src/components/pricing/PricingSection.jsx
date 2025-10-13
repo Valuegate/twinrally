@@ -1,18 +1,3 @@
-/**
- * PricingSection Component
- *
- * A responsive pricing section with smooth entrance animations and premium effects.
- * Uses minimal custom animations combined with Tailwind utilities for optimal performance.
- *
- * Features:
- * - Staggered card entrance animations
- * - Shimmer effect on premium CTA
- * - Floating popular badge
- * - Glassmorphism card styling
- * - Responsive grid layout
- *
- * Dependencies: Custom CSS animations in index.css
- */
 
 import React from "react";
 

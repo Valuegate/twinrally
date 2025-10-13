@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Loader2,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({
   onSuccess,
@@ -115,7 +116,9 @@ const LoginForm = ({
     <div
       className={`max-w-md mx-auto bg-[color:var(--bg)]/95 backdrop-blur-lg border border-white/10 rounded-2xl p-8 text-white ${className}`}
     >
-      <a href="#" onClick={(e) => { e.preventDefault(); onGoHome(); }} className="text-gray-400 hover:text-white absolute top-4 left-4">← Home</a>
+      <Link to='/'>
+        <a href="" onClick={(e) => { e.preventDefault(); onGoHome(); }} className="text-gray-400 hover:text-white absolute top-4 left-4">← Home</a>
+      </Link>
       {/* Header */}
       <div className="text-center mb-8 animate-slide-up">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[color:var(--pink)]/20 to-[color:var(--blue)]/20 border border-white/10 mb-4 animate-float">
@@ -277,10 +280,9 @@ const LoginForm = ({
                   }
                   className={`
                     flex-shrink-0 w-4 h-4 rounded border-2 flex items-center justify-center transition-all duration-200
-                    ${
-                      formData.rememberMe
-                        ? "bg-[color:var(--pink)] border-[color:var(--pink)]"
-                        : "border-white/30 hover:border-white/50"
+                    ${formData.rememberMe
+                      ? "bg-[color:var(--pink)] border-[color:var(--pink)]"
+                      : "border-white/30 hover:border-white/50"
                     }
                   `}
                 >

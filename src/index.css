@@ -6,19 +6,6 @@
   --blue: #a6c0ee;
 }
 
-/**
- * CORE ANIMATIONS
- * 
- * Three essential keyframes that handle 90% of UI animation needs.
- * Optimized for performance using GPU-accelerated properties only.
- * 
- * Usage:
- * - slideUp: Element entrances (cards, sections)  
- * - shimmer: Premium CTAs and highlights
- * - float: Attention-grabbing elements (badges, icons)
- */
-
-/* Element entrance animation - smooth slide from bottom with fade */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -51,22 +38,15 @@
   }
 }
 
-/**
- * ANIMATION UTILITY CLASSES
- * 
- * Ready-to-use classes that apply animations with optimal timing.
- * Follow BEM-like naming: animate-[effect]-[variation]
- */
 
-/* Standard entrance animation */
 .animate-slide-up {
   animation: slideUp 0.6s ease-out forwards;
 }
 
-/* Staggered entrance delays for list items */
+
 .animate-slide-up-delay-1 {
   animation: slideUp 0.6s ease-out 0.1s forwards;
-  opacity: 0; /* Prevent flash before animation */
+  opacity: 0; 
 }
 
 .animate-slide-up-delay-2 {
@@ -79,22 +59,16 @@
   opacity: 0;
 }
 
-/* Premium button shimmer - requires gradient background */
+
 .animate-shimmer {
   background-size: 200% 100%;
   animation: shimmer 2.5s ease-in-out infinite;
 }
 
-/* Continuous floating motion */
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-/**
- * PERFORMANCE OPTIMIZATION
- * 
- * Hint to browser about animated properties for better performance
- */
 .animate-slide-up,
 .animate-slide-up-delay-1,
 .animate-slide-up-delay-2,
@@ -102,11 +76,6 @@
   will-change: opacity, transform;
 }
 
-/**
- * FADE IN ANIMATION
- * 
- * Simple fade for headers and text content
- */
 @keyframes fadeIn {
   from {
     opacity: 0;

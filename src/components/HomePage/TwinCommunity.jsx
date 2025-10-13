@@ -10,7 +10,7 @@ export const TwinCommunity = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-center mt-16"
+        className="text-center mt-0"
       >
         <motion.div
           whileHover={{ scale: 1.02 }}
