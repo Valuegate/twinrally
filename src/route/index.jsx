@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '@/App';
+import { DashBoardPage } from '@/user-dash-board/DashBoardPage';
 
 export const routes = createBrowserRouter([
     //   {
@@ -24,5 +25,9 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <App />
+    },
+    {
+        path: '/dashboard',
+        element: <DashBoardPage />
     }
 ]);
