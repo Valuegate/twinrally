@@ -1,0 +1,79 @@
+{
+  "name": "TwinRally - Global Twin Community",
+  "short_name": "TwinRally",
+  "description": "Connect with twins worldwide, discover events, and celebrate twin culture",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#040e28",
+  "theme_color": "#fbc2eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["social", "lifestyle", "events"],
+  "icons": [
+    {
+      "src": "/twinrally_icon-removebg-preview (1).png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/twinrally_icon-removebg-preview (1).png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Events",
+      "short_name": "Events",
+      "description": "Browse and discover twin events",
+      "url": "/events",
+      "icons": [
+        {
+          "src": "/twinrally_icon-removebg-preview (1).png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "short_name": "Messages",
+      "description": "Chat with twin connections",
+      "url": "/messages",
+      "icons": [
+        {
+          "src": "/twinrally_icon-removebg-preview (1).png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "short_name": "Profile",
+      "description": "View and edit your profile",
+      "url": "/profile",
+      "icons": [
+        {
+          "src": "/twinrally_icon-removebg-preview (1).png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/twinrally_lg_01.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/twinrally_lg_08.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

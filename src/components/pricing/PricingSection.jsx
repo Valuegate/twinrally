@@ -20,7 +20,7 @@ const PricingSection = () => {
   // Pricing plan configuration
   const plans = [
     {
-      name: "Freemium",
+      name: "Free Plan",
       price: "$0",
       period: "/forever",
       description: "Perfect for twins getting started",
