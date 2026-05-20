@@ -17,7 +17,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import AuthModal from "../ui/AuthModal";
 
-const SignupPage = () => {
+const SignUpPage = () => {
   const [showModal, setShowModal] = useState(true);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -42,7 +42,8 @@ const SignupPage = () => {
       id: "google",
       name: "Google",
       icon: Chrome,
-      className: "bg-white text-gray-900 hover:bg-gray-50 border border-gray-200",
+      className:
+        "bg-white text-gray-900 hover:bg-gray-50 border border-gray-200",
       popular: true,
     },
     {
@@ -74,7 +75,8 @@ const SignupPage = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.firstName.trim())
+      newErrors.firstName = "First name is required";
     if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -142,7 +144,11 @@ const SignupPage = () => {
 
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[color:var(--pink)]/20 to-[color:var(--blue)]/20 border border-white/10 mb-4 animate-float">
-            <img src="/twinrally_icon-removebg-preview (1).png" alt="TwinRally Icon" className="w-8 h-8" />
+            <img
+              src="/twinrally_icon-removebg-preview (1).png"
+              alt="TwinRally Icon"
+              className="w-8 h-8"
+            />
           </div>
           <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-white to-[color:var(--pink)] bg-clip-text text-transparent">
             Join TwinRally
@@ -233,7 +239,9 @@ const SignupPage = () => {
                     type="text"
                     placeholder="First name"
                     value={formData.firstName}
-                    onChange={(e) => handleInputChange("firstName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("firstName", e.target.value)
+                    }
                     className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--pink)]/50 focus:border-transparent transition-all duration-300"
                   />
                   {errors.firstName && (
@@ -248,7 +256,9 @@ const SignupPage = () => {
                     type="text"
                     placeholder="Last name"
                     value={formData.lastName}
-                    onChange={(e) => handleInputChange("lastName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("lastName", e.target.value)
+                    }
                     className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--pink)]/50 focus:border-transparent transition-all duration-300"
                   />
                   {errors.lastName && (
@@ -287,7 +297,9 @@ const SignupPage = () => {
                       type={showPassword ? "text" : "password"}
                       placeholder="Password (min. 8 characters)"
                       value={formData.password}
-                      onChange={(e) => handleInputChange("password", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("password", e.target.value)
+                      }
                       className="w-full pl-10 pr-10 py-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--pink)]/50 focus:border-transparent transition-all duration-300"
                     />
                     <button
@@ -295,7 +307,11 @@ const SignupPage = () => {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-3.5 text-gray-400 hover:text-white"
                     >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
                     </button>
                   </div>
                   {errors.password && (
@@ -313,15 +329,23 @@ const SignupPage = () => {
                       type={showConfirmPassword ? "text" : "password"}
                       placeholder="Confirm password"
                       value={formData.confirmPassword}
-                      onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("confirmPassword", e.target.value)
+                      }
                       className="w-full pl-10 pr-10 py-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--pink)]/50 focus:border-transparent transition-all duration-300"
                     />
                     <button
                       type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
                       className="absolute right-3 top-3.5 text-gray-400 hover:text-white"
                     >
-                      {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      {showConfirmPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
                     </button>
                   </div>
                   {errors.confirmPassword && (
@@ -355,7 +379,9 @@ const SignupPage = () => {
                     </Button>
                     <Button
                       type="button"
-                      variant={formData.isTwin === false ? "default" : "outline"}
+                      variant={
+                        formData.isTwin === false ? "default" : "outline"
+                      }
                       size="sm"
                       onClick={() => handleInputChange("isTwin", false)}
                       className={
@@ -383,7 +409,9 @@ const SignupPage = () => {
                         type="text"
                         placeholder="Your twin's name"
                         value={formData.twinName}
-                        onChange={(e) => handleInputChange("twinName", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("twinName", e.target.value)
+                        }
                         className="w-full pl-10 pr-4 py-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--pink)]/50 focus:border-transparent transition-all duration-300"
                       />
                     </div>
@@ -400,7 +428,9 @@ const SignupPage = () => {
               <div className="flex items-start gap-3 pt-2">
                 <button
                   type="button"
-                  onClick={() => handleInputChange("agreeToTerms", !formData.agreeToTerms)}
+                  onClick={() =>
+                    handleInputChange("agreeToTerms", !formData.agreeToTerms)
+                  }
                   className={`
                     flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200
                     ${
@@ -416,11 +446,17 @@ const SignupPage = () => {
                 </button>
                 <label className="text-sm text-gray-300 leading-relaxed">
                   I agree to TwinRally's{" "}
-                  <a href="/terms" className="text-[color:var(--pink)] hover:underline">
+                  <a
+                    href="/terms"
+                    className="text-[color:var(--pink)] hover:underline"
+                  >
                     Terms of Service
                   </a>{" "}
                   and{" "}
-                  <a href="/privacy" className="text-[color:var(--pink)] hover:underline">
+                  <a
+                    href="/privacy"
+                    className="text-[color:var(--pink)] hover:underline"
+                  >
                     Privacy Policy
                   </a>
                 </label>
@@ -438,7 +474,9 @@ const SignupPage = () => {
                 loading={loading}
                 className="w-full py-4 mt-6"
               >
-                {loading ? "Creating your account..." : "Create My TwinRally Account"}
+                {loading
+                  ? "Creating your account..."
+                  : "Create My TwinRally Account"}
               </SignupButton>
             </div>
           </>
@@ -460,4 +498,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default SignUpPage;
