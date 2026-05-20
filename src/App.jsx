@@ -1,9 +1,7 @@
 /**
  * App.jsx - TwinRally Main Application
  *
- * Root component with page routing simulation.
- * Ready for React Router implementation when needed.
- *
+ * Root component with page routing using React Router.
  * @author Wasiu - TwinRally Team
  * @version 2.0.0
  */

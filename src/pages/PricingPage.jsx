@@ -65,6 +65,7 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen bg-[color:var(--bg)]">
       <PricingSection />
+      {/* Footer */}
       <Footer />
     </div>
   );
