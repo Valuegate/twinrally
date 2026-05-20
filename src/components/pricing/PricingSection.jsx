@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 const PricingSection = () => {
   const plans = [
     {
-      name: "Freemium",
+      name: "Free Plan",
       price: "$0",
       period: "/forever",
       description: "Perfect for twins getting started",
