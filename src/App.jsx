@@ -10,7 +10,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FeaturesSection from "./components/features/FeaturesSection";
 import LoginForm from "./components/auth/LoginForm";
-import SignupForm from "./components/auth/SignupForm";
+import SignupForm from "./components/auth/SignUpForm";
 import PricingSection from "./components/pricing/PricingSection";
 import LandingPage from "./components/HomePage";
 import AboutPage from "./pages/AboutPage";
