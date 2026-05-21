@@ -8,9 +8,17 @@
 
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+// Components
 import NotificationBell from "./components/notifications/NotificationBell";
 import NotificationDropdown from "./components/notifications/NotificationDropdown";
+import Footer from "./components/layout/Footer";
+import HomePage from "./components/HomePage"; // imported your landing homepage file
+
+// Data
 import { getUnreadCount } from "./data/mockNotifications";
+
+// Pages
 import FeaturesPage from "./pages/FeaturesPage";
 import PricingPage from "./pages/PricingPage";
 import EventsPage from "./pages/EventsPage";
@@ -21,6 +29,9 @@ import ConnectionsPage from "./pages/ConnectionsPage";
 import MyEventsPage from "./pages/MyEventsPage";
 import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from "./pages/EditProfilePage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import { DashBoardPage } from "./user-dash-board/DashBoardPage"; // Uses named import
 import { LoginPage, SignupPage } from "./pages/AuthPages";
 
 const App = () => {
@@ -29,95 +40,45 @@ const App = () => {
 
   return (
     <Router>
-      {/* Notification Bell - Top Right */}
-      <div className="fixed top-4 right-4 z-50">
-        <NotificationBell
-          unreadCount={unreadCount}
-          onClick={() => setShowNotifications(true)}
-        />
-      </div>
+      <div className="min-h-screen flex flex-col bg-slate-900 text-white">
+        {/* Main Routed Page Content Viewport */}
+        <main className="flex-grow pt-24">
+          <Routes>
+            {/* Default Landing / Home Page - Typo Fixed */}
+            <Route path="/" element={<HomePage />} />
 
-      {/* Notification Dropdown */}
-      <NotificationDropdown
-        isOpen={showNotifications}
-        onClose={() => setShowNotifications(false)}
-      />
+            {/* Core Application Core Routing Paths */}
+            <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
 
-      {/* Dev Navigation - TEMPORARY for testing */}
-      <nav className="fixed top-4 left-4 z-50 bg-white/10 backdrop-blur-md rounded-lg p-2 flex gap-2">
-        <Link
-          to="/messages"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Messages
-        </Link>
-        <Link
-          to="/profile"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Profile
-        </Link>
-        <Link
-          to="/features"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Features
-        </Link>
-        <Link
-          to="/pricing"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Pricing
-        </Link>
-        <Link
-          to="/events"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Events
-        </Link>
-        <Link
-          to="/create-event"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Create
-        </Link>
-        <Link
-          to="/my-events"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          My Events
-        </Link>
-        <Link
-          to="/login"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
-        >
-          Signup
-        </Link>
-      </nav>
+            {/* Dashboard & Networking */}
+            <Route path="/dashboard" element={<DashBoardPage />} />
+            <Route path="/connections" element={<ConnectionsPage />} />
+            <Route path="/messages" element={<MessagesPage />} />
 
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<FeaturesPage />} />
-          <Route path="/features" element={<FeaturesPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/events/:eventId" element={<EventDetailsPage />} />
-          <Route path="/create-event" element={<CreateEventPage />} />
-          <Route path="/connections" element={<ConnectionsPage />} />
-          <Route path="/messages" element={<MessagesPage />} />
-          <Route path="/my-events" element={<MyEventsPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/profile/edit" element={<EditProfilePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="*" element={<FeaturesPage />} />
-        </Routes>
+            {/* Events Management Paths */}
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/events/:eventId" element={<EventDetailsPage />} />
+            <Route path="/create-event" element={<CreateEventPage />} />
+            <Route path="/my-events" element={<MyEventsPage />} />
+
+            {/* User Profile Configuration Paths */}
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/edit" element={<EditProfilePage />} />
+
+            {/* Identity & Authentication Gateways */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+
+            {/* Fallback Catch-All Safety Route (Redirects back to Home) */}
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </main>
+
+        {/* Consistent Footers across pages */}
+        <Footer />
       </div>
     </Router>
   );

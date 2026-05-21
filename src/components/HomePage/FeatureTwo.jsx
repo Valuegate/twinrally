@@ -1,250 +1,657 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from '../ui/button'
+import React, { useState, useRef } from 'react'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { accordionFeatures } from '@/data/accordion'
+import { Plus, Minus, Users, CalendarDays, MessageCircle, Trophy, Globe2, Zap } from 'lucide-react'
+
+
+const LUCIDE_ICONS = [
+  <Users size={20} />,
+  <CalendarDays size={20} />,
+  <MessageCircle size={20} />,
+  <Trophy size={20} />,
+  <Globe2 size={20} />,
+  <Zap size={20} />,
+]
+
+const FadeUp = ({ children, delay = 0 }) => {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export const FeatureTwo = () => {
-  const [openAccordion, setOpenAccordion] = useState(null);
-  const [activeFeature, setActiveFeature] = useState(0);
+  const [openAccordion, setOpenAccordion] = useState(0)
+  const [activeFeature, setActiveFeature] = useState(0)
 
-  const toggleAccordion = (index) => {
+  const toggle = (index) => {
     setOpenAccordion(openAccordion === index ? null : index)
     setActiveFeature(index)
   }
 
   return (
-    <div className="w-full">
-      <section className="bg-[#040E28] py-16 lg:py-24 text-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-10 w-40 h-40 bg-[#FBC2EB] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#A6C0EE] rounded-full blur-3xl"></div>
-        </div>
+    <section style={{
+      background: '#ddd7ce',
+      fontFamily: "'DM Sans', sans-serif",
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 lg:mb-20"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center justify-center mb-6"
-            >
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/20">
-                <img 
-                  src="/twinrally_lg_02-removebg-preview.png" 
-                  alt="Twin Rally" 
-                  className="w-12 h-12 object-contain"
-                  loading="lazy"
-                />
+        /* ── SECTION WRAPPER ── */
+        .ft2-wrap {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 7rem 6% 7rem;
+        }
+
+        /* ── HEADER ── */
+        .ft2-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: end;
+          margin-bottom: 5rem;
+          padding-bottom: 4rem;
+          border-bottom: 1px solid rgba(14,22,40,0.18);
+        }
+
+        .ft2-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          background: rgba(251,194,235,0.15);
+          border: 1px solid rgba(251,194,235,0.4);
+          color: #9a2060;
+          border-radius: 100px;
+          padding: 5px 14px;
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          margin-bottom: 1.4rem;
+        }
+
+        .ft2-eyebrow-dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: #fbc2eb;
+          flex-shrink: 0;
+        }
+
+        .ft2-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+          font-weight: 700;
+          color: #0e1628;
+          letter-spacing: -1.2px;
+          line-height: 1.08;
+        }
+
+        .ft2-title em {
+          font-style: italic;
+          background: linear-gradient(120deg, #fbc2eb 20%, #a6c0ee 80%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .ft2-header-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          gap: 1.5rem;
+        }
+
+        .ft2-sub {
+          font-size: 0.97rem;
+          color: rgba(14,22,40,0.72);
+          line-height: 1.8;
+          font-weight: 400;
+          max-width: 380px;
+        }
+
+        .ft2-stats {
+          display: flex;
+          gap: 2rem;
+        }
+
+        .ft2-stat-num {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.7rem;
+          font-weight: 700;
+          color: #0e1628;
+          letter-spacing: -0.5px;
+          line-height: 1;
+          margin-bottom: 3px;
+        }
+
+        .ft2-stat-num span {
+          background: linear-gradient(120deg, #fbc2eb, #a6c0ee);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .ft2-stat-label {
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: rgba(14,22,40,0.72);
+        }
+
+        /* ── BODY GRID ── */
+        .ft2-body {
+          display: grid;
+          grid-template-columns: 5fr 4fr;
+          gap: 3.5rem;
+          align-items: start;
+        }
+
+        /* ── ACCORDION ── */
+        .ft2-accordion {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          background: rgba(14,22,40,0.18);
+          border-radius: 20px;
+          overflow: hidden;
+        }
+
+        .ft2-item {
+          background: #cdc6bb;
+          transition: background 0.25s;
+          overflow: hidden;
+        }
+
+        .ft2-item.active {
+          background: #fff;
+        }
+
+        .ft2-item-btn {
+          width: 100%;
+          padding: 1.4rem 1.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          cursor: pointer;
+          background: none;
+          border: none;
+          font-family: inherit;
+          text-align: left;
+        }
+
+        .ft2-item-left {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .ft2-item-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          font-size: 1.1rem;
+          transition: transform 0.25s;
+        }
+
+        .ft2-item.active .ft2-item-icon {
+          transform: scale(1.08);
+        }
+
+        .ft2-item-name {
+          font-size: 0.97rem;
+          font-weight: 700;
+          color: #0e1628;
+          line-height: 1.2;
+        }
+
+        .ft2-item-count {
+          font-size: 0.72rem;
+          font-weight: 500;
+          color: rgba(14,22,40,0.72);
+          margin-top: 2px;
+          letter-spacing: 0.02em;
+        }
+
+        .ft2-item-toggle {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: rgba(14,22,40,0.18);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: background 0.2s;
+          color: rgba(14,22,40,0.65);
+        }
+
+        .ft2-item.active .ft2-item-toggle {
+          background: rgba(251,194,235,0.2);
+          color: #9a2060;
+        }
+
+        .ft2-item-toggle svg {
+          width: 14px;
+          height: 14px;
+        }
+
+        /* Accordion body */
+        .ft2-item-body {
+          padding: 0 1.8rem 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .ft2-feature-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 10px 12px;
+          border-radius: 10px;
+          background: rgba(14,22,40,0.05);
+          border: 1px solid rgba(14,22,40,0.1);
+        }
+
+        .ft2-feature-check {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 1px;
+          font-size: 0.6rem;
+          color: #fff;
+        }
+
+        .ft2-feature-txt {
+          font-size: 0.84rem;
+          color: rgba(14,22,40,0.78);
+          line-height: 1.6;
+        }
+
+        /* ── STICKY VISUAL PANEL ── */
+        .ft2-panel {
+          position: sticky;
+          top: 5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .ft2-visual-card {
+          background: #fff;
+          border-radius: 20px;
+          overflow: hidden;
+          border: 1px solid rgba(14,22,40,0.14);
+        }
+
+        .ft2-visual-top {
+          height: 7px;
+          width: 100%;
+        }
+
+        .ft2-visual-body {
+          padding: 2rem 2rem 1.5rem;
+          text-align: center;
+        }
+
+        .ft2-visual-icon {
+          width: 64px;
+          height: 64px;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1.2rem;
+          font-size: 1.6rem;
+        }
+
+        .ft2-visual-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: #0e1628;
+          letter-spacing: -0.4px;
+          margin-bottom: 0.6rem;
+          line-height: 1.15;
+        }
+
+        .ft2-visual-desc {
+          font-size: 0.85rem;
+          color: rgba(14,22,40,0.72);
+          line-height: 1.7;
+        }
+
+        .ft2-mini-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          padding: 0 2rem 2rem;
+        }
+
+        .ft2-mini-card {
+          border-radius: 10px;
+          background: rgba(14,22,40,0.05);
+          border: 1px solid rgba(14,22,40,0.12);
+          padding: 0.75rem;
+        }
+
+        .ft2-mini-label {
+          font-size: 0.72rem;
+          font-weight: 700;
+          color: #0e1628;
+          margin-bottom: 3px;
+          line-height: 1.2;
+        }
+
+        .ft2-mini-sub {
+          font-size: 0.68rem;
+          color: rgba(14,22,40,0.62);
+          line-height: 1.4;
+        }
+
+        /* Progress bar panel */
+        .ft2-progress-card {
+          background: #fff;
+          border-radius: 16px;
+          padding: 1.25rem 1.5rem;
+          border: 1px solid rgba(14,22,40,0.14);
+        }
+
+        .ft2-progress-label {
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: rgba(14,22,40,0.35);
+          margin-bottom: 0.9rem;
+        }
+
+        .ft2-progress-rows {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .ft2-progress-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .ft2-progress-name {
+          font-size: 0.78rem;
+          font-weight: 500;
+          color: rgba(14,22,40,0.72);
+          width: 80px;
+          flex-shrink: 0;
+        }
+
+        .ft2-progress-track {
+          flex: 1;
+          height: 5px;
+          background: rgba(14,22,40,0.14);
+          border-radius: 100px;
+          overflow: hidden;
+        }
+
+        .ft2-progress-fill {
+          height: 100%;
+          border-radius: 100px;
+        }
+
+        
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+          .ft2-header {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .ft2-body {
+            grid-template-columns: 1fr;
+          }
+          .ft2-panel {
+            position: static;
+          }
+          .ft2-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 3.5rem 6%;
+          }
+        }
+
+        @media (max-width: 580px) {
+          .ft2-wrap { padding: 4.5rem 6% 5rem; }
+          .ft2-header { margin-bottom: 3rem; padding-bottom: 3rem; }
+          .ft2-stats { gap: 1.5rem; }
+        }
+      `}</style>
+
+      <div className="ft2-wrap">
+
+        {/* ── HEADER ── */}
+        <FadeUp>
+          <div className="ft2-header">
+            <div>
+              <div className="ft2-eyebrow">
+                <div className="ft2-eyebrow-dot" />
+                Powerful Features
               </div>
-            </motion.div>
-
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance bg-gradient-to-r from-[#FBC2EB] via-[#FBC2EB] to-[#A6C0EE] bg-clip-text text-transparent">
-              Powerful Features for Twins
-            </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto text-pretty leading-relaxed">
-              Discover the innovative tools and experiences designed specifically for the twin community. 
-              Everything you need to connect, share, and grow together.
-            </p>
-          </motion.div>
-
-          {/* Modern Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left Side - Visual Showcase */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              {/* Main Feature Visual */}
-              <div className="bg-gradient-to-br from-white/5 to-white/10 rounded-3xl p-8 border border-white/10 backdrop-blur-sm">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeFeature}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center"
-                  >
-                    <div className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${accordionFeatures[activeFeature]?.color} flex items-center justify-center shadow-2xl`}>
-                      <i className={`${accordionFeatures[activeFeature]?.icon} text-white text-3xl`}></i>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">
-                      {accordionFeatures[activeFeature]?.title}
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      {accordionFeatures[activeFeature]?.description}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Feature Preview Cards */}
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  {accordionFeatures[activeFeature]?.features.slice(0, 4).map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="bg-white/5 rounded-xl p-4 border border-white/5 text-center"
-                    >
-                      <div className="text-[#FBC2EB] text-sm font-semibold mb-2">
-                        {feature.split(':')[0]}
-                      </div>
-                      <div className="text-white/60 text-xs">
-                        {feature.split(':')[1] || feature}
-                      </div>
-                    </motion.div>
-                  ))}
+              <h2 className="ft2-title">
+                Everything twins<br />need to <em>thrive together</em>
+              </h2>
+            </div>
+            <div className="ft2-header-right">
+              <p className="ft2-sub">
+                Innovative tools and experiences designed specifically for the twin community — to connect, share, and grow together.
+              </p>
+              <div className="ft2-stats">
+                <div>
+                  <div className="ft2-stat-num"><span>10k+</span></div>
+                  <div className="ft2-stat-label">Twin pairs</div>
+                </div>
+                <div>
+                  <div className="ft2-stat-num"><span>40+</span></div>
+                  <div className="ft2-stat-label">Countries</div>
+                </div>
+                <div>
+                  <div className="ft2-stat-num"><span>200+</span></div>
+                  <div className="ft2-stat-label">Events hosted</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </FadeUp>
 
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-4 w-8 h-8 bg-[#FBC2EB] rounded-full blur-sm"
-              />
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-6 h-6 bg-[#A6C0EE] rounded-full blur-sm"
-              />
-            </motion.div>
+        {/* ── BODY ── */}
+        <div className="ft2-body">
 
-            {/* Right Side - Interactive Accordion */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-4"
-            >
-              {accordionFeatures.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`bg-gradient-to-r from-white/5 to-white/10 rounded-2xl overflow-hidden border backdrop-blur-sm transition-all duration-300 ${
-                    openAccordion === index 
-                      ? 'border-[#FBC2EB]/30 shadow-2xl shadow-[#FBC2EB]/10' 
-                      : 'border-white/10 hover:border-white/20'
-                  }`}
-                >
-                  <motion.button
-                    onClick={() => toggleAccordion(index)}
-                    className="w-full px-6 py-6 flex items-center justify-between group cursor-pointer"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <i className={`${feature.icon} text-white text-xl`}></i>
+          {/* Accordion */}
+          <FadeUp delay={0.1}>
+            <div className="ft2-accordion">
+              {accordionFeatures.map((feature, index) => {
+                const isOpen = openAccordion === index
+                const accentColor = index % 2 === 0 ? '#fbc2eb' : '#a6c0ee'
+                const accentDark  = index % 2 === 0 ? '#9a2060' : '#2a52a0'
+                return (
+                  <div key={index} className={`ft2-item${isOpen ? ' active' : ''}`}>
+                    <button className="ft2-item-btn" onClick={() => toggle(index)}>
+                      <div className="ft2-item-left">
+                        <div
+                          className="ft2-item-icon"
+                          style={{
+                            background: `${accentColor}20`,
+                            color: accentDark,
+                          }}
+                        >
+                          {LUCIDE_ICONS[index % LUCIDE_ICONS.length]}
+                        </div>
+                        <div>
+                          <div className="ft2-item-name">{feature.title}</div>
+                          <div className="ft2-item-count">{feature.features.length} features included</div>
+                        </div>
                       </div>
-                      <div className="text-left">
-                        <h3 className="text-lg font-bold text-white group-hover:text-[#FBC2EB] transition-colors duration-300">
-                          {feature.title}
-                        </h3>
-                        <p className="text-white/60 text-sm mt-1">
-                          {feature.features.length} key benefits
-                        </p>
+                      <div className="ft2-item-toggle">
+                        {isOpen ? <Minus /> : <Plus />}
                       </div>
-                    </div>
-                    <motion.div 
-                      animate={{ rotate: openAccordion === index ? 180 : 0 }} 
-                      transition={{ duration: 0.3 }}
-                      className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300"
-                    >
-                      <i className={`fas ${openAccordion === index ? "fa-minus" : "fa-plus"} text-white text-sm`}></i>
-                    </motion.div>
-                  </motion.button>
+                    </button>
 
-                  <AnimatePresence>
-                    {openAccordion === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-6">
-                          <div className="space-y-3">
-                            {feature.features.map((item, itemIndex) => (
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="body"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                          style={{ overflow: 'hidden' }}
+                        >
+                          <div className="ft2-item-body">
+                            {feature.features.map((item, j) => (
                               <motion.div
-                                key={itemIndex}
-                                initial={{ opacity: 0, x: -20 }}
+                                key={j}
+                                className="ft2-feature-row"
+                                initial={{ opacity: 0, x: -12 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: itemIndex * 0.1 }}
-                                className="flex items-start gap-4 p-3 bg-white/5 rounded-lg border border-white/5"
+                                transition={{ duration: 0.3, delay: j * 0.05 }}
                               >
-                                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] flex items-center justify-center flex-shrink-0 mt-0.5">
-                                  <i className="fas fa-check text-white text-xs"></i>
+                                <div
+                                  className="ft2-feature-check"
+                                  style={{ background: `linear-gradient(135deg, ${accentColor}, ${index % 2 === 0 ? '#a6c0ee' : '#fbc2eb'})` }}
+                                >
+                                  ✓
                                 </div>
-                                <span className="text-white/80 text-sm leading-relaxed">{item}</span>
+                                <span className="ft2-feature-txt">{item}</span>
                               </motion.div>
                             ))}
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )
+              })}
+            </div>
+          </FadeUp>
 
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mt-16 lg:mt-20"
-          >
-            <div className="bg-gradient-to-r from-[#FBC2EB]/10 to-[#A6C0EE]/10 rounded-3xl p-8 lg:p-12 border border-white/10 backdrop-blur-sm relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FBC2EB] rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#A6C0EE] rounded-full blur-2xl"></div>
+          {/* Sticky Visual Panel */}
+          <FadeUp delay={0.2}>
+            <div className="ft2-panel">
+              {/* Main card */}
+              <div className="ft2-visual-card">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeFeature}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.4, ease: [0.22,1,0.36,1] }}
+                  >
+                    {/* Accent bar */}
+                    <div
+                      className="ft2-visual-top"
+                      style={{
+                        background: activeFeature % 2 === 0
+                          ? 'linear-gradient(90deg, #fbc2eb, #a6c0ee)'
+                          : 'linear-gradient(90deg, #a6c0ee, #fbc2eb)',
+                      }}
+                    />
+                    <div className="ft2-visual-body">
+                      <div
+                        className="ft2-visual-icon"
+                        style={{
+                          background: activeFeature % 2 === 0
+                            ? 'rgba(251,194,235,0.15)'
+                            : 'rgba(166,192,238,0.15)',
+                          color: activeFeature % 2 === 0 ? '#9a2060' : '#2a52a0',
+                          fontSize: '1.7rem',
+                        }}
+                      >
+                        {LUCIDE_ICONS[activeFeature % LUCIDE_ICONS.length]}
+                      </div>
+                      <div className="ft2-visual-title">
+                        {accordionFeatures[activeFeature]?.title}
+                      </div>
+                      <p className="ft2-visual-desc">
+                        {accordionFeatures[activeFeature]?.description}
+                      </p>
+                    </div>
+
+                    <div className="ft2-mini-grid">
+                      {accordionFeatures[activeFeature]?.features.slice(0, 4).map((f, i) => (
+                        <motion.div
+                          key={i}
+                          className="ft2-mini-card"
+                          initial={{ opacity: 0, scale: 0.94 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: i * 0.07 }}
+                        >
+                          <div className="ft2-mini-label"
+                            style={{ color: activeFeature % 2 === 0 ? '#9a2060' : '#2a52a0' }}>
+                            {f.split(':')[0]}
+                          </div>
+                          <div className="ft2-mini-sub">
+                            {f.split(':')[1]?.trim() || ''}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
-              
-              <div className="relative z-10">
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] bg-clip-text text-transparent">
-                  Ready to Experience All Features?
-                </h3>
-                <p className="text-white/70 mb-6 max-w-2xl mx-auto text-lg">
-                  Join thousands of twins who are already building meaningful connections and creating unforgettable memories together.
-                </p>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block"
-                >
-                  <Button className="bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] text-white font-bold rounded-full px-8 py-4 text-base shadow-2xl hover:shadow-3xl transition-all duration-300 border-0">
-                    Start Your Twin Journey Today
-                  </Button>
-                </motion.div>
+
+              {/* Progress card */}
+              <div className="ft2-progress-card">
+                <div className="ft2-progress-label">Community reach</div>
+                <div className="ft2-progress-rows">
+                  {[
+                    { name: 'Networking', val: 92, color: '#fbc2eb' },
+                    { name: 'Events', val: 78, color: '#a6c0ee' },
+                    { name: 'Messaging', val: 88, color: '#fbc2eb' },
+                    { name: 'Engagement', val: 65, color: '#a6c0ee' },
+                  ].map((r, i) => (
+                    <div className="ft2-progress-row" key={i}>
+                      <div className="ft2-progress-name">{r.name}</div>
+                      <div className="ft2-progress-track">
+                        <motion.div
+                          className="ft2-progress-fill"
+                          style={{ background: r.color }}
+                          initial={{ width: 0 }}
+                          animate={{ width: `${r.val}%` }}
+                          transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22,1,0.36,1] }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </motion.div>
+          </FadeUp>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }

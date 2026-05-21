@@ -1,270 +1,335 @@
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  Mail, Phone, MapPin,
+  Facebook, Twitter, Instagram, Linkedin, Youtube,
+  ArrowRight, CheckCircle, Heart
+} from 'lucide-react'
 
-import React, { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin,
-  Youtube,
-  Send,
-  Heart,
-  Users
-} from 'lucide-react';
+const T = {
+  navy: '#040E28',
+  pink: '#fbc2eb',
+  blue: '#a6c0ee',
+  border: 'rgba(255,255,255,0.08)',
+  muted: 'rgba(255,255,255,0.4)',
+  sub: 'rgba(255,255,255,0.6)',
+}
+
+const footerSections = [
+  {
+    title: 'Platform',
+    links: [
+      { name: 'Features', href: '#features' },
+      { name: 'Pricing', href: '#pricing' },
+      { name: 'Download App', href: '#download' },
+      { name: 'Twin Finder', href: '#twin-finder' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { name: 'Blog & Insights', href: '/blog' },
+      { name: "FAQ's", href: '/faq' },
+      { name: 'Help Center', href: '/help' },
+      { name: 'Contact Support', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { name: 'About TwinRally', href: '/about' },
+      { name: 'Our Mission', href: '/mission' },
+      { name: 'Our Team', href: '/team' },
+      { name: 'Values', href: '/values' },
+    ],
+  },
+]
+
+const socialLinks = [
+  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/twinrally' },
+  { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/twinrally' },
+  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/twinrally' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/twinrally' },
+  { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/twinrally' },
+]
+
+const contactInfo = [
+  { icon: Mail, text: 'hello@twinrally.com', href: 'mailto:hello@twinrally.com' },
+  { icon: Phone, text: '+1 (555) 123-4567', href: 'tel:+15551234567' },
+  { icon: MapPin, text: 'Global Platform', href: '#' },
+]
 
 const Footer = () => {
-  // Newsletter subscription state
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
 
-  /**
-   * Handles newsletter subscription
-   * TODO: Integrate with actual email service (Mailchimp, ConvertKit, etc.)
-   */
-  const handleNewsletterSubmit = () => {
+  const handleSubscribe = () => {
     if (email.trim()) {
-      setIsSubscribed(true);
-      setEmail('');
-      // Reset success message after 3 seconds
-      setTimeout(() => setIsSubscribed(false), 3000);
+      setSubscribed(true)
+      setEmail('')
+      setTimeout(() => setSubscribed(false), 4000)
     }
-  };
-
-  /**
-   * Footer navigation configuration
-   * Organized by sections for easy maintenance and updates
-   */
-  const footerSections = [
-    {
-      title: "Platform",
-      links: [
-        { name: "Features", href: "#features" },
-        { name: "Pricing", href: "#pricing" },
-        { name: "Download App", href: "#download" },
-        { name: "Twin Finder", href: "#twin-finder" }
-      ]
-    },
-    {
-      title: "Resources", 
-      links: [
-        { name: "Blog & Insights", href: "/blog" },
-        { name: "FAQ's", href: "/faq" },
-        { name: "Help Center", href: "/help" },
-        { name: "Contact Support", href: "/contact" }
-      ]
-    },
-    {
-      title: "Company",
-      links: [
-        { name: "About TwinRally", href: "/about" },
-        { name: "Our Team", href: "/team" }
-      ]
-    }
-  ];
-
-  /**
-   * Social media configuration
-   * Easy to update social links and add new platforms
-   */
-  const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "https://facebook.com/twinrally", color: "hover:text-blue-400" },
-    { name: "Twitter", icon: Twitter, href: "https://twitter.com/twinrally", color: "hover:text-blue-300" },
-    { name: "Instagram", icon: Instagram, href: "https://instagram.com/twinrally", color: "hover:text-pink-400" },
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/twinrally", color: "hover:text-blue-500" },
-    { name: "YouTube", icon: Youtube, href: "https://youtube.com/twinrally", color: "hover:text-red-400" }
-  ];
-
-  /**
-   * Contact information
-   * Centralized for easy updates across the application
-   */
-  const contactInfo = [
-    { icon: Mail, text: "hello@twinrally.com", href: "mailto:hello@twinrally.com" },
-    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: MapPin, text: "Global Platform", href: "#locations" }
-  ];
+  }
 
   return (
-    <footer className="bg-[color:var(--bg)] text-white border-t border-white/10 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-1/4 w-64 h-64 bg-[color:var(--pink)]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[color:var(--blue)]/20 rounded-full blur-3xl"></div>
+    <footer
+      style={{
+        background: T.navy,
+        borderTop: `1px solid ${T.border}`,
+        position: 'relative',
+        overflow: 'hidden',
+        fontFamily: "'DM Sans', sans-serif",
+      }}
+    >
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+      {/* Ambient glows */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: 0, left: '15%', width: 400, height: 400, borderRadius: '50%', background: T.pink, opacity: 0.05, filter: 'blur(100px)' }} />
+        <div style={{ position: 'absolute', bottom: 0, right: '15%', width: 400, height: 400, borderRadius: '50%', background: T.blue, opacity: 0.05, filter: 'blur(100px)' }} />
       </div>
 
-      <div className="relative container mx-auto px-6 lg:px-8">
-        {/* Main footer content */}
-        <div className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            
-            {/* Company branding and description */}
-            <div className="lg:col-span-2 animate-slide-up">
-              <div className="mb-8">
-                {/* TwinRally Logo */}
-                <div className="mb-6">
-                  <img 
-                    src="../public/twinrally_lg_01.png" 
-                    alt="TwinRally Logo" 
-                    className="h-18 w-auto animate-float"
+      <div style={{ position: 'relative', zIndex: 10, maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
+
+        {/* ── TOP: Brand + Nav ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: 48,
+          padding: '72px 0 56px',
+          borderBottom: `1px solid ${T.border}`,
+        }}>
+
+          {/* Brand col */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            style={{ gridColumn: 'span 1' }}
+          >
+            {/* Logo */}
+            <img
+              src="/twinrally_lg_01.png"
+              alt="TwinRally"
+              style={{ height: 44, width: 'auto', marginBottom: 20, objectFit: 'contain' }}
+            />
+
+            <p style={{ color: T.sub, fontSize: 14, lineHeight: 1.75, maxWidth: 280, marginBottom: 28 }}>
+              The global platform connecting twins worldwide through shared experiences, celebrations, and lifelong bonds.
+            </p>
+
+            {/* Contact */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {contactInfo.map((c, i) => (
+                <a
+                  key={i}
+                  href={c.href}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 10,
+                    color: T.muted, textDecoration: 'none', fontSize: 13,
+                    transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = T.pink}
+                  onMouseLeave={e => e.currentTarget.style.color = T.muted}
+                >
+                  <c.icon size={14} style={{ flexShrink: 0 }} />
+                  {c.text}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Nav cols */}
+          {footerSections.map((section, si) => (
+            <motion.div
+              key={section.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 * (si + 1) }}
+            >
+              <h4 style={{
+                color: 'white', fontWeight: 700, fontSize: 13,
+                letterSpacing: '0.08em', textTransform: 'uppercase',
+                marginBottom: 20,
+              }}>
+                {section.title}
+              </h4>
+              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {section.links.map((link, li) => (
+                  <li key={li}>
+                    <a
+                      href={link.href}
+                      style={{
+                        color: T.muted, textDecoration: 'none', fontSize: 14,
+                        transition: 'color 0.2s, padding-left 0.2s',
+                        display: 'inline-block',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.color = T.pink; e.currentTarget.style.paddingLeft = '4px' }}
+                      onMouseLeave={e => { e.currentTarget.style.color = T.muted; e.currentTarget.style.paddingLeft = '0px' }}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ── MIDDLE: Newsletter ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{
+            padding: '48px 0',
+            borderBottom: `1px solid ${T.border}`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 32,
+          }}
+        >
+          {/* Copy */}
+          <div>
+            <h3 style={{
+              fontFamily: "'OneNineNineFour-Regular', 'DM Sans', sans-serif",
+              fontSize: 22, fontWeight: 800, color: 'white', marginBottom: 6,
+            }}>
+              Stay Connected
+            </h3>
+            <p style={{ color: T.muted, fontSize: 14, margin: 0 }}>
+              Twin festivals, platform updates &amp; community stories — in your inbox.
+            </p>
+          </div>
+
+          {/* Form */}
+          <AnimatePresence mode="wait">
+            {!subscribed ? (
+              <motion.div
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}
+              >
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  background: 'rgba(255,255,255,0.05)',
+                  border: `1px solid rgba(255,255,255,0.1)`,
+                  borderRadius: 100, padding: '0 20px',
+                  backdropFilter: 'blur(8px)',
+                }}>
+                  <Mail size={14} color={T.muted} />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && handleSubscribe()}
+                    placeholder="your@email.com"
+                    style={{
+                      background: 'transparent', border: 'none', outline: 'none',
+                      color: 'white', fontSize: 14, padding: '13px 0', width: 220,
+                    }}
                   />
                 </div>
-                
-                {/* Mission statement */}
-                <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
-                  The global platform connecting twins worldwide through shared experiences, 
-                  celebrations, and lifelong bonds.
-                </p>
-                
-                {/* Contact information */}
-                <div className="space-y-3">
-                  {contactInfo.map((contact, index) => {
-                    const IconComponent = contact.icon;
-                    return (
-                      <a
-                        key={index}
-                        href={contact.href}
-                        className="flex items-center text-gray-400 hover:text-[color:var(--pink)] transition-colors duration-300 group"
-                      >
-                        <IconComponent className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                        <span className="text-sm">{contact.text}</span>
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation sections */}
-            {footerSections.map((section, sectionIndex) => (
-              <div 
-                key={section.title} 
-                className={`animate-slide-up-delay-${Math.min(sectionIndex + 1, 3)}`}
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={handleSubscribe}
+                  style={{
+                    background: `linear-gradient(135deg, ${T.pink}, ${T.blue})`,
+                    color: T.navy, border: 'none', borderRadius: 100,
+                    padding: '13px 24px', fontSize: 14, fontWeight: 700,
+                    cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6,
+                    boxShadow: `0 0 24px rgba(251,194,235,0.2)`,
+                  }}
+                >
+                  Subscribe <ArrowRight size={14} strokeWidth={2.5} />
+                </motion.button>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  background: 'rgba(166,192,238,0.1)',
+                  border: `1px solid rgba(166,192,238,0.25)`,
+                  borderRadius: 100, padding: '13px 24px',
+                  color: T.blue, fontSize: 14, fontWeight: 600,
+                }}
               >
-                <h3 className="text-lg font-semibold mb-6 text-white">
-                  {section.title}
-                </h3>
-                <ul className="space-y-4">
-                  {section.links.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-[color:var(--pink)] transition-colors duration-300 text-sm group flex items-start"
-                      >
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                          {link.name}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <CheckCircle size={16} /> You're on the list!
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* ── BOTTOM: Copyright + Social ── */}
+        <div style={{
+          padding: '28px 0',
+          display: 'flex', flexWrap: 'wrap',
+          alignItems: 'center', justifyContent: 'space-between',
+          gap: 20,
+        }}>
+
+          {/* Legal */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>
+            <span style={{ color: T.muted, fontSize: 13 }}>
+              © {new Date().getFullYear()} TwinRally. All rights reserved.
+            </span>
+            <span style={{ color: T.border, fontSize: 13 }}>·</span>
+            {['Privacy Policy', 'Terms of Service', 'Cookies'].map((l, i) => (
+              <React.Fragment key={l}>
+                <a
+                  href="#"
+                  style={{ color: T.muted, fontSize: 13, textDecoration: 'none', transition: 'color 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.color = T.pink}
+                  onMouseLeave={e => e.currentTarget.style.color = T.muted}
+                >
+                  {l}
+                </a>
+                {i < 2 && <span style={{ color: T.border, fontSize: 13 }}>·</span>}
+              </React.Fragment>
             ))}
           </div>
-        </div>
 
-        {/* Newsletter subscription section */}
-        <div className="py-12 border-t border-white/10">
-          <div className="max-w-2xl mx-auto text-center animate-slide-up-delay-2">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-[color:var(--blue)] bg-clip-text text-transparent">
-                Stay Connected with the Twin Community
-              </h3>
-              <p className="text-gray-300 text-lg">
-                Get the latest updates on twin festivals, platform features, and community stories.
-              </p>
-            </div>
-
-            {/* Newsletter form */}
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <div className="flex-1">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--pink)]/50 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-              <button
-                type="button"
-                onClick={handleNewsletterSubmit}
-                disabled={isSubscribed}
-                className={`
-                  px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[color:var(--pink)]/30
-                  ${isSubscribed 
-                    ? 'bg-green-500 text-white cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-[color:var(--pink)] to-[color:var(--blue)] text-[color:var(--bg)] hover:shadow-lg'
-                  }
-                `}
+          {/* Socials */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {socialLinks.map((s, i) => (
+              <motion.a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={s.name}
+                whileHover={{ scale: 1.12, y: -2 }}
+                style={{
+                  width: 36, height: 36, borderRadius: 10,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: `1px solid ${T.border}`,
+                  color: T.muted, textDecoration: 'none',
+                  transition: 'color 0.2s, background 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.color = T.pink; e.currentTarget.style.background = 'rgba(251,194,235,0.1)' }}
+                onMouseLeave={e => { e.currentTarget.style.color = T.muted; e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}
               >
-                {isSubscribed ? (
-                  <span className="flex items-center">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Subscribed!
-                  </span>
-                ) : (
-                  <span className="flex items-center">
-                    <Send className="w-4 h-4 mr-2" />
-                    Subscribe
-                  </span>
-                )}
-              </button>
-            </div>
+                <s.icon size={15} />
+              </motion.a>
+            ))}
           </div>
-        </div>
 
-        {/* Bottom section - Copyright and social links */}
-        <div className="py-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            {/* Copyright and legal links */}
-            <div className="text-center md:text-left animate-slide-up-delay-1">
-              <p className="text-gray-400 text-sm mb-2">
-                © {new Date().getFullYear()} TwinRally. All rights reserved.
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-6 text-xs text-gray-500">
-                <a href="/privacy" className="hover:text-[color:var(--pink)] transition-colors duration-300">
-                  Privacy Policy
-                </a>
-                <a href="/terms" className="hover:text-[color:var(--pink)] transition-colors duration-300">
-                  Terms of Service
-                </a>
-                <a href="/cookies" className="hover:text-[color:var(--pink)] transition-colors duration-300">
-                  Cookie Policy
-                </a>
-              </div>
-            </div>
-
-            {/* Social media links */}
-            <div className="flex items-center gap-4 animate-slide-up-delay-3">
-              <span className="text-gray-400 text-sm mr-2">Follow us:</span>
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`
-                      p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 
-                      ${social.color} hover:scale-110 hover:bg-white/10 
-                      transition-all duration-300 group
-                    `}
-                    title={`Follow us on ${social.name}`}
-                  >
-                    <IconComponent className="w-4 h-4 group-hover:animate-pulse" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

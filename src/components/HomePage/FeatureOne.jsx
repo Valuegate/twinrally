@@ -1,213 +1,640 @@
-import React from 'react'
-import { motion } from "framer-motion"
+import React, { useRef } from 'react'
+import { Link } from "react-router-dom";
+import { motion, useInView } from 'framer-motion'
+import {
+  Users, CalendarDays, MessageCircle, Trophy,
+  Globe2, ArrowRight, CheckCircle2
+} from 'lucide-react'
+
+const features = [
+  {
+    title: "Community & Networking",
+    tagline: "Find your people worldwide",
+    icon: <Users size={20} />,
+    accent: "#fbc2eb",
+    accentDark: "#9a2060",
+    accentBg: "rgba(251,194,235,0.10)",
+    accentBorder: "rgba(251,194,235,0.28)",
+    image: "/hero1.png",
+    items: [
+      "Create joint twin profiles or individual linked accounts",
+      "Discover twins in your city, state, or across the world",
+      "Join interest groups for sports, music, careers & more",
+      "Share twin stories and unique milestone experiences",
+    ],
+  },
+  {
+    title: "Event Hosting",
+    tagline: "Bring twins together in person",
+    icon: <CalendarDays size={20} />,
+    accent: "#a6c0ee",
+    accentDark: "#2a52a0",
+    accentBg: "rgba(166,192,238,0.10)",
+    accentBorder: "rgba(166,192,238,0.28)",
+    image: "/hero2.png",
+    items: [
+      "Annual twin festivals celebrating twin culture globally",
+      "Create local meetups, workshops, and talent shows",
+      "Integrated ticketing and RSVP system built-in",
+      "Live streaming for twins who can't attend in person",
+    ],
+  },
+  {
+    title: "Communication",
+    tagline: "Stay connected, always",
+    icon: <MessageCircle size={20} />,
+    accent: "#fbc2eb",
+    accentDark: "#9a2060",
+    accentBg: "rgba(251,194,235,0.10)",
+    accentBorder: "rgba(251,194,235,0.28)",
+    image: "/hero3.png",
+    items: [
+      "Private messaging between twins worldwide",
+      "Topic & location-based twin circle group chats",
+      "Voice and video calls for closer connections",
+      "Discussion forums for advice and shared experiences",
+    ],
+  },
+  {
+    title: "Engagement & Recognition",
+    tagline: "Celebrate what makes twins special",
+    icon: <Trophy size={20} />,
+    accent: "#a6c0ee",
+    accentDark: "#2a52a0",
+    accentBg: "rgba(166,192,238,0.10)",
+    accentBorder: "rgba(166,192,238,0.28)",
+    image: "/hero4.png",
+    items: [
+      "Twin challenges, look-alike contests and trivia",
+      "Monthly spotlight featuring inspiring twin pairs",
+      "Achievements and badges for active participation",
+      "Twin leaderboards and community recognition",
+    ],
+  },
+]
+
+const FadeUp = ({ children, delay = 0 }) => {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+const FadeIn = ({ children, delay = 0, direction = 'left' }) => {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: direction === 'left' ? -50 : 50 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export const FeatureOne = () => {
-  const features = [
-    {
-      title: "Community & Networking",
-      icon: "fas fa-users",
-      color: "from-[#FBC2EB] to-[#FF9ECF]",
-      bgColor: "bg-[#FBC2EB]/10",
-      items: [
-        "Create joint twin profiles or individual linked accounts",
-        "Discover twins in your city, state, or across the world",
-        "Join interest groups for sports, music, careers, and more",
-        "Share twin stories and unique experiences"
-      ]
-    },
-    {
-      title: "Event Hosting",
-      icon: "fas fa-calendar-alt",
-      color: "from-[#A6C0EE] to-[#7BA6F9]",
-      bgColor: "bg-[#A6C0EE]/10",
-      items: [
-        "Annual twins festivals celebrating twin culture",
-        "Create local meetups, workshops, and talent shows",
-        "Integrated ticketing and RSVP system",
-        "Live streaming for global participation"
-      ]
-    },
-    {
-      title: "Communication",
-      icon: "fas fa-comments",
-      color: "from-[#FF9ECF] to-[#FBC2EB]",
-      bgColor: "bg-[#FF9ECF]/10",
-      items: [
-        "Private messaging between twins",
-        "Topic-based and location-based group chats",
-        "Voice and video calls for closer connections",
-        "Discussion forums for advice and experiences"
-      ]
-    },
-    {
-      title: "Engagement & Recognition",
-      icon: "fas fa-trophy",
-      color: "from-[#7BA6F9] to-[#A6C0EE]",
-      bgColor: "bg-[#7BA6F9]/10",
-      items: [
-        "Twin challenges and competitions",
-        "Feature inspiring twins in various fields",
-        "Achievements and badges for participation",
-        "Monthly twin spotlight features"
-      ]
-    },
-    {
-      title: "Accessibility",
-      icon: "fas fa-universal-access",
-      color: "from-[#FBC2EB] to-[#A6C0EE]",
-      bgColor: "bg-gradient-to-br from-[#FBC2EB]/10 to-[#A6C0EE]/10",
-      items: [
-        "Cross-platform access on mobile and web",
-        "Multilingual support for global community",
-        "Accessibility features for all abilities",
-        "Offline mode for basic functionality"
-      ]
-    }
-  ]
-
   return (
-    <div className="w-full">
-      <section className="bg-[#040E28] py-16 lg:py-24 text-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-[#FBC2EB] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#A6C0EE] rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-[#FF9ECF] rounded-full blur-2xl"></div>
-        </div>
+    <section style={{
+      background: '#e8e2d9',
+      fontFamily: "'DM Sans', sans-serif",
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 lg:mb-20"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center justify-center mb-6"
-            >
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/20">
-                <img 
-                  src="/twinrally_lg_02-removebg-preview.png" 
-                  alt="Twin Rally" 
-                  className="w-12 h-12 object-contain"
-                  loading="lazy"
-                />
-              </div>
-            </motion.div>
+        /* ── HEADER ── */
+        .ft-header {
+          text-align: center;
+          padding: 7rem 6% 5rem;
+          position: relative;
+          z-index: 2;
+        }
 
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance bg-gradient-to-r from-[#FBC2EB] via-[#FF9ECF] to-[#A6C0EE] bg-clip-text text-transparent">
-              Designed for Twin Connections
-            </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto text-pretty leading-relaxed">
-              Experience a platform built from the ground up to celebrate and strengthen the unique bond between twins. 
-              Every feature is crafted with your connection in mind.
-            </p>
-          </motion.div>
+        .ft-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          background: rgba(251,194,235,0.15);
+          border: 1px solid rgba(251,194,235,0.45);
+          color: #9a2060;
+          border-radius: 100px;
+          padding: 5px 16px;
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          margin-bottom: 1.8rem;
+        }
 
-          {/* Feature Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{ 
-                  y: -10,
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-                className={`relative group cursor-pointer ${feature.bgColor} rounded-3xl p-6 lg:p-8 border border-white/10 backdrop-blur-sm h-full group-hover:border-white/20 transition-all duration-500`}
-              >
-                {/* Icon with Gradient */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6 shadow-lg mx-auto`}
-                >
-                  <i className={`${feature.icon} text-white text-xl`}></i>
-                </motion.div>
+        .ft-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2.6rem, 4.5vw, 4rem);
+          font-weight: 700;
+          line-height: 1.06;
+          letter-spacing: -1.5px;
+          color: #0e1628;
+          margin-bottom: 1.3rem;
+        }
 
-                {/* Title */}
-                <h3 className="text-xl lg:text-2xl font-bold text-white text-center mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#FBC2EB] group-hover:to-[#A6C0EE] group-hover:bg-clip-text transition-all duration-300">
-                  {feature.title}
-                </h3>
+        .ft-title em {
+          font-style: italic;
+          background: linear-gradient(120deg, #fbc2eb 20%, #a6c0ee 80%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
 
-                {/* Feature Items */}
-                <div className="space-y-3">
-                  {feature.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={itemIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: itemIndex * 0.1 + index * 0.1 }}
-                      className="flex items-start gap-3 group/item"
-                    >
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        className={`w-2 h-2 rounded-full bg-gradient-to-r ${feature.color} mt-2 flex-shrink-0`}
-                      />
-                      <span className="text-white/80 text-sm leading-relaxed group-hover/item:text-white transition-colors duration-300">
-                        {item}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
+        .ft-sub {
+          font-size: 1.05rem;
+          color: rgba(14,22,40,0.5);
+          max-width: 500px;
+          margin: 0 auto;
+          line-height: 1.8;
+          font-weight: 400;
+        }
 
-                {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              </motion.div>
-            ))}
+        /* ── DIVIDER ── */
+        .ft-divider {
+          width: 100%;
+          height: 1px;
+          background: rgba(14,22,40,0.08);
+        }
+
+        /* ── ROW ── */
+        .ft-rows {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .ft-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          min-height: 520px;
+          border-bottom: 1px solid rgba(14,22,40,0.08);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .ft-row:last-child {
+          border-bottom: none;
+        }
+
+        /* Image side */
+        .ft-row-img {
+          position: relative;
+          overflow: hidden;
+          background: #d4cdc3;
+        }
+
+        .ft-row-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          transition: transform 0.7s ease;
+        }
+
+        .ft-row:hover .ft-row-img img {
+          transform: scale(1.03);
+        }
+
+        .ft-row-img-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(14,22,40,0.12) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        /* Number badge on image */
+        .ft-row-num {
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: rgba(14,22,40,0.75);
+          backdrop-filter: blur(8px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Playfair Display', serif;
+          font-size: 1rem;
+          font-weight: 700;
+          color: #fff;
+          z-index: 2;
+        }
+
+        /* Text side */
+        .ft-row-content {
+          padding: 4.5rem 5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: #ede8e0;
+          position: relative;
+        }
+
+        .ft-row-content::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: rgba(14,22,40,0.08);
+        }
+
+        .ft-row:nth-child(odd) .ft-row-content::before { left: 0; }
+        .ft-row:nth-child(even) .ft-row-content::before { right: 0; }
+
+        /* Alternating: even rows flip image/text order */
+        .ft-row:nth-child(even) .ft-row-img {
+          order: 2;
+        }
+        .ft-row:nth-child(even) .ft-row-content {
+          order: 1;
+        }
+
+        .ft-row-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border-radius: 100px;
+          padding: 6px 14px 6px 10px;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          margin-bottom: 1.5rem;
+          width: fit-content;
+          border: 1px solid transparent;
+        }
+
+        .ft-row-tag-icon {
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .ft-row-tagline {
+          font-size: 0.82rem;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          margin-bottom: 0.6rem;
+          opacity: 0.45;
+          color: #0e1628;
+        }
+
+        .ft-row-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+          font-weight: 700;
+          color: #0e1628;
+          letter-spacing: -0.8px;
+          line-height: 1.12;
+          margin-bottom: 2rem;
+        }
+
+        .ft-row-items {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .ft-row-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 11px;
+        }
+
+        .ft-row-item-check {
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .ft-row-item-txt {
+          font-size: 0.9rem;
+          color: rgba(14,22,40,0.6);
+          line-height: 1.65;
+          font-weight: 400;
+        }
+
+        .ft-row-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          margin-top: 2rem;
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 0.03em;
+          text-decoration: none;
+          cursor: pointer;
+          transition: gap 0.2s ease;
+          background: none;
+          border: none;
+          padding: 0;
+          font-family: inherit;
+        }
+
+        .ft-row-link:hover {
+          gap: 10px;
+        }
+
+        /* ── GLOBAL STRIP ── */
+        .ft-global {
+          background: #0e1628;
+          padding: 1.6rem 6%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2.5rem;
+          flex-wrap: wrap;
+        }
+
+        .ft-global-label {
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.25);
+          margin-right: 0.5rem;
+        }
+
+        .ft-global-item {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          font-size: 0.78rem;
+          font-weight: 500;
+          color: rgba(255,255,255,0.38);
+        }
+
+        .ft-global-dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+
+        /* ── BOTTOM CTA ── */
+        .ft-bottom {
+          background: #040e29;
+          padding: 5rem 6%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+        .ft-bottom-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(1.8rem, 3vw, 2.6rem);
+          font-weight: 700;
+          color: #f5f0ea;
+          letter-spacing: -1px;
+          line-height: 1.1;
+          margin-bottom: 0.7rem;
+        }
+        .ft-bottom-title em {
+          font-style: italic;
+          background: linear-gradient(120deg, #fbc2eb, #a6c0ee);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .ft-bottom-sub {
+          font-size: 0.95rem;
+          color: rgba(245,240,234,0.5);
+          max-width: 420px;
+          line-height: 1.7;
+        }
+        .ft-bottom-actions {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .btn-cta-main {
+          background: #fbc2eb;
+          color: #3a0020;
+          border: none;
+          border-radius: 100px;
+          padding: 0.85rem 2rem;
+          font-size: 0.92rem;
+          font-weight: 700;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          transition: transform 0.2s, box-shadow 0.2s;
+          font-family: inherit;
+        }
+        .btn-cta-main:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(251,194,235,0.3); }
+        .btn-cta-ghost {
+          background: rgba(255,255,255,0.07);
+          color: rgba(245,240,234,0.88);
+          border: 1.5px solid rgba(255,255,255,0.16);
+          border-radius: 100px;
+          padding: 0.85rem 1.6rem;
+          font-size: 0.92rem;
+          font-weight: 500;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: inherit;
+          transition: all 0.2s;
+        }
+        .btn-cta-ghost:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.12); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+          .ft-row {
+            grid-template-columns: 1fr;
+            min-height: unset;
+          }
+          .ft-row-img {
+            height: 260px;
+            order: 1 !important;
+          }
+          .ft-row-content {
+            order: 2 !important;
+            padding: 2.8rem 2rem;
+          }
+          .ft-row-content::before { display: none; }
+          .ft-bottom { flex-direction: column; align-items: flex-start; padding: 3.5rem 6%; }
+          .ft-header { padding: 4.5rem 6% 3rem; }
+          .ft-global { gap: 1.2rem; }
+        }
+
+        @media (max-width: 540px) {
+          .ft-row-num { top: 1rem; left: 1rem; }
+          .ft-global-label { display: none; }
+        }
+      `}</style>
+
+      {/* ── HEADER ── */}
+      <div className="ft-header">
+        <FadeUp>
+          <div className="ft-eyebrow">
+            <Globe2 size={11} /> What TwinRally Offers
           </div>
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <h2 className="ft-title">
+            Built for the Bond<br />
+            <em>Only Twins Know</em>
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.2}>
+          <p className="ft-sub">
+            Every feature on TwinRally was designed from the ground up
+            to celebrate, strengthen, and grow the unique connection between twins worldwide.
+          </p>
+        </FadeUp>
+      </div>
 
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mt-16 lg:mt-20"
-          >
-            <div className="bg-gradient-to-r from-[#FBC2EB]/10 to-[#A6C0EE]/10 rounded-3xl p-8 lg:p-12 border border-white/10 backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-20 h-20 bg-[#FBC2EB] rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#A6C0EE] rounded-full blur-2xl"></div>
-              </div>
-              
-              <div className="relative z-10">
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] bg-clip-text text-transparent">
-                  Ready to Experience All Features?
-                </h3>
-                <p className="text-white/70 mb-6 max-w-2xl mx-auto text-lg">
-                  Join thousands of twins who are already building meaningful connections and creating unforgettable memories together.
-                </p>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block"
-                >
-                  <button className="bg-gradient-to-r from-[#FBC2EB] to-[#A6C0EE] text-white font-bold rounded-full px-8 py-4 text-base shadow-2xl hover:shadow-3xl transition-all duration-300">
-                    Start Your Twin Journey Today
-                  </button>
-                </motion.div>
-              </div>
+      <div className="ft-divider" />
+
+      {/* ── FEATURE ROWS ── */}
+      <div className="ft-rows">
+        {features.map((f, i) => {
+          const isEven = i % 2 !== 0
+          return (
+            <div className="ft-row" key={i}>
+              {/* Image */}
+              <FadeIn direction={isEven ? 'right' : 'left'} delay={0.05}>
+                <div className="ft-row-img" style={{ height: '100%' }}>
+                  <img src={f.image} alt={f.title} loading="lazy" />
+                  <div className="ft-row-img-overlay" />
+                  <div className="ft-row-num"
+                    style={{ borderColor: `${f.accent}44`, color: f.accent }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Content */}
+              <FadeIn direction={isEven ? 'left' : 'right'} delay={0.15}>
+                <div className="ft-row-content">
+                  {/* Tag */}
+                  <div
+                    className="ft-row-tag"
+                    style={{
+                      background: f.accentBg,
+                      borderColor: f.accentBorder,
+                      color: f.accentDark,
+                    }}
+                  >
+                    <div
+                      className="ft-row-tag-icon"
+                      style={{ background: `${f.accent}25`, color: f.accentDark }}
+                    >
+                      {f.icon}
+                    </div>
+                    {f.title}
+                  </div>
+
+                  {/* Tagline */}
+                  <p className="ft-row-tagline">{f.tagline}</p>
+
+                  {/* Title */}
+                  <h3 className="ft-row-title">{f.title}</h3>
+
+                  {/* Items */}
+                  <div className="ft-row-items">
+                    {f.items.map((item, j) => (
+                      <div className="ft-row-item" key={j}>
+                        <CheckCircle2
+                          size={15}
+                          className="ft-row-item-check"
+                          style={{ color: f.accent, flexShrink: 0 }}
+                        />
+                        <span className="ft-row-item-txt">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Inline link */}
+                  <Link
+  to="/features"
+  className="ft-row-link inline-flex items-center gap-1"
+  style={{ color: f.accentDark, textDecoration: 'none' }}
+>
+  Learn more <ArrowRight size={14} />
+</Link>
+                </div>
+              </FadeIn>
             </div>
-          </motion.div>
+          )
+        })}
+      </div>
+
+      {/* ── GLOBAL PING STRIP ── */}
+      <div className="ft-global">
+        <span className="ft-global-label">Twins active in</span>
+        {[
+          { dot: '#fbc2eb', label: 'Lagos · Nigeria' },
+          { dot: '#a6c0ee', label: 'Toronto · Canada' },
+          { dot: '#fbc2eb', label: 'Seoul · Korea' },
+          { dot: '#a6c0ee', label: 'São Paulo · Brazil' },
+          { dot: '#fbc2eb', label: 'London · UK' },
+          { dot: '#a6c0ee', label: 'Sydney · Australia' },
+        ].map((g, i) => (
+          <div className="ft-global-item" key={i}>
+            <div className="ft-global-dot" style={{ background: g.dot }} />
+            {g.label}
+          </div>
+        ))}
+      </div>
+
+      {/* ── BOTTOM CTA ── */}
+      <FadeUp>
+        <div className="ft-bottom">
+          <div className="ft-bottom-left">
+            <div className="ft-bottom-title">
+              Ready to find your<br /><em>twin community?</em>
+            </div>
+            <p className="ft-bottom-sub">
+              Join thousands of twins already building meaningful connections
+              and creating unforgettable memories together.
+            </p>
+          </div>
+          <div className="ft-bottom-actions flex items-center gap-4">
+  <Link 
+    to="/signup" 
+    className="btn-cta-main inline-flex items-center justify-center gap-2"
+  >
+    Start Your Journey <ArrowRight size={15} />
+  </Link>
+
+  <Link 
+    to="/features" 
+    className="btn-cta-ghost inline-flex items-center justify-center"
+  >
+    Browse Features
+  </Link>
+</div>
         </div>
-      </section>
-    </div>
+      </FadeUp>
+    </section>
   )
 }
