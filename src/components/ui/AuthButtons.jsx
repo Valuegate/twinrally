@@ -1,34 +1,6 @@
-/**
- * Auth Buttons - TwinRally UI Components
- *
- * Reusable authentication buttons built on shadcn/ui Button foundation.
- * Provides consistent styling and behavior for all auth-related CTAs across the platform.
- *
- * Architecture:
- * - Composition pattern: extends shadcn Button with TwinRally-specific styling
- * - Minimal wrapper approach for better maintainability
- * - Consistent with platform design system (colors, animations, spacing)
- * - Loading states and accessibility handled automatically
- *
- * Usage:
- * import { LoginButton, SignupButton, AuthButtonGroup } from '@/components/ui/AuthButtons';
- *
- * <LoginButton onClick={handleLogin} />
- * <SignupButton loading={isSubmitting} size="lg" />
- * <AuthButtonGroup onLogin={handleLogin} onSignup={handleSignup} />
- *
- * Dependencies:
- * - shadcn/ui Button component
- * - TwinRally CSS variables (--bg, --pink, --blue)
- * - Custom animations from index.css (animate-shimmer, animate-slide-up)
- * - Lucide React icons
- *
- * @author Wasiu - TwinRally Team
- * @version 1.0.0
- */
-
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom"; // Added for autonomous routing fallback
 import {
   LogIn,
   UserPlus,
@@ -93,7 +65,7 @@ export const DownloadButton = ({ children, ...props }) => (
 );
 
 /**
- * Auth Button Group - Login + Signup together
+ * Auth Button Group - Automatically navigates to pages if explicit handlers aren't passed
  */
 export const AuthButtonGroup = ({
   onLogin,
@@ -101,56 +73,74 @@ export const AuthButtonGroup = ({
   loading,
   className = "",
   vertical = false,
-}) => (
-  <div
-    className={`flex ${
-      vertical ? "flex-col" : "flex-row"
-    } gap-4 items-center ${className}`}
-  >
-    <LoginButton onClick={onLogin} loading={loading} />
-    <SignupButton onClick={onSignup} loading={loading} />
-  </div>
-);
+}) => {
+  const navigate = useNavigate();
+
+  return (
+    <div
+      className={`flex ${
+        vertical ? "flex-col" : "flex-row"
+      } gap-4 items-center ${className}`}
+    >
+      <LoginButton
+        onClick={onLogin || (() => navigate("/login"))}
+        loading={loading}
+      />
+      <SignupButton
+        onClick={onSignup || (() => navigate("/signup"))}
+        loading={loading}
+      />
+    </div>
+  );
+};
 
 /**
- * Twin Connect CTA - Complete marketing section
+ * Twin Connect CTA - Automatically handles navigation fallback
  */
-export const TwinConnectCTA = ({ onGetStarted, loading, className = "" }) => (
-  <div className={`text-center py-16 px-6 animate-slide-up ${className}`}>
-    {/* Icon */}
-    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[color:var(--pink)]/20 to-[color:var(--blue)]/20 border border-white/10 mb-6 animate-float">
-      <Users className="w-8 h-8 text-[color:var(--pink)]" />
+export const TwinConnectCTA = ({ onGetStarted, loading, className = "" }) => {
+  const navigate = useNavigate();
+
+  return (
+    <div className={`text-center py-16 px-6 animate-slide-up ${className}`}>
+      {/* Icon */}
+      <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[color:var(--pink)]/20 to-[color:var(--blue)]/20 border border-white/10 mb-6 animate-float">
+        <Users className="w-8 h-8 text-[color:var(--pink)]" />
+      </div>
+
+      {/* Heading */}
+      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 bg-gradient-to-r from-white via-[color:var(--pink)] to-[color:var(--blue)] bg-clip-text text-transparent">
+        Ready to Connect with Twins Worldwide?
+      </h3>
+
+      {/* Description */}
+      <p className="text-gray-300 mb-8 max-w-lg mx-auto">
+        Join thousands of twins sharing experiences, hosting events, and
+        building lifelong connections.
+      </p>
+
+      {/* Stats */}
+      <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-400">
+        <span className="flex items-center gap-1">
+          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          10,000+ Twins
+        </span>
+        <span className="flex items-center gap-1">
+          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+          50+ Countries
+        </span>
+      </div>
+
+      {/* CTA Button */}
+      <SignupButton
+        size="lg"
+        onClick={onGetStarted || (() => navigate("/signup"))}
+        loading={loading}
+      />
+
+      {/* Trust line */}
+      <p className="text-xs text-gray-500 mt-4">
+        Free forever • No credit card required
+      </p>
     </div>
-
-    {/* Heading */}
-    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 bg-gradient-to-r from-white via-[color:var(--pink)] to-[color:var(--blue)] bg-clip-text text-transparent">
-      Ready to Connect with Twins Worldwide?
-    </h3>
-
-    {/* Description */}
-    <p className="text-gray-300 mb-8 max-w-lg mx-auto">
-      Join thousands of twins sharing experiences, hosting events, and building
-      lifelong connections.
-    </p>
-
-    {/* Stats */}
-    <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-400">
-      <span className="flex items-center gap-1">
-        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        10,000+ Twins
-      </span>
-      <span className="flex items-center gap-1">
-        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-        50+ Countries
-      </span>
-    </div>
-
-    {/* CTA Button */}
-    <SignupButton size="lg" onClick={onGetStarted} loading={loading} />
-
-    {/* Trust line */}
-    <p className="text-xs text-gray-500 mt-4">
-      Free forever • No credit card required
-    </p>
-  </div>
-);
+  );
+};

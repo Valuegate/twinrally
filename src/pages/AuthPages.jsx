@@ -21,20 +21,20 @@ export const LoginPage = () => {
 
   const handleLoginSuccess = async (formData) => {
     console.log("Login success:", formData);
-    alert("Welcome back! (Would redirect to dashboard)");
     setIsModalOpen(false);
-    navigate("/dashboard"); // Adjust to your desired route
+    // Directly navigate without raw browser alert blocks
+    navigate("/dashboard");
   };
 
   const handleSocialLogin = async (provider) => {
     console.log("Social login:", provider);
-    alert(`Social login with ${provider}`);
     setIsModalOpen(false);
-    navigate("/dashboard"); // Adjust to your desired route
+    navigate("/dashboard");
   };
 
   const handleForgotPassword = async (email) => {
     console.log("Password reset:", email);
+    // Optional: Replace this with a clean UI toast later
     alert(`Password reset email sent to ${email}`);
   };
 
@@ -70,16 +70,14 @@ export const SignupPage = () => {
 
   const handleSignupSuccess = async (formData) => {
     console.log("Signup success:", formData);
-    alert("Welcome to TwinRally! Account created successfully.");
     setIsModalOpen(false);
-    navigate("/dashboard"); // Adjust to your desired route
+    navigate("/dashboard");
   };
 
   const handleSocialLogin = async (provider) => {
     console.log("Social signup:", provider);
-    alert(`Account created with ${provider}`);
     setIsModalOpen(false);
-    navigate("/dashboard"); // Adjust to your desired route
+    navigate("/dashboard");
   };
 
   return (
