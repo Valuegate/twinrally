@@ -282,7 +282,7 @@ const Footer = () => {
           {/* Legal */}
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>
             <span style={{ color: T.muted, fontSize: 13 }}>
-              © {new Date().getFullYear()} TwinRally. All rights reserved.
+              © {new Date().getFullYear()} All rights reserved by TwinRally. A Product by ValueGate Consulting.
             </span>
             <span style={{ color: T.border, fontSize: 13 }}>·</span>
             {['Privacy Policy', 'Terms of Service', 'Cookies'].map((l, i) => (
