@@ -13,7 +13,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NotificationBell from "./components/notifications/NotificationBell";
 import NotificationDropdown from "./components/notifications/NotificationDropdown";
 import Footer from "./components/layout/Footer";
-import HomePage from "./components/HomePage"; // imported your landing homepage file
+import HomePage from "./components/HomePage";
+import { FriendProfile } from "./components/DashBoard/FriendProfile"; // ✅ named import
 
 // Data
 import { getUnreadCount } from "./data/mockNotifications";
@@ -31,7 +32,7 @@ import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from "./pages/EditProfilePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import { DashBoardPage } from "./user-dash-board/DashBoardPage"; // Uses named import
+import { DashBoardPage } from "./user-dash-board/DashBoardPage";
 import { LoginPage, SignupPage } from "./pages/AuthPages";
 
 const App = () => {
@@ -41,13 +42,12 @@ const App = () => {
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-slate-900 text-white">
-        {/* Main Routed Page Content Viewport */}
         <main className="flex-grow pt-24">
           <Routes>
-            {/* Default Landing / Home Page - Typo Fixed */}
+            {/* Landing */}
             <Route path="/" element={<HomePage />} />
 
-            {/* Core Application Core Routing Paths */}
+            {/* Core */}
             <Route path="/features" element={<FeaturesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -57,27 +57,30 @@ const App = () => {
             <Route path="/dashboard" element={<DashBoardPage />} />
             <Route path="/connections" element={<ConnectionsPage />} />
             <Route path="/messages" element={<MessagesPage />} />
+            <Route
+              path="/dashboard/friends/profile/:id"
+              element={<FriendProfile />}
+            />
 
-            {/* Events Management Paths */}
+            {/* Events */}
             <Route path="/events" element={<EventsPage />} />
             <Route path="/events/:eventId" element={<EventDetailsPage />} />
             <Route path="/create-event" element={<CreateEventPage />} />
             <Route path="/my-events" element={<MyEventsPage />} />
 
-            {/* User Profile Configuration Paths */}
+            {/* Profile */}
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/profile/edit" element={<EditProfilePage />} />
 
-            {/* Identity & Authentication Gateways */}
+            {/* Auth */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
 
-            {/* Fallback Catch-All Safety Route (Redirects back to Home) */}
+            {/* Fallback */}
             <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
 
-        {/* Consistent Footers across pages */}
         <Footer />
       </div>
     </Router>
