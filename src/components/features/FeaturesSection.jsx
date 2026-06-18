@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 import { Header } from "../HomePage/Header";
-import Footer from '@/components/layout/Footer';
+// import Footer from '@/components/layout/Footer';
 
 const FeaturesSection = () => {
   const features = [
@@ -171,7 +171,7 @@ const FeaturesSection = () => {
       </section>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -358,6 +358,7 @@ export const TwinCommunity = () => {
             style={{
               background: 'rgba(255,255,255,0.03)', border: `1px solid ${T.border}`,
               borderRadius: 28, padding: '36px 32px',
+              maxWidth: 600, margin: '0 auto', position: 'relative', overflow: 'hidden',
             }}
           >
             <div style={{ color: T.pink, fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>How It Works</div>
@@ -379,7 +380,7 @@ export const TwinCommunity = () => {
           </motion.div>
 
           {/* Mock Profile Card */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -394,7 +395,9 @@ export const TwinCommunity = () => {
             <div style={{ color: T.blue, fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>Live Preview</div>
             <h3 style={{ fontFamily: "'OneNineNineFour-Regular', 'DM Sans', sans-serif", color: T.white, fontSize: 26, fontWeight: 800, marginBottom: 28 }}>Twin Profile</h3>
 
-            {/* avatar row */}
+            
+
+
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
               {['F', 'G'].map((l, i) => (
                 <div key={i} style={{
@@ -413,7 +416,10 @@ export const TwinCommunity = () => {
               </div>
             </div>
 
-            {/* tag chips */}
+            
+
+
+
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
               {['Identical', 'Music', 'Events', 'Travel', 'Design'].map((tag, i) => (
                 <span key={i} style={{
@@ -425,7 +431,10 @@ export const TwinCommunity = () => {
               ))}
             </div>
 
-            {/* mini stats */}
+        
+
+
+
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
               {[
                 { icon: Users, val: '248', label: 'Friends' },
@@ -443,7 +452,9 @@ export const TwinCommunity = () => {
               ))}
             </div>
 
-            {/* online indicator */}
+           
+
+           
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 20 }}>
               <motion.div
                 animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
@@ -452,7 +463,7 @@ export const TwinCommunity = () => {
               />
               <span style={{ color: T.muted, fontSize: 12 }}>Online · Last seen just now</span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -466,7 +477,7 @@ export const TwinCommunity = () => {
           viewport={{ once: true }}
           style={{ textAlign: 'center', marginBottom: 44 }}
         >
-          <div style={{ color: T.pink, fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>Live Activity</div>
+          {/* <div style={{ color: T.pink, fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>Live Activity</div> */}
           <h2 style={{ fontFamily: "'OneNineNineFour-Regular', 'DM Sans', sans-serif", fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 800, color: T.white, margin: 0 }}>What's Happening Now</h2>
         </motion.div>
 

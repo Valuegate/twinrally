@@ -21,7 +21,6 @@ export function Message() {
                 timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
             };
 
-            // Update the conversation immutably
             setSelectedConversation((prev) => ({
                 ...prev,
                 messages: [...prev.messages, newMessage],
@@ -32,30 +31,27 @@ export function Message() {
     };
 
     return (
-        <div className="h-screen flex overflow-hidden relative bg-white">
+        <div className="h-screen flex overflow-hidden relative bg-background">
             {/* Conversations List */}
             <div
-                className={`${showList ? 'bg-[#040e28]': 'bg-white'} fixed inset-y-0 left-0 w-72 border-r border-border flex flex-col z-20 transition-transform duration-300 transform lg:relative lg:translate-x-0
+                className={`fixed inset-y-0 left-0 w-72 border-r border-border bg-background flex flex-col z-20 transition-transform duration-300 transform lg:relative lg:translate-x-0
           ${showList ? "translate-x-0" : "-translate-x-full"}
         `}
             >
                 {/* Header */}
-                <div className="p-4 border-b border-border flex items-center justify-between flex-shrink-0 ">
+                <div className="p-4 border-b border-border flex items-center justify-between flex-shrink-0">
                     <div className="flex items-center gap-3">
-                        {/* <button onClick={() => window.history.back()} className="p-2 hover:bg-secondary rounded-lg">
-                            <ArrowLeft className="w-5 h-5" />
-                        </button> */}
                         <h1 className="text-2xl font-bold text-foreground">Messages</h1>
                     </div>
 
                     {/* Close button (mobile only) */}
-                    <button className="lg:hidden p-2 hover:bg-secondary rounded-lg" onClick={() => setShowList(false)}>
+                    <button className="lg:hidden p-2 hover:bg-secondary rounded-lg text-foreground" onClick={() => setShowList(false)}>
                         <X className="w-5 h-5" />
                     </button>
                 </div>
 
                 {/* Search */}
-                <div className="p-4 border-b border-border flex-shrink-0 ">
+                <div className="p-4 border-b border-border flex-shrink-0">
                     <div className="relative">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <input
@@ -63,13 +59,13 @@ export function Message() {
                             placeholder="Search conversations..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-foreground placeholder:text-muted-foreground"
                         />
                     </div>
                 </div>
 
                 {/* Conversations List - Fixed scrolling container */}
-                <div className="flex-1 overflow-hidden min-h-0 ">
+                <div className="flex-1 overflow-hidden min-h-0">
                     <div className="h-full overflow-y-auto no-scroll">
                         {filteredConversations.map((convo) => (
                             <button
@@ -78,23 +74,23 @@ export function Message() {
                                     setSelectedConversation(convo);
                                     setShowList(false);
                                 }}
-                                className={`w-full p-4  border-border text-left transition-colors ${selectedConversation?.id === convo.id ? "bg-secondary" : "hover:bg-secondary/50"
+                                className={`w-full p-4 border-border text-left transition-colors ${selectedConversation?.id === convo.id ? "bg-secondary" : "hover:bg-secondary/50"
                                     }`}
                             >
                                 <div className="flex gap-3">
-                                    <div className="relative flex-shrink-0 text-white">
+                                    <div className="relative flex-shrink-0">
                                         <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center">
                                             <span className="font-semibold text-foreground">
                                                 {convo.user.name.charAt(0)}
                                             </span>
                                         </div>
                                         <div
-                                            className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-card ${convo.user.status === "online" ? "bg-green-500" : "bg-gray-400"
+                                            className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-background ${convo.user.status === "online" ? "bg-green-500" : "bg-gray-400"
                                                 }`}
                                         />
                                     </div>
 
-                                    <div className="flex-1 min-w-0 text-white">
+                                    <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-1">
                                             <h3 className={`font-semibold ${convo.unread ? "text-foreground" : "text-muted-foreground"}`}>
                                                 {convo.user.name}
@@ -118,21 +114,21 @@ export function Message() {
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 flex flex-col min-w-0 ">
+            <div className="flex-1 flex flex-col min-w-0 bg-background">
                 {/* Header (mobile toggle) */}
-                <div className="lg:hidden p-4 border-b border-border flex items-center justify-between sticky top-0 bg-card z-10 flex-shrink-0">
-                    <button onClick={() => setShowList(true)} className="p-2 bg-secondary rounded-lg">
+                <div className="lg:hidden p-4 border-b border-border flex items-center justify-between sticky top-0 bg-background z-10 flex-shrink-0">
+                    <button onClick={() => setShowList(true)} className="p-2 bg-secondary rounded-lg text-foreground">
                         <Menu className="w-5 h-5" />
                     </button>
-                    <h2 className="font-semibold">Chat</h2>
+                    <h2 className="font-semibold text-foreground">Chat</h2>
                     <div />
                 </div>
 
                 {selectedConversation ? (
                     <>
                         {/* Chat Header (Desktop) */}
-                        <div className="hidden lg:flex p-4 border-b border-border items-center justify-between sticky top-0 flex-shrink-0 ">
-                            <div className="flex items-center gap-3 ">
+                        <div className="hidden lg:flex p-4 border-b border-border items-center justify-between sticky top-0 bg-background flex-shrink-0">
+                            <div className="flex items-center gap-3">
                                 <div className="relative">
                                     <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center">
                                         <span className="font-semibold text-foreground">
@@ -140,7 +136,7 @@ export function Message() {
                                         </span>
                                     </div>
                                     <div
-                                        className={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 border-card ${selectedConversation.user.status === "online" ? "bg-green-500" : "bg-gray-400"
+                                        className={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 border-background ${selectedConversation.user.status === "online" ? "bg-green-500" : "bg-gray-400"
                                             }`}
                                     />
                                 </div>
@@ -154,8 +150,8 @@ export function Message() {
                         </div>
 
                         {/* Messages - Fixed scrolling container */}
-                        <div className="flex-1 overflow-hidden min-h-0 ">
-                            <div className="h-full overflow-y-auto p-4 space-y-4">
+                        <div className="flex-1 overflow-hidden min-h-0">
+                            <div className="h-full overflow-y-auto p-4 space-y-4 bg-background">
                                 {selectedConversation.messages.map((msg) => (
                                     <div key={msg.id} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                                         <div
@@ -176,7 +172,7 @@ export function Message() {
                         </div>
 
                         {/* Input Box */}
-                        <div className="p-4 border-t border-border bg-card flex-shrink-0">
+                        <div className="p-4 border-t border-border bg-background flex-shrink-0">
                             <div className="flex gap-2">
                                 <input
                                     type="text"
@@ -184,7 +180,7 @@ export function Message() {
                                     value={messageInput}
                                     onChange={(e) => setMessageInput(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-                                    className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-foreground placeholder:text-muted-foreground"
                                 />
                                 <button
                                     onClick={handleSendMessage}
@@ -197,7 +193,7 @@ export function Message() {
                         </div>
                     </>
                 ) : (
-                    <div className="flex-1 flex items-center justify-center text-muted-foreground">
+                    <div className="flex-1 flex items-center justify-center text-muted-foreground bg-background">
                         <p>Select a conversation to start messaging</p>
                     </div>
                 )}
@@ -206,7 +202,7 @@ export function Message() {
             {/* Background overlay for mobile when sidebar is open */}
             {showList && (
                 <div
-                    className="fixed inset-0 bg-black/40 lg:hidden z-10"
+                    className="fixed inset-0 bg-black/50 lg:hidden z-10"
                     onClick={() => setShowList(false)}
                 />
             )}

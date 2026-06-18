@@ -18,6 +18,7 @@ export default function LandingPage() {
             <CallToAction/>
             <QuickHighlight/>
             <TwinCommunity/>
+            <Footer/>
         </div>
     )
 }

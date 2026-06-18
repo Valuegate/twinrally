@@ -138,34 +138,30 @@ const EventCard = ({
   };
 
   /**
-   * Handle delete event
+   * Handle delete event - REMOVED CONFIRM DIALOG
    */
   const handleDelete = (e) => {
     e.stopPropagation(); // Prevent card click
-    const confirmed = window.confirm(
-      `Are you sure you want to delete "${event.title}"? This action cannot be undone.`
-    );
-    if (confirmed) {
-      onEventDelete?.(event);
-    }
+    // Directly call onEventDelete without confirmation dialog
+    onEventDelete?.(event);
   };
 
   /**
-   * Handle view analytics
+   * Handle view analytics - REMOVED ALERT
    */
   const handleAnalytics = (e) => {
     e.stopPropagation(); // Prevent card click
-    alert(
-      `Analytics for "${event.title}"\n\n📊 Registrations: ${
-        event.ticketing.registered
-      }/${event.ticketing.capacity}\n💰 Revenue: ${
-        event.ticketing.type === "paid"
-          ? `₦${(
-              event.ticketing.price * event.ticketing.registered
-            ).toLocaleString()}`
-          : "N/A"
-      }\n\nFuture: Attendance trends, demographics, engagement metrics`
-    );
+    // Analytics data - will be handled by parent component instead of alert
+    if (onEventEdit) {
+      // Pass analytics data to parent to handle appropriately
+      console.log(`Analytics for "${event.title}"`, {
+        registrations: event.ticketing.registered,
+        capacity: event.ticketing.capacity,
+        revenue: event.ticketing.type === "paid" 
+          ? event.ticketing.price * event.ticketing.registered 
+          : null
+      });
+    }
   };
 
   /**

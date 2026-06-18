@@ -112,6 +112,7 @@ export const FeatureTwo = () => {
           flex-direction: column;
           justify-content: flex-end;
           gap: 1.5rem;
+          width: 100%;
         }
 
         .ft2-sub {
@@ -119,15 +120,31 @@ export const FeatureTwo = () => {
           color: rgba(14,22,40,0.72);
           line-height: 1.8;
           font-weight: 400;
-          max-width: 380px;
+          max-width: 100%;
         }
 
-        .ft2-stats {
+       /*  .ft2-stats {
           display: flex;
           gap: 2rem;
-        }
+        }*/
 
-        .ft2-stat-num {
+
+ .ft2-stats {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.ft2-stats > div {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+
+       /* .ft2-stat-num {
           font-family: 'Playfair Display', serif;
           font-size: 1.7rem;
           font-weight: 700;
@@ -135,7 +152,19 @@ export const FeatureTwo = () => {
           letter-spacing: -0.5px;
           line-height: 1;
           margin-bottom: 3px;
-        }
+          white-space: nowrap;
+        }*/
+
+
+         .ft2-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+
+
 
         .ft2-stat-num span {
           background: linear-gradient(120deg, #fbc2eb, #a6c0ee);
@@ -144,13 +173,20 @@ export const FeatureTwo = () => {
           background-clip: text;
         }
 
-        .ft2-stat-label {
+/*        .ft2-stat-label {
           font-size: 0.72rem;
           font-weight: 600;
           letter-spacing: 0.06em;
           text-transform: uppercase;
           color: rgba(14,22,40,0.72);
-        }
+        }*/
+
+
+          .ft2-stat-label {
+  font-size: 0.7rem;
+  line-height: 1.3;
+  word-break: break-word;
+}
 
         /* ── BODY GRID ── */
         .ft2-body {
@@ -443,11 +479,26 @@ export const FeatureTwo = () => {
           }
         }
 
-        @media (max-width: 580px) {
+       /* @media (max-width: 580px) {
           .ft2-wrap { padding: 4.5rem 6% 5rem; }
           .ft2-header { margin-bottom: 3rem; padding-bottom: 3rem; }
           .ft2-stats { gap: 1.5rem; }
-        }
+        }*/
+
+
+    @media (max-width: 580px) {
+  .ft2-stats {
+    gap: 6px;
+  }
+
+  .ft2-stat-num {
+    font-size: 1rem;
+  }
+
+  .ft2-stat-label {
+    font-size: 0.58rem;
+  }
+}
       `}</style>
 
       <div className="ft2-wrap">

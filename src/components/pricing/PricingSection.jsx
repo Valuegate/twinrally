@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "../HomePage/Header";
-import Footer from '@/components/layout/Footer';
+// import Footer from '@/components/layout/Footer';
 
 const PricingSection = () => {
   const plans = [
@@ -148,7 +148,7 @@ const PricingSection = () => {
       </section>
       
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

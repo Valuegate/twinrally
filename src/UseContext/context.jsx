@@ -9,7 +9,7 @@ export const ContentProvider = ({ children }) => {
     function handleSelect(item) {
         setSelectedItem(item);
         console.log('Selected:', item);
-        alert(item);
+        // REMOVED: alert(item);  <-- THIS WAS CAUSING THE POPUP
     }
 
     function handleNavClick(el) {

@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // Components
 import NotificationBell from "./components/notifications/NotificationBell";
 import NotificationDropdown from "./components/notifications/NotificationDropdown";
-import Footer from "./components/layout/Footer";
+// import Footer from "./components/layout/Footer";
 import HomePage from "./components/HomePage";
 import { FriendProfile } from "./components/DashBoard/FriendProfile"; // ✅ named import
 
@@ -81,7 +81,7 @@ const App = () => {
           </Routes>
         </main>
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
