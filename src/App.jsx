@@ -6,8 +6,8 @@
  * @version 2.0.0
  */
 
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 // Components
 import NotificationBell from "./components/notifications/NotificationBell";
@@ -35,12 +35,22 @@ import ContactPage from "./pages/ContactPage";
 import { DashBoardPage } from "./user-dash-board/DashBoardPage";
 import { LoginPage, SignupPage } from "./pages/AuthPages";
 
+// ── Scroll to top on every page change ──
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+  return null;
+}
+
 const App = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const unreadCount = getUnreadCount();
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-slate-900 text-white">
         <main className="flex-grow pt-24">
           <Routes>

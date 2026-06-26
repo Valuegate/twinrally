@@ -141,7 +141,17 @@ const SCOPED_CSS = `
 .trdb .tr-pill-btn{display:flex;align-items:center;gap:6px;padding:0 14px;height:36px;border-radius:100px;font-size:.75rem;font-weight:600;cursor:pointer;border:1px solid;transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif;background:none;}
 .trdb .tr-logout-btn{display:flex;align-items:center;gap:6px;padding:0 14px;height:36px;border-radius:100px;font-size:.75rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;background:rgba(251,194,235,0.13);color:#9a3060;font-family:'DM Sans',sans-serif;}
 .trdb .tr-logout-btn:hover{background:rgba(251,194,235,0.24);}
-.trdb .tr-main{margin-left:248px;padding-top:60px;min-height:100vh;}
+
+/* ── SCROLL FIX: main no longer grows the page; it scrolls inside itself ── */
+.trdb .tr-main{
+  position:fixed;
+  top:60px;
+  left:248px;
+  right:0;
+  bottom:0;
+  overflow-y:auto;
+}
+
 .trdb .tr-layout{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 310px;gap:1.5rem;padding:1.75rem 1.5rem;}
 .trdb .tr-feed{min-width:0;}
 .trdb .tr-twin-chip{display:flex;align-items:center;position:relative;cursor:pointer;flex-shrink:0;}
@@ -179,7 +189,7 @@ const SCOPED_CSS = `
 .trdb .tr-more-btn{display:block;width:100%;padding:.75rem;text-align:center;font-size:.78rem;font-weight:600;cursor:pointer;border-radius:12px;border:1px dashed;transition:all .2s;margin-top:.5rem;background:transparent;font-family:'DM Sans',sans-serif;}
 .trdb .tr-more-btn:hover{transform:scale(1.01);}
 .trdb .tr-comment-input{flex:1;border:1px solid;border-radius:100px;padding:7px 14px;background:transparent;font-family:'DM Sans',sans-serif;font-size:.78rem;outline:none;}
-.trdb .tr-right{position:sticky;top:calc(60px + 1.75rem);align-self:flex-start;}
+.trdb .tr-right{position:sticky;top:1.75rem;align-self:flex-start;}
 .trdb .tr-right-card{border-radius:18px;padding:1.1rem 1.2rem;border:1px solid;margin-bottom:1.1rem;transition:background .4s,border-color .4s;}
 .trdb .tr-right-title{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;margin-bottom:.85rem;display:flex;align-items:center;gap:6px;}
 .trdb .tr-trend-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid;cursor:pointer;transition:opacity .2s;}
@@ -221,8 +231,21 @@ const SCOPED_CSS = `
 .trdb .tr-search-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-start;justify-content:center;padding-top:80px;animation:trDFade .18s ease;}
 .trdb .tr-search-box{width:100%;max-width:520px;border-radius:18px;padding:1rem 1.2rem;border:1px solid;box-shadow:0 24px 60px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;}
 .trdb .tr-search-input{flex:1;border:none;outline:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:1rem;}
+
+/* ── MOBILE: main takes remaining screen below mobile topbar ── */
 @media(max-width:1199px){.trdb .tr-layout{grid-template-columns:1fr;}.trdb .tr-right{display:none;}}
-@media(max-width:1023px){.trdb .tr-sidebar,.trdb .tr-topbar{display:none;}.trdb .tr-main{margin-left:0;padding-top:54px;}.trdb .tr-layout{padding:1rem;}}
+@media(max-width:1023px){
+  .trdb .tr-sidebar,.trdb .tr-topbar{display:none;}
+  .trdb .tr-main{
+    position:fixed;
+    top:54px;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow-y:auto;
+  }
+  .trdb .tr-layout{padding:1rem;}
+}
 @media(min-width:1024px){.trdb .tr-mob-top{display:none;}}
 `;
 
@@ -238,6 +261,12 @@ export const DashBoardPage = () => {
   const [shareTarget, setShareTarget] = useState(null);
   const [notifications, setNotifications] = useState(3);
   const [suggested, setSuggested] = useState(SUGGESTED_DATA);
+
+  // ── Scroll to top of dashboard main whenever tab changes ──
+  useEffect(() => {
+    const el = document.getElementById("dashboard-main-scroll");
+    if (el) el.scrollTo({ top: 0, behavior: "instant" });
+  }, [selectedItem]);
 
   useEffect(() => {
     const fn = () => { if (window.innerWidth >= 1024) setMobile(false); };
@@ -379,8 +408,8 @@ export const DashBoardPage = () => {
         </div>
       </header>
 
-      {/* DESKTOP MAIN */}
-      <main className="tr-main" style={{ background: d.bg }}>
+      {/* DESKTOP MAIN — id used by scroll reset useEffect above */}
+      <main id="dashboard-main-scroll" className="tr-main" style={{ background: d.bg }}>
         <div className="tr-layout">{renderContent()}</div>
       </main>
 
@@ -777,7 +806,6 @@ function StoryViewer({ story, stories, onClose, d }) {
               <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "4rem", color: current.color, opacity: 0.7 }}>{current.initials}</div>
             </div>
         }
-        {/* Progress */}
         <div className="tr-sv-progress">
           {stories.map((_, i) => (
             <div key={i} className="tr-sv-bar">
@@ -786,7 +814,6 @@ function StoryViewer({ story, stories, onClose, d }) {
             </div>
           ))}
         </div>
-        {/* Header */}
         <div style={{ position: "absolute", top: 28, left: 0, right: 0, display: "flex", alignItems: "center", gap: 8, padding: "0 14px" }}>
           <div style={{ width: 34, height: 34, borderRadius: "50%", background: `${current.color}33`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "0.78rem", color: current.color }}>{current.initials}</div>
           <div style={{ flex: 1 }}>
@@ -797,10 +824,8 @@ function StoryViewer({ story, stories, onClose, d }) {
           </div>
           <button className="tr-sv-close" onClick={onClose}><X size={20} /></button>
         </div>
-        {/* Nav */}
         {idx > 0 && <button className="tr-sv-nav" style={{ left: 10 }} onClick={goPrev}><ChevronLeft size={18} /></button>}
         {idx < stories.length - 1 && <button className="tr-sv-nav" style={{ right: 10 }} onClick={goNext}><ChevronR size={18} /></button>}
-        {/* Bottom */}
         <div className="tr-sv-gradient" />
         <div className="tr-sv-bottom">
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>

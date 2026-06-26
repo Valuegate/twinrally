@@ -427,6 +427,8 @@ const AboutPage = () => {
           </div>
         </motion.div>
       </section>
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
