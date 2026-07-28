@@ -9,106 +9,321 @@ import { CommPage } from "@/components/DashBoard/CommPage";
 import { Message } from "@/components/DashBoard/Message";
 import { NotificationsPage } from "@/components/DashBoard/NotificationPage";
 import {
-  Sun, Moon, LogOut, Bell, Search, ChevronRight,
-  Heart, MessageCircle, Share2, Bookmark, MoreHorizontal,
-  Image as ImageIcon, Video, Smile, MapPin, Users, Plus,
-  TrendingUp, Sparkles, X, Send, Repeat2,
-  Twitter, Link2, Copy, Check, Calendar,
-  ChevronLeft, ChevronRight as ChevronR,
-  Eye, UserPlus, UserCheck,
+  Sun,
+  Moon,
+  LogOut,
+  Bell,
+  Search,
+  ChevronRight,
+  Heart,
+  MessageCircle,
+  Share2,
+  Bookmark,
+  MoreHorizontal,
+  Image as ImageIcon,
+  Video,
+  Smile,
+  MapPin,
+  Users,
+  Plus,
+  TrendingUp,
+  Sparkles,
+  X,
+  Send,
+  Repeat2,
+  Twitter,
+  Link2,
+  Copy,
+  Check,
+  Calendar,
+  ChevronLeft,
+  ChevronRight as ChevronR,
+  Eye,
+  UserPlus,
+  UserCheck,
 } from "lucide-react";
 
 const TR_THEME = {
   dark: {
-    bg:"#07111f",sidebar:"#040e29",topbar:"rgba(4,14,41,0.97)",
-    surface:"#0d1e38",card:"#0d1e38",border:"rgba(166,192,238,0.08)",
-    text:"#f0ecf8",mutedText:"rgba(240,236,248,0.45)",
-    hover:"rgba(166,192,238,0.07)",activeItem:"rgba(251,194,235,0.13)",
-    activeText:"#fbc2eb",btnBg:"rgba(255,255,255,0.05)",
-    inputBg:"rgba(255,255,255,0.05)",accent1:"#fbc2eb",accent2:"#a6c0ee",
-    accentDeep:"#9a3060",overlay:"rgba(4,14,41,0.88)",like:"#f87171",
+    bg: "#07111f",
+    sidebar: "#040e29",
+    topbar: "rgba(4,14,41,0.97)",
+    surface: "#0d1e38",
+    card: "#0d1e38",
+    border: "rgba(166,192,238,0.08)",
+    text: "#f0ecf8",
+    mutedText: "rgba(240,236,248,0.45)",
+    hover: "rgba(166,192,238,0.07)",
+    activeItem: "rgba(251,194,235,0.13)",
+    activeText: "#fbc2eb",
+    btnBg: "rgba(255,255,255,0.05)",
+    inputBg: "rgba(255,255,255,0.05)",
+    accent1: "#fbc2eb",
+    accent2: "#a6c0ee",
+    accentDeep: "#9a3060",
+    overlay: "rgba(4,14,41,0.88)",
+    like: "#f87171",
   },
   light: {
-    bg:"#f4f1ed",sidebar:"#fefcf9",topbar:"rgba(254,252,249,0.97)",
-    surface:"#ffffff",card:"#ffffff",border:"rgba(4,14,41,0.07)",
-    text:"#0f1a2e",mutedText:"rgba(15,26,46,0.45)",
-    hover:"rgba(4,14,41,0.04)",activeItem:"rgba(251,194,235,0.22)",
-    activeText:"#9a3060",btnBg:"rgba(4,14,41,0.04)",
-    inputBg:"rgba(4,14,41,0.03)",accent1:"#c4507a",accent2:"#4a7fc1",
-    accentDeep:"#9a3060",overlay:"rgba(15,26,46,0.55)",like:"#e11d48",
+    bg: "#f4f1ed",
+    sidebar: "#fefcf9",
+    topbar: "rgba(254,252,249,0.97)",
+    surface: "#ffffff",
+    card: "#ffffff",
+    border: "rgba(4,14,41,0.07)",
+    text: "#0f1a2e",
+    mutedText: "rgba(15,26,46,0.45)",
+    hover: "rgba(4,14,41,0.04)",
+    activeItem: "rgba(251,194,235,0.22)",
+    activeText: "#9a3060",
+    btnBg: "rgba(4,14,41,0.04)",
+    inputBg: "rgba(4,14,41,0.03)",
+    accent1: "#c4507a",
+    accent2: "#4a7fc1",
+    accentDeep: "#9a3060",
+    overlay: "rgba(15,26,46,0.55)",
+    like: "#e11d48",
   },
 };
 
 const STORIES_DATA = [
-  {id:"own",name:"Your Story",initials:"F",isOwn:true,viewed:false,color:"#fbc2eb",bg:"#3a0020",img:null},
-  {id:"s2",name:"Amara & Ada",initials:"AA",viewed:false,color:"#a6c0ee",bg:"#0d1e38",img:"https://picsum.photos/seed/twins1/200/350"},
-  {id:"s3",name:"Jide Twins",initials:"JT",viewed:false,color:"#c4b5fd",bg:"#1e0d38",img:"https://picsum.photos/seed/twins2/200/350"},
-  {id:"s4",name:"The Babas",initials:"TB",viewed:true,color:"#86efac",bg:"#0d2a1e",img:"https://picsum.photos/seed/twins3/200/350"},
-  {id:"s5",name:"Mimi & Titi",initials:"MT",viewed:false,color:"#fcd34d",bg:"#2a1e0d",img:"https://picsum.photos/seed/twins4/200/350"},
-  {id:"s6",name:"Leo & Len",initials:"LL",viewed:true,color:"#f9a8d4",bg:"#2a0d1e",img:"https://picsum.photos/seed/twins5/200/350"},
-  {id:"s7",name:"Tolu & Sola",initials:"TS",viewed:false,color:"#67e8f9",bg:"#0d1e2a",img:"https://picsum.photos/seed/twins6/200/350"},
+  {
+    id: "own",
+    name: "Your Story",
+    initials: "F",
+    isOwn: true,
+    viewed: false,
+    color: "#fbc2eb",
+    bg: "#3a0020",
+    img: null,
+  },
+  {
+    id: "s2",
+    name: "Amara & Ada",
+    initials: "AA",
+    viewed: false,
+    color: "#a6c0ee",
+    bg: "#0d1e38",
+    img: "https://picsum.photos/seed/twins1/200/350",
+  },
+  {
+    id: "s3",
+    name: "Jide Twins",
+    initials: "JT",
+    viewed: false,
+    color: "#c4b5fd",
+    bg: "#1e0d38",
+    img: "https://picsum.photos/seed/twins2/200/350",
+  },
+  {
+    id: "s4",
+    name: "The Babas",
+    initials: "TB",
+    viewed: true,
+    color: "#86efac",
+    bg: "#0d2a1e",
+    img: "https://picsum.photos/seed/twins3/200/350",
+  },
+  {
+    id: "s5",
+    name: "Mimi & Titi",
+    initials: "MT",
+    viewed: false,
+    color: "#fcd34d",
+    bg: "#2a1e0d",
+    img: "https://picsum.photos/seed/twins4/200/350",
+  },
+  {
+    id: "s6",
+    name: "Leo & Len",
+    initials: "LL",
+    viewed: true,
+    color: "#f9a8d4",
+    bg: "#2a0d1e",
+    img: "https://picsum.photos/seed/twins5/200/350",
+  },
+  {
+    id: "s7",
+    name: "Tolu & Sola",
+    initials: "TS",
+    viewed: false,
+    color: "#67e8f9",
+    bg: "#0d1e2a",
+    img: "https://picsum.photos/seed/twins6/200/350",
+  },
 ];
 
 const POSTS_DATA = [
   {
-    id:1,user:"Amara & Adaeze",handle:"@amaraada_twins",
-    initials:"AA",avatarColor:"#fbc2eb",avatarBg:"rgba(251,194,235,0.18)",
-    time:"2m ago",verified:true,
-    content:"Twin connection hits different at 3am when you both simultaneously text each other the exact same meme without even talking first. This bond is genuinely unexplainable.",
-    img:null,likes:847,comments:92,shares:134,liked:false,saved:false,badge:"Trending",
-    commentsList:[
-      {id:1,user:"Jide Twins",initials:"JT",color:"#c4b5fd",text:"This is literally us every weekend omg",time:"1m ago"},
-      {id:2,user:"Tolu & Sola",initials:"TS",color:"#67e8f9",text:"Twin telepathy is real and science can't explain it",time:"30s ago"},
+    id: 1,
+    user: "Amara & Adaeze",
+    handle: "@amaraada_twins",
+    initials: "AA",
+    avatarColor: "#fbc2eb",
+    avatarBg: "rgba(251,194,235,0.18)",
+    time: "2m ago",
+    verified: true,
+    content:
+      "Twin connection hits different at 3am when you both simultaneously text each other the exact same meme without even talking first. This bond is genuinely unexplainable.",
+    img: null,
+    likes: 847,
+    comments: 92,
+    shares: 134,
+    liked: false,
+    saved: false,
+    badge: "Trending",
+    commentsList: [
+      {
+        id: 1,
+        user: "Jide Twins",
+        initials: "JT",
+        color: "#c4b5fd",
+        text: "This is literally us every weekend omg",
+        time: "1m ago",
+      },
+      {
+        id: 2,
+        user: "Tolu & Sola",
+        initials: "TS",
+        color: "#67e8f9",
+        text: "Twin telepathy is real and science can't explain it",
+        time: "30s ago",
+      },
     ],
   },
   {
-    id:2,user:"Lagos Twin Fest 2025",handle:"@lagostvinfest",
-    initials:"LT",avatarColor:"#a6c0ee",avatarBg:"rgba(166,192,238,0.18)",
-    time:"18m ago",verified:true,
-    content:"Registration is officially OPEN. Join 2,000+ twins from across Africa for the biggest twin celebration of the year. Live performances, twin challenges, matching contests and so much more.",
-    img:"https://picsum.photos/seed/festival99/600/340",
-    likes:2341,comments:318,shares:891,liked:true,saved:true,badge:"Event",
-    commentsList:[
-      {id:1,user:"Amara & Ada",initials:"AA",color:"#fbc2eb",text:"Already registered! See everyone there",time:"15m ago"},
+    id: 2,
+    user: "Lagos Twin Fest 2025",
+    handle: "@lagostvinfest",
+    initials: "LT",
+    avatarColor: "#a6c0ee",
+    avatarBg: "rgba(166,192,238,0.18)",
+    time: "18m ago",
+    verified: true,
+    content:
+      "Registration is officially OPEN. Join 2,000+ twins from across Africa for the biggest twin celebration of the year. Live performances, twin challenges, matching contests and so much more.",
+    img: "https://picsum.photos/seed/festival99/600/340",
+    likes: 2341,
+    comments: 318,
+    shares: 891,
+    liked: true,
+    saved: true,
+    badge: "Event",
+    commentsList: [
+      {
+        id: 1,
+        user: "Amara & Ada",
+        initials: "AA",
+        color: "#fbc2eb",
+        text: "Already registered! See everyone there",
+        time: "15m ago",
+      },
     ],
   },
   {
-    id:3,user:"Taiwo Adesanya",handle:"@taiwo_and_kehinde",
-    initials:"TA",avatarColor:"#c4b5fd",avatarBg:"rgba(196,181,253,0.18)",
-    time:"1h ago",verified:false,
-    content:"My twin Kehinde and I just hit 10 years of running our business together. People always ask how we don't fight. Honestly? We do. We just can't stay mad for more than 10 minutes.",
-    img:"https://picsum.photos/seed/business22/600/340",
-    likes:1204,comments:445,shares:203,liked:false,saved:false,badge:null,
-    commentsList:[
-      {id:1,user:"The Babas",initials:"TB",color:"#86efac",text:"10 years is massive, congratulations!",time:"55m ago"},
-      {id:2,user:"Mimi & Titi",initials:"MT",color:"#fcd34d",text:"Goals! We're at year 3 and still figuring it out",time:"40m ago"},
+    id: 3,
+    user: "Taiwo Adesanya",
+    handle: "@taiwo_and_kehinde",
+    initials: "TA",
+    avatarColor: "#c4b5fd",
+    avatarBg: "rgba(196,181,253,0.18)",
+    time: "1h ago",
+    verified: false,
+    content:
+      "My twin Kehinde and I just hit 10 years of running our business together. People always ask how we don't fight. Honestly? We do. We just can't stay mad for more than 10 minutes.",
+    img: "https://picsum.photos/seed/business22/600/340",
+    likes: 1204,
+    comments: 445,
+    shares: 203,
+    liked: false,
+    saved: false,
+    badge: null,
+    commentsList: [
+      {
+        id: 1,
+        user: "The Babas",
+        initials: "TB",
+        color: "#86efac",
+        text: "10 years is massive, congratulations!",
+        time: "55m ago",
+      },
+      {
+        id: 2,
+        user: "Mimi & Titi",
+        initials: "MT",
+        color: "#fcd34d",
+        text: "Goals! We're at year 3 and still figuring it out",
+        time: "40m ago",
+      },
     ],
   },
   {
-    id:4,user:"TwinRally Global",handle:"@twinrally",
-    initials:"TR",avatarColor:"#fbc2eb",avatarBg:"rgba(251,194,235,0.18)",
-    time:"3h ago",verified:true,
-    content:"This week's Twin Spotlight: meet the Okonkwo sisters from Enugu who started a sustainable fashion brand together. They've dressed over 500 brides across Nigeria.",
-    img:"https://picsum.photos/seed/fashion77/600/340",
-    likes:3892,comments:612,shares:1204,liked:true,saved:false,badge:"Spotlight",
-    commentsList:[
-      {id:1,user:"Taiwo Adesanya",initials:"TA",color:"#c4b5fd",text:"Incredible story, so inspiring!",time:"2h ago"},
+    id: 4,
+    user: "TwinRally Global",
+    handle: "@twinrally",
+    initials: "TR",
+    avatarColor: "#fbc2eb",
+    avatarBg: "rgba(251,194,235,0.18)",
+    time: "3h ago",
+    verified: true,
+    content:
+      "This week's Twin Spotlight: meet the Okonkwo sisters from Enugu who started a sustainable fashion brand together. They've dressed over 500 brides across Nigeria.",
+    img: "https://picsum.photos/seed/fashion77/600/340",
+    likes: 3892,
+    comments: 612,
+    shares: 1204,
+    liked: true,
+    saved: false,
+    badge: "Spotlight",
+    commentsList: [
+      {
+        id: 1,
+        user: "Taiwo Adesanya",
+        initials: "TA",
+        color: "#c4b5fd",
+        text: "Incredible story, so inspiring!",
+        time: "2h ago",
+      },
     ],
   },
 ];
 
 const TRENDING_DATA = [
-  {tag:"#LagossTwinFest",count:"12.4K posts"},
-  {tag:"#TwinBondChallenge",count:"8.9K posts"},
-  {tag:"#TwinLife",count:"6.2K posts"},
-  {tag:"#NigerianTwins",count:"4.1K posts"},
-  {tag:"#MatchingMoment",count:"3.8K posts"},
+  { tag: "#LagossTwinFest", count: "12.4K posts" },
+  { tag: "#TwinBondChallenge", count: "8.9K posts" },
+  { tag: "#TwinLife", count: "6.2K posts" },
+  { tag: "#NigerianTwins", count: "4.1K posts" },
+  { tag: "#MatchingMoment", count: "3.8K posts" },
 ];
 
 const SUGGESTED_DATA = [
-  {id:1,name:"Chisom & Chidinma",handle:"@chisomchi",initials:"CC",mutual:12,followed:false,color:"#fbc2eb"},
-  {id:2,name:"Remi & Remi Jr",handle:"@remixremi",initials:"RR",mutual:7,followed:false,color:"#a6c0ee"},
-  {id:3,name:"The Bello Twins",handle:"@bellotwins",initials:"BT",mutual:23,followed:false,color:"#c4b5fd"},
+  {
+    id: 1,
+    name: "Chisom & Chidinma",
+    handle: "@chisomchi",
+    initials: "CC",
+    mutual: 12,
+    followed: false,
+    color: "#fbc2eb",
+  },
+  {
+    id: 2,
+    name: "Remi & Remi Jr",
+    handle: "@remixremi",
+    initials: "RR",
+    mutual: 7,
+    followed: false,
+    color: "#a6c0ee",
+  },
+  {
+    id: 3,
+    name: "The Bello Twins",
+    handle: "@bellotwins",
+    initials: "BT",
+    mutual: 23,
+    followed: false,
+    color: "#c4b5fd",
+  },
 ];
 
 /* ---- SCOPED CSS ---- */
@@ -269,96 +484,181 @@ export const DashBoardPage = () => {
   }, [selectedItem]);
 
   useEffect(() => {
-    const fn = () => { if (window.innerWidth >= 1024) setMobile(false); };
+    const fn = () => {
+      if (window.innerWidth >= 1024) setMobile(false);
+    };
     window.addEventListener("resize", fn);
     return () => window.removeEventListener("resize", fn);
   }, []);
 
   const d = dark ? TR_THEME.dark : TR_THEME.light;
 
-  const toggleLike = (id) => setPosts(p => p.map(post =>
-    post.id === id ? { ...post, liked: !post.liked, likes: post.liked ? post.likes - 1 : post.likes + 1 } : post
-  ));
-  const toggleSave = (id) => setPosts(p => p.map(post =>
-    post.id === id ? { ...post, saved: !post.saved } : post
-  ));
-  const addComment = (id, text) => setPosts(p => p.map(post =>
-    post.id === id ? {
-      ...post, comments: post.comments + 1,
-      commentsList: [...post.commentsList, { id: Date.now(), user: "Faith", initials: "F", color: "#fbc2eb", text, time: "Just now" }]
-    } : post
-  ));
+  const toggleLike = (id) =>
+    setPosts((p) =>
+      p.map((post) =>
+        post.id === id
+          ? {
+              ...post,
+              liked: !post.liked,
+              likes: post.liked ? post.likes - 1 : post.likes + 1,
+            }
+          : post,
+      ),
+    );
+  const toggleSave = (id) =>
+    setPosts((p) =>
+      p.map((post) =>
+        post.id === id ? { ...post, saved: !post.saved } : post,
+      ),
+    );
+  const addComment = (id, text) =>
+    setPosts((p) =>
+      p.map((post) =>
+        post.id === id
+          ? {
+              ...post,
+              comments: post.comments + 1,
+              commentsList: [
+                ...post.commentsList,
+                {
+                  id: Date.now(),
+                  user: "Faith",
+                  initials: "F",
+                  color: "#fbc2eb",
+                  text,
+                  time: "Just now",
+                },
+              ],
+            }
+          : post,
+      ),
+    );
   const handlePost = () => {
     if (!postText.trim()) return;
-    setPosts(p => [{
-      id: Date.now(), user: "Faith", handle: "@faith_twin", initials: "F",
-      avatarColor: "#fbc2eb", avatarBg: "rgba(251,194,235,0.18)",
-      time: "Just now", verified: false, content: postText,
-      img: null, likes: 0, comments: 0, shares: 0, liked: false, saved: false,
-      badge: null, commentsList: [],
-    }, ...p]);
-    setPostText(""); setPostFocused(false);
+    setPosts((p) => [
+      {
+        id: Date.now(),
+        user: "Faith",
+        handle: "@faith_twin",
+        initials: "F",
+        avatarColor: "#fbc2eb",
+        avatarBg: "rgba(251,194,235,0.18)",
+        time: "Just now",
+        verified: false,
+        content: postText,
+        img: null,
+        likes: 0,
+        comments: 0,
+        shares: 0,
+        liked: false,
+        saved: false,
+        badge: null,
+        commentsList: [],
+      },
+      ...p,
+    ]);
+    setPostText("");
+    setPostFocused(false);
   };
-  const toggleFollow = (id) => setSuggested(s => s.map(u =>
-    u.id === id ? { ...u, followed: !u.followed } : u
-  ));
+  const toggleFollow = (id) =>
+    setSuggested((s) =>
+      s.map((u) => (u.id === id ? { ...u, followed: !u.followed } : u)),
+    );
 
   const renderContent = () => {
-    if (selectedItem === "friends")       return <Friend />;
-    if (selectedItem === "community")     return <CommPage />;
-    if (selectedItem === "settings")      return <Settings />;
-    if (selectedItem === "events")        return <Events />;
-    if (selectedItem === "messages")      return <Message />;
+  if (selectedItem === "friends") return <Friend dark={dark} />;
+if (selectedItem === "community") return <CommPage dark={dark} />;
+    if (selectedItem === "settings") return <Settings />;
+    if (selectedItem === "events") return <Events />;
+    if (selectedItem === "messages") return <Message />;
     if (selectedItem === "notifications") return <NotificationsPage />;
     return (
       <HomeFeed
-        d={d} dark={dark} posts={posts} suggested={suggested}
-        toggleLike={toggleLike} toggleSave={toggleSave} addComment={addComment}
-        postText={postText} setPostText={setPostText}
-        postFocused={postFocused} setPostFocused={setPostFocused}
-        handlePost={handlePost} setStoryViewer={setStoryViewer}
-        setShareTarget={setShareTarget} toggleFollow={toggleFollow}
+        d={d}
+        dark={dark}
+        posts={posts}
+        suggested={suggested}
+        toggleLike={toggleLike}
+        toggleSave={toggleSave}
+        addComment={addComment}
+        postText={postText}
+        setPostText={setPostText}
+        postFocused={postFocused}
+        setPostFocused={setPostFocused}
+        handlePost={handlePost}
+        setStoryViewer={setStoryViewer}
+        setShareTarget={setShareTarget}
+        toggleFollow={toggleFollow}
       />
     );
   };
 
-  const currentLabel = navItems.find(n => n.id === selectedItem)?.label || "Home";
+  const currentLabel =
+    navItems.find((n) => n.id === selectedItem)?.label || "Home";
 
   const SidebarInner = ({ onSelect }) => (
     <>
-      <div className="tr-logo-wrap">
+      {/* <div className="tr-logo-wrap">
         <div className="tr-logo-icon">
           <img src="/twinrally_icon-removebg-preview (1).png" alt="TwinRally" />
         </div>
         <span className="tr-logo-txt" style={{ color: d.text }}>TwinRally</span>
+      </div> */}
+
+      <div className="tr-logo-wrap">
+        <img
+          src="/twinrally_lg_06-removebg-preview (1).png"
+          alt="TwinRally"
+          style={{ height: "60px", width: "auto", objectFit: "contain" }}
+        />
       </div>
+
       <div className="tr-sb-scroll">
-        <NavItems items={navItems} selected={selectedItem} onSelect={onSelect} d={d} />
+        <NavItems
+          items={navItems}
+          selected={selectedItem}
+          onSelect={onSelect}
+          d={d}
+        />
       </div>
       <div className="tr-sb-footer" style={{ borderColor: d.border }}>
-        <div className="tr-user-chip"
-          onMouseEnter={e => e.currentTarget.style.background = d.hover}
-          onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+        <div
+          className="tr-user-chip"
+          onMouseEnter={(e) => (e.currentTarget.style.background = d.hover)}
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.background = "transparent")
+          }
+        >
           <div className="tr-av-sm">F</div>
           <div>
-            <div className="tr-uname" style={{ color: d.text }}>Faith</div>
-            <div className="tr-urole" style={{ color: d.text }}>Twin · Lagos</div>
+            <div className="tr-uname" style={{ color: d.text }}>
+              Faith
+            </div>
+            <div className="tr-urole" style={{ color: d.text }}>
+              Twin · Lagos
+            </div>
           </div>
-          <ChevronRight size={13} style={{ marginLeft: "auto", opacity: 0.25, color: d.text }} />
+          <ChevronRight
+            size={13}
+            style={{ marginLeft: "auto", opacity: 0.25, color: d.text }}
+          />
         </div>
       </div>
     </>
   );
 
   return (
-    <div className="trdb" style={{ background: d.bg, color: d.text, minHeight: "100vh" }}>
+    <div
+      className="trdb"
+      style={{ background: d.bg, color: d.text, minHeight: "100vh" }}
+    >
       <style>{SCOPED_CSS}</style>
 
       {/* STORY VIEWER */}
       {storyViewer && (
         <StoryViewer
           story={storyViewer}
-          stories={STORIES_DATA.filter(s => !s.isOwn)}
+          stories={STORIES_DATA.filter((s) => !s.isOwn)}
           onClose={() => setStoryViewer(null)}
           d={d}
         />
@@ -366,66 +666,179 @@ export const DashBoardPage = () => {
 
       {/* SHARE MODAL */}
       {shareTarget && (
-        <ShareModal d={d} onClose={() => setShareTarget(null)} postId={shareTarget} />
+        <ShareModal
+          d={d}
+          onClose={() => setShareTarget(null)}
+          postId={shareTarget}
+        />
       )}
 
       {/* SEARCH */}
       {searchOpen && (
-        <div className="tr-search-overlay" style={{ background: d.overlay }} onClick={() => setSearchOpen(false)}>
-          <div className="tr-search-box" style={{ background: d.surface, borderColor: d.border }} onClick={e => e.stopPropagation()}>
+        <div
+          className="tr-search-overlay"
+          style={{ background: d.overlay }}
+          onClick={() => setSearchOpen(false)}
+        >
+          <div
+            className="tr-search-box"
+            style={{ background: d.surface, borderColor: d.border }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <Search size={18} style={{ opacity: 0.4, color: d.text }} />
-            <input className="tr-search-input" style={{ color: d.text }} placeholder="Search twins, events, stories…" autoFocus />
-            <X size={16} style={{ opacity: 0.35, cursor: "pointer", color: d.text }} onClick={() => setSearchOpen(false)} />
+            <input
+              className="tr-search-input"
+              style={{ color: d.text }}
+              placeholder="Search twins, events, stories…"
+              autoFocus
+            />
+            <X
+              size={16}
+              style={{ opacity: 0.35, cursor: "pointer", color: d.text }}
+              onClick={() => setSearchOpen(false)}
+            />
           </div>
         </div>
       )}
 
       {/* DESKTOP SIDEBAR */}
-      <aside className="tr-sidebar" style={{ background: d.sidebar, borderRight: `1px solid ${d.border}` }}>
+      <aside
+        className="tr-sidebar"
+        style={{ background: d.sidebar, borderRight: `1px solid ${d.border}` }}
+      >
         <SidebarInner onSelect={handleSelect} />
       </aside>
 
       {/* DESKTOP TOPBAR */}
-      <header className="tr-topbar" style={{ background: d.topbar, borderColor: d.border }}>
+      <header
+        className="tr-topbar"
+        style={{ background: d.topbar, borderColor: d.border }}
+      >
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ opacity: 0.3, fontSize: "0.72rem", color: d.text }}>Pages</span>
+          <span style={{ opacity: 0.3, fontSize: "0.72rem", color: d.text }}>
+            Pages
+          </span>
           <ChevronRight size={11} style={{ opacity: 0.3, color: d.text }} />
-          <span className="tr-topbar-title" style={{ color: d.text }}>{currentLabel}</span>
+          <span className="tr-topbar-title" style={{ color: d.text }}>
+            {currentLabel}
+          </span>
         </div>
         <div className="tr-topbar-right">
-          <button className="tr-pill-btn" style={{ background: d.btnBg, borderColor: d.border, color: d.text }} onClick={() => setDark(!dark)}>
-            {dark ? <><Sun size={13} /> Light</> : <><Moon size={13} /> Dark</>}
+          <button
+            className="tr-pill-btn"
+            style={{
+              background: d.btnBg,
+              borderColor: d.border,
+              color: d.text,
+            }}
+            onClick={() => setDark(!dark)}
+          >
+            {dark ? (
+              <>
+                <Sun size={13} /> Light
+              </>
+            ) : (
+              <>
+                <Moon size={13} /> Dark
+              </>
+            )}
           </button>
-          <div className="tr-icon-btn" style={{ background: d.btnBg, borderColor: d.border, color: d.text }} onClick={() => setSearchOpen(true)}>
+          <div
+            className="tr-icon-btn"
+            style={{
+              background: d.btnBg,
+              borderColor: d.border,
+              color: d.text,
+            }}
+            onClick={() => setSearchOpen(true)}
+          >
             <Search size={15} />
           </div>
-          <div className="tr-icon-btn" style={{ background: d.btnBg, borderColor: d.border, color: d.text, position: "relative" }}
-            onClick={() => { handleSelect("notifications"); setNotifications(0); }}>
+          <div
+            className="tr-icon-btn"
+            style={{
+              background: d.btnBg,
+              borderColor: d.border,
+              color: d.text,
+              position: "relative",
+            }}
+            onClick={() => {
+              handleSelect("notifications");
+              setNotifications(0);
+            }}
+          >
             <Bell size={15} />
             {notifications > 0 && <div className="tr-notif-dot" />}
           </div>
-          <button className="tr-logout-btn"><LogOut size={13} /> Log out</button>
+          <button className="tr-logout-btn">
+            <LogOut size={13} /> Log out
+          </button>
         </div>
       </header>
 
       {/* DESKTOP MAIN — id used by scroll reset useEffect above */}
-      <main id="dashboard-main-scroll" className="tr-main" style={{ background: d.bg }}>
+      <main
+        id="dashboard-main-scroll"
+        className="tr-main"
+        style={{ background: d.bg }}
+      >
         <div className="tr-layout">{renderContent()}</div>
       </main>
 
       {/* MOBILE TOPBAR */}
-      <header className="tr-mob-top" style={{ background: d.sidebar, borderColor: d.border }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <header
+        className="tr-mob-top"
+        style={{ background: d.sidebar, borderColor: d.border }}
+      >
+        {/* <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div className="tr-logo-icon" style={{ width: 30, height: 30 }}>
-            <img src="/twinrally_icon-removebg-preview (1).png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <img
+              src="/twinrally_icon-removebg-preview (1).png"
+              alt=""
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            />
           </div>
-          <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "1rem", color: d.text }}>TwinRally</span>
-        </div>
+          <span
+            style={{
+              fontFamily: "'Syne',sans-serif",
+              fontWeight: 800,
+              fontSize: "1rem",
+              color: d.text,
+            }}
+          >
+            TwinRally
+          </span>
+        </div> */}
+
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div className="tr-icon-btn" style={{ background: d.btnBg, borderColor: d.border, color: d.text }} onClick={() => setDark(!dark)}>
+          <img
+            src="/twinrally_lg_06-removebg-preview (1).png"
+            alt="TwinRally"
+            style={{ height: "50px", width: "auto", objectFit: "contain" }}
+          />
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div
+            className="tr-icon-btn"
+            style={{
+              background: d.btnBg,
+              borderColor: d.border,
+              color: d.text,
+            }}
+            onClick={() => setDark(!dark)}
+          >
             {dark ? <Sun size={14} /> : <Moon size={14} />}
           </div>
-          <div className="tr-mob-menu" style={{ background: d.btnBg, borderColor: d.border, color: d.text }} onClick={() => setMobile(true)}>
+          <div
+            className="tr-mob-menu"
+            style={{
+              background: d.btnBg,
+              borderColor: d.border,
+              color: d.text,
+            }}
+            onClick={() => setMobile(true)}
+          >
             <IoMdMenu size={17} />
           </div>
         </div>
@@ -435,10 +848,24 @@ export const DashBoardPage = () => {
       {mobile && (
         <>
           <div className="tr-overlay" onClick={() => setMobile(false)} />
-          <div className="tr-drawer" style={{ background: d.sidebar, borderRight: `1px solid ${d.border}` }}>
-            <SidebarInner onSelect={(id) => { handleSelect(id); setMobile(false); }} />
+          <div
+            className="tr-drawer"
+            style={{
+              background: d.sidebar,
+              borderRight: `1px solid ${d.border}`,
+            }}
+          >
+            <SidebarInner
+              onSelect={(id) => {
+                handleSelect(id);
+                setMobile(false);
+              }}
+            />
             <div style={{ padding: "0.75rem" }}>
-              <button className="tr-logout-btn" style={{ width: "100%", justifyContent: "center" }}>
+              <button
+                className="tr-logout-btn"
+                style={{ width: "100%", justifyContent: "center" }}
+              >
                 <LogOut size={13} /> Log out
               </button>
             </div>
@@ -450,19 +877,58 @@ export const DashBoardPage = () => {
 };
 
 /* ---- HOME FEED ---- */
-function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addComment, postText, setPostText, postFocused, setPostFocused, handlePost, setStoryViewer, setShareTarget, toggleFollow }) {
+function HomeFeed({
+  d,
+  dark,
+  posts,
+  suggested,
+  toggleLike,
+  toggleSave,
+  addComment,
+  postText,
+  setPostText,
+  postFocused,
+  setPostFocused,
+  handlePost,
+  setStoryViewer,
+  setShareTarget,
+  toggleFollow,
+}) {
   const [feedTab, setFeedTab] = useState("for-you");
 
   return (
     <>
       <div className="tr-feed">
         {/* GREETING + TWIN CHIP */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1.3rem", gap: 12 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "1.3rem",
+            gap: 12,
+          }}
+        >
           <div>
-            <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "1.45rem", fontWeight: 800, letterSpacing: "-0.5px", color: d.text }}>
+            <div
+              style={{
+                fontFamily: "'Syne',sans-serif",
+                fontSize: "1.45rem",
+                fontWeight: 800,
+                letterSpacing: "-0.5px",
+                color: d.text,
+              }}
+            >
               Good morning, Faith
             </div>
-            <div style={{ fontSize: "0.82rem", opacity: 0.38, marginTop: 2, color: d.text }}>
+            <div
+              style={{
+                fontSize: "0.82rem",
+                opacity: 0.38,
+                marginTop: 2,
+                color: d.text,
+              }}
+            >
               Here's what's happening in your twin world
             </div>
           </div>
@@ -472,20 +938,50 @@ function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addCommen
         {/* STORIES */}
         <div className="tr-stories-wrap">
           {STORIES_DATA.map((s, i) => (
-            <div key={s.id} className="tr-story" style={{ animationDelay: `${i * 50}ms` }}
-              onClick={() => !s.isOwn && setStoryViewer(s)}>
-              <div className="tr-story-ring" style={{
-                background: s.isOwn ? "transparent"
-                  : s.viewed ? "rgba(130,130,130,0.3)"
-                  : "linear-gradient(135deg,#fbc2eb,#a6c0ee)",
-                border: s.isOwn ? "2px dashed rgba(251,194,235,0.4)" : "none",
-                padding: s.isOwn ? "2px" : "2.5px",
-              }}>
-                <div className="tr-story-inner" style={{ background: d.surface, border: `2px solid ${d.card}`, color: s.color }}>
+            <div
+              key={s.id}
+              className="tr-story"
+              style={{ animationDelay: `${i * 50}ms` }}
+              onClick={() => !s.isOwn && setStoryViewer(s)}
+            >
+              <div
+                className="tr-story-ring"
+                style={{
+                  background: s.isOwn
+                    ? "transparent"
+                    : s.viewed
+                      ? "rgba(130,130,130,0.3)"
+                      : "linear-gradient(135deg,#fbc2eb,#a6c0ee)",
+                  border: s.isOwn ? "2px dashed rgba(251,194,235,0.4)" : "none",
+                  padding: s.isOwn ? "2px" : "2.5px",
+                }}
+              >
+                <div
+                  className="tr-story-inner"
+                  style={{
+                    background: d.surface,
+                    border: `2px solid ${d.card}`,
+                    color: s.color,
+                  }}
+                >
                   {s.isOwn ? (
                     <div style={{ position: "relative" }}>
                       <span>F</span>
-                      <div style={{ position: "absolute", bottom: -8, right: -8, width: 18, height: 18, borderRadius: "50%", background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)", display: "flex", alignItems: "center", justifyContent: "center", border: `2px solid ${d.surface}` }}>
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: -8,
+                          right: -8,
+                          width: 18,
+                          height: 18,
+                          borderRadius: "50%",
+                          background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          border: `2px solid ${d.surface}`,
+                        }}
+                      >
                         <Plus size={9} color="#2a0038" strokeWidth={3} />
                       </div>
                     </div>
@@ -496,38 +992,65 @@ function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addCommen
                   )}
                 </div>
               </div>
-              <span className="tr-story-name" style={{ color: d.text }}>{s.name}</span>
+              <span className="tr-story-name" style={{ color: d.text }}>
+                {s.name}
+              </span>
             </div>
           ))}
         </div>
 
         {/* COMPOSER */}
-        <div className="tr-composer" style={{ background: d.card, borderColor: postFocused ? (dark ? "#fbc2eb55" : "#c4507a55") : d.border }}>
+        <div
+          className="tr-composer"
+          style={{
+            background: d.card,
+            borderColor: postFocused
+              ? dark
+                ? "#fbc2eb55"
+                : "#c4507a55"
+              : d.border,
+          }}
+        >
           <div className="tr-composer-top">
-            <div className="tr-av-sm" style={{ marginTop: 3 }}>F</div>
+            <div className="tr-av-sm" style={{ marginTop: 3 }}>
+              F
+            </div>
             <textarea
               className="tr-composer-input"
               style={{ color: d.text, minHeight: postFocused ? 90 : 42 }}
               placeholder="What's your twin moment today?"
               value={postText}
               onFocus={() => setPostFocused(true)}
-              onChange={e => setPostText(e.target.value)}
-              onKeyDown={e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) handlePost(); }}
+              onChange={(e) => setPostText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) handlePost();
+              }}
             />
           </div>
           {postFocused && (
-            <div className="tr-composer-actions" style={{ borderColor: d.border }}>
+            <div
+              className="tr-composer-actions"
+              style={{ borderColor: d.border }}
+            >
               {[
                 { icon: ImageIcon, label: "Photo", color: "#a6c0ee" },
                 { icon: Video, label: "Video", color: "#fbc2eb" },
                 { icon: MapPin, label: "Location", color: "#86efac" },
                 { icon: Smile, label: "Feeling", color: "#fcd34d" },
               ].map(({ icon: Icon, label, color }) => (
-                <button key={label} className="tr-media-btn" style={{ borderColor: d.border, color: d.mutedText }}>
+                <button
+                  key={label}
+                  className="tr-media-btn"
+                  style={{ borderColor: d.border, color: d.mutedText }}
+                >
                   <Icon size={14} style={{ color }} /> {label}
                 </button>
               ))}
-              <button className="tr-post-btn" onClick={handlePost} disabled={!postText.trim()}>
+              <button
+                className="tr-post-btn"
+                onClick={handlePost}
+                disabled={!postText.trim()}
+              >
                 <Send size={13} /> Post
               </button>
             </div>
@@ -535,11 +1058,30 @@ function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addCommen
         </div>
 
         {/* FEED TABS */}
-        <div style={{ display: "flex", gap: 2, marginBottom: "1rem", borderBottom: `1px solid ${d.border}` }}>
-          {[{ id: "for-you", label: "For You" }, { id: "following", label: "Following" }, { id: "local", label: "Local" }, { id: "global", label: "Global" }].map(t => (
-            <button key={t.id} className="tr-feed-tab"
-              style={{ color: feedTab === t.id ? d.accent1 : d.mutedText, borderBottom: `2px solid ${feedTab === t.id ? d.accent1 : "transparent"}`, marginBottom: -1 }}
-              onClick={() => setFeedTab(t.id)}>
+        <div
+          style={{
+            display: "flex",
+            gap: 2,
+            marginBottom: "1rem",
+            borderBottom: `1px solid ${d.border}`,
+          }}
+        >
+          {[
+            { id: "for-you", label: "For You" },
+            { id: "following", label: "Following" },
+            { id: "local", label: "Local" },
+            { id: "global", label: "Global" },
+          ].map((t) => (
+            <button
+              key={t.id}
+              className="tr-feed-tab"
+              style={{
+                color: feedTab === t.id ? d.accent1 : d.mutedText,
+                borderBottom: `2px solid ${feedTab === t.id ? d.accent1 : "transparent"}`,
+                marginBottom: -1,
+              }}
+              onClick={() => setFeedTab(t.id)}
+            >
               {t.label}
             </button>
           ))}
@@ -547,12 +1089,23 @@ function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addCommen
 
         {/* POSTS */}
         {posts.map((post, idx) => (
-          <PostCard key={post.id} post={post} d={d} dark={dark} idx={idx}
-            toggleLike={toggleLike} toggleSave={toggleSave}
-            addComment={addComment} setShareTarget={setShareTarget} />
+          <PostCard
+            key={post.id}
+            post={post}
+            d={d}
+            dark={dark}
+            idx={idx}
+            toggleLike={toggleLike}
+            toggleSave={toggleSave}
+            addComment={addComment}
+            setShareTarget={setShareTarget}
+          />
         ))}
 
-        <button className="tr-more-btn" style={{ borderColor: d.border, color: d.mutedText }}>
+        <button
+          className="tr-more-btn"
+          style={{ borderColor: d.border, color: d.mutedText }}
+        >
           Load more posts
         </button>
       </div>
@@ -560,30 +1113,85 @@ function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addCommen
       {/* RIGHT SIDEBAR */}
       <aside className="tr-right">
         {/* Stats */}
-        <div className="tr-right-card" style={{ background: d.card, borderColor: d.border }}>
+        <div
+          className="tr-right-card"
+          style={{ background: d.card, borderColor: d.border }}
+        >
           <div className="tr-right-title" style={{ color: d.text }}>
             <Sparkles size={14} style={{ color: d.accent1 }} /> Your Twin Stats
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-            {[{ label: "Connections", val: "128" }, { label: "Events Joined", val: "7" }, { label: "Posts", val: "34" }, { label: "Circles", val: "5" }].map(({ label, val }) => (
-              <div key={label} style={{ background: d.inputBg, borderRadius: 12, padding: "0.65rem 0.7rem", border: `1px solid ${d.border}` }}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "1.25rem", fontWeight: 800, color: d.text }}>{val}</div>
-                <div style={{ fontSize: "0.65rem", opacity: 0.38, marginTop: 2, color: d.text }}>{label}</div>
+          <div
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}
+          >
+            {[
+              { label: "Connections", val: "128" },
+              { label: "Events Joined", val: "7" },
+              { label: "Posts", val: "34" },
+              { label: "Circles", val: "5" },
+            ].map(({ label, val }) => (
+              <div
+                key={label}
+                style={{
+                  background: d.inputBg,
+                  borderRadius: 12,
+                  padding: "0.65rem 0.7rem",
+                  border: `1px solid ${d.border}`,
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "'Syne',sans-serif",
+                    fontSize: "1.25rem",
+                    fontWeight: 800,
+                    color: d.text,
+                  }}
+                >
+                  {val}
+                </div>
+                <div
+                  style={{
+                    fontSize: "0.65rem",
+                    opacity: 0.38,
+                    marginTop: 2,
+                    color: d.text,
+                  }}
+                >
+                  {label}
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Trending */}
-        <div className="tr-right-card" style={{ background: d.card, borderColor: d.border }}>
+        <div
+          className="tr-right-card"
+          style={{ background: d.card, borderColor: d.border }}
+        >
           <div className="tr-right-title" style={{ color: d.text }}>
             <TrendingUp size={14} style={{ color: d.accent2 }} /> Trending
           </div>
-          {TRENDING_DATA.map(t => (
-            <div key={t.tag} className="tr-trend-row" style={{ borderColor: d.border }}>
+          {TRENDING_DATA.map((t) => (
+            <div
+              key={t.tag}
+              className="tr-trend-row"
+              style={{ borderColor: d.border }}
+            >
               <div>
-                <div style={{ fontSize: "0.82rem", fontWeight: 600, color: d.accent1 }}>{t.tag}</div>
-                <div style={{ fontSize: "0.68rem", opacity: 0.4, color: d.text }}>{t.count}</div>
+                <div
+                  style={{
+                    fontSize: "0.82rem",
+                    fontWeight: 600,
+                    color: d.accent1,
+                  }}
+                >
+                  {t.tag}
+                </div>
+                <div
+                  style={{ fontSize: "0.68rem", opacity: 0.4, color: d.text }}
+                >
+                  {t.count}
+                </div>
               </div>
               <TrendingUp size={12} style={{ opacity: 0.25, color: d.text }} />
             </div>
@@ -591,38 +1199,138 @@ function HomeFeed({ d, dark, posts, suggested, toggleLike, toggleSave, addCommen
         </div>
 
         {/* Suggested */}
-        <div className="tr-right-card" style={{ background: d.card, borderColor: d.border }}>
+        <div
+          className="tr-right-card"
+          style={{ background: d.card, borderColor: d.border }}
+        >
           <div className="tr-right-title" style={{ color: d.text }}>
             <Users size={14} style={{ color: d.accent1 }} /> Suggested Twins
           </div>
-          {suggested.map(s => (
+          {suggested.map((s) => (
             <div key={s.id} className="tr-suggest-row">
-              <div className="tr-suggest-av" style={{ background: `${s.color}22`, color: s.color }}>{s.initials}</div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: "0.8rem", fontWeight: 600, color: d.text, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.name}</div>
-                <div style={{ fontSize: "0.65rem", opacity: 0.38, color: d.text }}>{s.mutual} mutual</div>
+              <div
+                className="tr-suggest-av"
+                style={{ background: `${s.color}22`, color: s.color }}
+              >
+                {s.initials}
               </div>
-              <button className={`tr-follow-btn${s.followed ? " followed" : ""}`}
-                style={!s.followed ? { borderColor: d.accent1, color: d.accent1 } : {}}
-                onClick={() => toggleFollow(s.id)}>
-                {s.followed ? <><UserCheck size={11} /> Following</> : <><UserPlus size={11} /> Follow</>}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div
+                  style={{
+                    fontSize: "0.8rem",
+                    fontWeight: 600,
+                    color: d.text,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {s.name}
+                </div>
+                <div
+                  style={{ fontSize: "0.65rem", opacity: 0.38, color: d.text }}
+                >
+                  {s.mutual} mutual
+                </div>
+              </div>
+              <button
+                className={`tr-follow-btn${s.followed ? " followed" : ""}`}
+                style={
+                  !s.followed
+                    ? { borderColor: d.accent1, color: d.accent1 }
+                    : {}
+                }
+                onClick={() => toggleFollow(s.id)}
+              >
+                {s.followed ? (
+                  <>
+                    <UserCheck size={11} /> Following
+                  </>
+                ) : (
+                  <>
+                    <UserPlus size={11} /> Follow
+                  </>
+                )}
               </button>
             </div>
           ))}
         </div>
 
         {/* Event banner */}
-        <div style={{ borderRadius: 18, padding: "1.1rem 1.2rem", background: "linear-gradient(135deg,rgba(251,194,235,0.18),rgba(166,192,238,0.18))", border: `1px solid ${d.accent1}33` }}>
-          <img src="https://picsum.photos/seed/eventbanner55/280/120" alt="Lagos Twin Festival" style={{ width: "100%", height: 110, objectFit: "cover", borderRadius: 12, marginBottom: 10 }} />
-          <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.5, marginBottom: 4, color: d.text }}>Upcoming Event</div>
-          <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "0.92rem", color: d.text, marginBottom: 3 }}>Lagos Twin Festival</div>
-          <div style={{ fontSize: "0.72rem", opacity: 0.45, marginBottom: 12, color: d.text, display: "flex", alignItems: "center", gap: 5 }}>
+        <div
+          style={{
+            borderRadius: 18,
+            padding: "1.1rem 1.2rem",
+            background:
+              "linear-gradient(135deg,rgba(251,194,235,0.18),rgba(166,192,238,0.18))",
+            border: `1px solid ${d.accent1}33`,
+          }}
+        >
+          <img
+            src="https://picsum.photos/seed/eventbanner55/280/120"
+            alt="Lagos Twin Festival"
+            style={{
+              width: "100%",
+              height: 110,
+              objectFit: "cover",
+              borderRadius: 12,
+              marginBottom: 10,
+            }}
+          />
+          <div
+            style={{
+              fontSize: "0.65rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              opacity: 0.5,
+              marginBottom: 4,
+              color: d.text,
+            }}
+          >
+            Upcoming Event
+          </div>
+          <div
+            style={{
+              fontFamily: "'Syne',sans-serif",
+              fontWeight: 800,
+              fontSize: "0.92rem",
+              color: d.text,
+              marginBottom: 3,
+            }}
+          >
+            Lagos Twin Festival
+          </div>
+          <div
+            style={{
+              fontSize: "0.72rem",
+              opacity: 0.45,
+              marginBottom: 12,
+              color: d.text,
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+            }}
+          >
             <Calendar size={12} /> Aug 14, 2025 · Eko Convention Ctr
           </div>
           <button
-            style={{ width: "100%", padding: "8px 0", borderRadius: 100, background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)", border: "none", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.78rem", color: "#2a0038", cursor: "pointer", transition: "opacity .2s" }}
-            onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-            onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
+            style={{
+              width: "100%",
+              padding: "8px 0",
+              borderRadius: 100,
+              background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)",
+              border: "none",
+              fontFamily: "'Syne',sans-serif",
+              fontWeight: 700,
+              fontSize: "0.78rem",
+              color: "#2a0038",
+              cursor: "pointer",
+              transition: "opacity .2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
             RSVP Now
           </button>
         </div>
@@ -637,35 +1345,168 @@ function TwinProfileChip({ d }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const fn = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const fn = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
     document.addEventListener("mousedown", fn);
     return () => document.removeEventListener("mousedown", fn);
   }, []);
 
   return (
     <div style={{ position: "relative", flexShrink: 0 }} ref={ref}>
-      <div className="tr-twin-chip" onClick={() => setOpen(v => !v)}>
-        <div className="tr-twin-av" style={{ background: "linear-gradient(135deg,#fbc2eb,#e879a0)", borderColor: d.card, color: "#2a0038", zIndex: 2 }}>F</div>
-        <div className="tr-twin-av" style={{ background: "linear-gradient(135deg,#a6c0ee,#5a8fd4)", borderColor: d.card, color: "#001838", marginLeft: -14, zIndex: 1 }}>G</div>
+      <div className="tr-twin-chip" onClick={() => setOpen((v) => !v)}>
+        <div
+          className="tr-twin-av"
+          style={{
+            background: "linear-gradient(135deg,#fbc2eb,#e879a0)",
+            borderColor: d.card,
+            color: "#2a0038",
+            zIndex: 2,
+          }}
+        >
+          F
+        </div>
+        <div
+          className="tr-twin-av"
+          style={{
+            background: "linear-gradient(135deg,#a6c0ee,#5a8fd4)",
+            borderColor: d.card,
+            color: "#001838",
+            marginLeft: -14,
+            zIndex: 1,
+          }}
+        >
+          G
+        </div>
       </div>
       {open && (
-        <div style={{ position: "absolute", top: "calc(100% + 10px)", right: 0, background: d.surface, border: `1px solid ${d.border}`, borderRadius: 14, padding: "0.75rem 1rem", minWidth: 210, boxShadow: "0 8px 32px rgba(0,0,0,0.18)", zIndex: 50, animation: "trFadeUp .18s ease" }}>
-          <div style={{ fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.32, color: d.text, marginBottom: 10 }}>Twin Profile</div>
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(100% + 10px)",
+            right: 0,
+            background: d.surface,
+            border: `1px solid ${d.border}`,
+            borderRadius: 14,
+            padding: "0.75rem 1rem",
+            minWidth: 210,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+            zIndex: 50,
+            animation: "trFadeUp .18s ease",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "0.62rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              opacity: 0.32,
+              color: d.text,
+              marginBottom: 10,
+            }}
+          >
+            Twin Profile
+          </div>
           {[
-            { name: "Faith A.", role: "You · Lagos", color: "linear-gradient(135deg,#fbc2eb,#e879a0)", txt: "#2a0038", initial: "F" },
-            { name: "Grace A.", role: "Your Twin · Abuja", color: "linear-gradient(135deg,#a6c0ee,#5a8fd4)", txt: "#001838", initial: "G" },
-          ].map(p => (
-            <div key={p.name} style={{ display: "flex", alignItems: "center", gap: 9, padding: "5px 0", cursor: "pointer" }}>
-              <div style={{ width: 33, height: 33, borderRadius: "50%", background: p.color, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "0.75rem", color: p.txt, flexShrink: 0 }}>{p.initial}</div>
+            {
+              name: "Faith A.",
+              role: "You · Lagos",
+              color: "linear-gradient(135deg,#fbc2eb,#e879a0)",
+              txt: "#2a0038",
+              initial: "F",
+            },
+            {
+              name: "Grace A.",
+              role: "Your Twin · Abuja",
+              color: "linear-gradient(135deg,#a6c0ee,#5a8fd4)",
+              txt: "#001838",
+              initial: "G",
+            },
+          ].map((p) => (
+            <div
+              key={p.name}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 9,
+                padding: "5px 0",
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  width: 33,
+                  height: 33,
+                  borderRadius: "50%",
+                  background: p.color,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "'Syne',sans-serif",
+                  fontWeight: 800,
+                  fontSize: "0.75rem",
+                  color: p.txt,
+                  flexShrink: 0,
+                }}
+              >
+                {p.initial}
+              </div>
               <div>
-                <div style={{ fontSize: "0.8rem", fontWeight: 600, color: d.text }}>{p.name}</div>
-                <div style={{ fontSize: "0.65rem", opacity: 0.4, color: d.text }}>{p.role}</div>
+                <div
+                  style={{ fontSize: "0.8rem", fontWeight: 600, color: d.text }}
+                >
+                  {p.name}
+                </div>
+                <div
+                  style={{ fontSize: "0.65rem", opacity: 0.4, color: d.text }}
+                >
+                  {p.role}
+                </div>
               </div>
             </div>
           ))}
-          <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${d.border}`, display: "flex", gap: 6 }}>
-            <button style={{ flex: 1, padding: "6px 0", borderRadius: 100, background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)", border: "none", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: "0.68rem", color: "#2a0038", cursor: "pointer" }}>Edit Profile</button>
-            <button style={{ flex: 1, padding: "6px 0", borderRadius: 100, background: "transparent", border: `1px solid ${d.border}`, fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: "0.68rem", color: d.text, cursor: "pointer" }}>View Full</button>
+          <div
+            style={{
+              marginTop: 10,
+              paddingTop: 10,
+              borderTop: `1px solid ${d.border}`,
+              display: "flex",
+              gap: 6,
+            }}
+          >
+            <button
+              style={{
+                flex: 1,
+                padding: "6px 0",
+                borderRadius: 100,
+                background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)",
+                border: "none",
+                fontFamily: "'DM Sans',sans-serif",
+                fontWeight: 700,
+                fontSize: "0.68rem",
+                color: "#2a0038",
+                cursor: "pointer",
+              }}
+            >
+              Edit Profile
+            </button>
+            <button
+              style={{
+                flex: 1,
+                padding: "6px 0",
+                borderRadius: 100,
+                background: "transparent",
+                border: `1px solid ${d.border}`,
+                fontFamily: "'DM Sans',sans-serif",
+                fontWeight: 700,
+                fontSize: "0.68rem",
+                color: d.text,
+                cursor: "pointer",
+              }}
+            >
+              View Full
+            </button>
           </div>
         </div>
       )}
@@ -674,99 +1515,285 @@ function TwinProfileChip({ d }) {
 }
 
 /* ---- POST CARD ---- */
-function PostCard({ post, d, dark, idx, toggleLike, toggleSave, addComment, setShareTarget }) {
+function PostCard({
+  post,
+  d,
+  dark,
+  idx,
+  toggleLike,
+  toggleSave,
+  addComment,
+  setShareTarget,
+}) {
   const [showComments, setShowComments] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [imgLoaded, setImgLoaded] = useState(false);
-  const fmtNum = n => n >= 1000 ? (n / 1000).toFixed(1) + "K" : String(n);
+  const fmtNum = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + "K" : String(n));
 
   const badgeStyles = {
     Trending: { bg: "rgba(251,194,235,0.18)", color: "#9a3060" },
-    Event:    { bg: "rgba(166,192,238,0.18)", color: dark ? "#7aabee" : "#3060a0" },
-    Spotlight:{ bg: "rgba(196,181,253,0.18)", color: "#6030a0" },
+    Event: {
+      bg: "rgba(166,192,238,0.18)",
+      color: dark ? "#7aabee" : "#3060a0",
+    },
+    Spotlight: { bg: "rgba(196,181,253,0.18)", color: "#6030a0" },
   };
   const badgeStyle = post.badge ? badgeStyles[post.badge] : null;
 
   return (
-    <div className="tr-post" style={{ background: d.card, borderColor: d.border, animationDelay: `${idx * 70}ms` }}>
+    <div
+      className="tr-post"
+      style={{
+        background: d.card,
+        borderColor: d.border,
+        animationDelay: `${idx * 70}ms`,
+      }}
+    >
       <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-        <div className="tr-post-av" style={{ background: post.avatarBg, color: post.avatarColor }}>{post.initials}</div>
+        <div
+          className="tr-post-av"
+          style={{ background: post.avatarBg, color: post.avatarColor }}
+        >
+          {post.initials}
+        </div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div className="tr-post-name" style={{ color: d.text }}>
             {post.user}
             {post.verified && (
               <span className="tr-verified-badge" title="Verified">
                 <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5l2 2 4-4" stroke="#2a0038" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M2 5l2 2 4-4"
+                    stroke="#2a0038"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </span>
             )}
             {badgeStyle && (
-              <span className="tr-badge-pill" style={{ background: badgeStyle.bg, color: badgeStyle.color }}>{post.badge}</span>
+              <span
+                className="tr-badge-pill"
+                style={{ background: badgeStyle.bg, color: badgeStyle.color }}
+              >
+                {post.badge}
+              </span>
             )}
           </div>
-          <div style={{ fontSize: "0.72rem", opacity: 0.38, color: d.text }}>{post.handle} · {post.time}</div>
+          <div style={{ fontSize: "0.72rem", opacity: 0.38, color: d.text }}>
+            {post.handle} · {post.time}
+          </div>
         </div>
-        <button className="tr-icon-btn" style={{ background: "transparent", borderColor: "transparent", color: d.mutedText, width: 30, height: 30, flexShrink: 0 }}>
+        <button
+          className="tr-icon-btn"
+          style={{
+            background: "transparent",
+            borderColor: "transparent",
+            color: d.mutedText,
+            width: 30,
+            height: 30,
+            flexShrink: 0,
+          }}
+        >
           <MoreHorizontal size={15} />
         </button>
       </div>
 
-      <div className="tr-post-body" style={{ color: d.text }}>{post.content}</div>
+      <div className="tr-post-body" style={{ color: d.text }}>
+        {post.content}
+      </div>
 
       {post.img && (
-        <div style={{ borderRadius: 13, marginBottom: "1rem", overflow: "hidden", background: d.inputBg, minHeight: imgLoaded ? 0 : 200, transition: "min-height .3s" }}>
-          <img src={post.img} alt="post" style={{ width: "100%", maxHeight: 340, objectFit: "cover", display: "block", borderRadius: 13 }} onLoad={() => setImgLoaded(true)} />
+        <div
+          style={{
+            borderRadius: 13,
+            marginBottom: "1rem",
+            overflow: "hidden",
+            background: d.inputBg,
+            minHeight: imgLoaded ? 0 : 200,
+            transition: "min-height .3s",
+          }}
+        >
+          <img
+            src={post.img}
+            alt="post"
+            style={{
+              width: "100%",
+              maxHeight: 340,
+              objectFit: "cover",
+              display: "block",
+              borderRadius: 13,
+            }}
+            onLoad={() => setImgLoaded(true)}
+          />
         </div>
       )}
 
-      <div style={{ display: "flex", alignItems: "center", gap: 2, paddingTop: "0.35rem", borderTop: `1px solid ${d.border}`, marginTop: "0.5rem" }}>
-        <button className="tr-action-btn" onClick={() => toggleLike(post.id)} style={{ color: post.liked ? d.like : d.mutedText }}>
-          <Heart size={15} fill={post.liked ? d.like : "none"} color={post.liked ? d.like : d.mutedText} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 2,
+          paddingTop: "0.35rem",
+          borderTop: `1px solid ${d.border}`,
+          marginTop: "0.5rem",
+        }}
+      >
+        <button
+          className="tr-action-btn"
+          onClick={() => toggleLike(post.id)}
+          style={{ color: post.liked ? d.like : d.mutedText }}
+        >
+          <Heart
+            size={15}
+            fill={post.liked ? d.like : "none"}
+            color={post.liked ? d.like : d.mutedText}
+          />
           {fmtNum(post.likes)}
         </button>
-        <button className="tr-action-btn" style={{ color: d.mutedText }} onClick={() => setShowComments(v => !v)}>
+        <button
+          className="tr-action-btn"
+          style={{ color: d.mutedText }}
+          onClick={() => setShowComments((v) => !v)}
+        >
           <MessageCircle size={15} /> {fmtNum(post.comments)}
         </button>
         <button className="tr-action-btn" style={{ color: d.mutedText }}>
           <Repeat2 size={15} /> {fmtNum(post.shares)}
         </button>
-        <button className="tr-action-btn" style={{ color: d.mutedText }} onClick={() => setShareTarget(post.id)}>
+        <button
+          className="tr-action-btn"
+          style={{ color: d.mutedText }}
+          onClick={() => setShareTarget(post.id)}
+        >
           <Share2 size={15} />
         </button>
-        <button className="tr-action-btn" style={{ marginLeft: "auto", color: post.saved ? d.accent2 : d.mutedText }} onClick={() => toggleSave(post.id)}>
-          <Bookmark size={15} fill={post.saved ? d.accent2 : "none"} color={post.saved ? d.accent2 : d.mutedText} />
+        <button
+          className="tr-action-btn"
+          style={{
+            marginLeft: "auto",
+            color: post.saved ? d.accent2 : d.mutedText,
+          }}
+          onClick={() => toggleSave(post.id)}
+        >
+          <Bookmark
+            size={15}
+            fill={post.saved ? d.accent2 : "none"}
+            color={post.saved ? d.accent2 : d.mutedText}
+          />
         </button>
       </div>
 
       {showComments && (
-        <div style={{ marginTop: "0.85rem", paddingTop: "0.85rem", borderTop: `1px solid ${d.border}` }}>
-          {post.commentsList.map(c => (
-            <div key={c.id} style={{ display: "flex", gap: 8, marginBottom: "0.65rem", alignItems: "flex-start" }}>
-              <div style={{ width: 30, height: 30, borderRadius: "50%", background: `${c.color}22`, color: c.color, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.65rem", fontWeight: 800, fontFamily: "'Syne',sans-serif", flexShrink: 0 }}>{c.initials}</div>
-              <div style={{ background: d.inputBg, borderRadius: "0 12px 12px 12px", padding: "7px 11px", flex: 1 }}>
-                <div style={{ fontSize: "0.72rem", fontWeight: 700, color: d.text, marginBottom: 2, fontFamily: "'Syne',sans-serif" }}>{c.user}</div>
-                <div style={{ fontSize: "0.8rem", color: d.text, lineHeight: 1.5 }}>{c.text}</div>
+        <div
+          style={{
+            marginTop: "0.85rem",
+            paddingTop: "0.85rem",
+            borderTop: `1px solid ${d.border}`,
+          }}
+        >
+          {post.commentsList.map((c) => (
+            <div
+              key={c.id}
+              style={{
+                display: "flex",
+                gap: 8,
+                marginBottom: "0.65rem",
+                alignItems: "flex-start",
+              }}
+            >
+              <div
+                style={{
+                  width: 30,
+                  height: 30,
+                  borderRadius: "50%",
+                  background: `${c.color}22`,
+                  color: c.color,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.65rem",
+                  fontWeight: 800,
+                  fontFamily: "'Syne',sans-serif",
+                  flexShrink: 0,
+                }}
+              >
+                {c.initials}
+              </div>
+              <div
+                style={{
+                  background: d.inputBg,
+                  borderRadius: "0 12px 12px 12px",
+                  padding: "7px 11px",
+                  flex: 1,
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "0.72rem",
+                    fontWeight: 700,
+                    color: d.text,
+                    marginBottom: 2,
+                    fontFamily: "'Syne',sans-serif",
+                  }}
+                >
+                  {c.user}
+                </div>
+                <div
+                  style={{ fontSize: "0.8rem", color: d.text, lineHeight: 1.5 }}
+                >
+                  {c.text}
+                </div>
               </div>
             </div>
           ))}
-          <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: "0.5rem" }}>
-            <div className="tr-av-sm" style={{ width: 30, height: 30, fontSize: "0.65rem", flexShrink: 0 }}>F</div>
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              alignItems: "center",
+              marginTop: "0.5rem",
+            }}
+          >
+            <div
+              className="tr-av-sm"
+              style={{
+                width: 30,
+                height: 30,
+                fontSize: "0.65rem",
+                flexShrink: 0,
+              }}
+            >
+              F
+            </div>
             <input
               className="tr-comment-input"
               style={{ borderColor: d.border, color: d.text }}
               placeholder="Write a comment…"
               value={commentText}
-              onChange={e => setCommentText(e.target.value)}
-              onKeyDown={e => {
+              onChange={(e) => setCommentText(e.target.value)}
+              onKeyDown={(e) => {
                 if (e.key === "Enter" && commentText.trim()) {
                   addComment(post.id, commentText.trim());
                   setCommentText("");
                 }
               }}
             />
-            <button style={{ background: "none", border: "none", cursor: "pointer", flexShrink: 0 }}
-              onClick={() => { if (commentText.trim()) { addComment(post.id, commentText.trim()); setCommentText(""); } }}>
+            <button
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+              onClick={() => {
+                if (commentText.trim()) {
+                  addComment(post.id, commentText.trim());
+                  setCommentText("");
+                }
+              }}
+            >
               <Send size={15} style={{ color: d.accent1 }} />
             </button>
           </div>
@@ -778,13 +1805,23 @@ function PostCard({ post, d, dark, idx, toggleLike, toggleSave, addComment, setS
 
 /* ---- STORY VIEWER ---- */
 function StoryViewer({ story, stories, onClose, d }) {
-  const [idx, setIdx] = useState(Math.max(0, stories.findIndex(s => s.id === story.id)));
+  const [idx, setIdx] = useState(
+    Math.max(
+      0,
+      stories.findIndex((s) => s.id === story.id),
+    ),
+  );
   const [reply, setReply] = useState("");
   const current = stories[idx] || story;
   const timerRef = useRef(null);
 
-  const goNext = () => { if (idx < stories.length - 1) setIdx(i => i + 1); else onClose(); };
-  const goPrev = () => { if (idx > 0) setIdx(i => i - 1); };
+  const goNext = () => {
+    if (idx < stories.length - 1) setIdx((i) => i + 1);
+    else onClose();
+  };
+  const goPrev = () => {
+    if (idx > 0) setIdx((i) => i - 1);
+  };
 
   useEffect(() => {
     timerRef.current = setTimeout(goNext, 4000);
@@ -792,45 +1829,146 @@ function StoryViewer({ story, stories, onClose, d }) {
   }, [idx]);
 
   useEffect(() => {
-    const fn = e => e.key === "Escape" && onClose();
+    const fn = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
   }, []);
 
   return (
     <div className="tr-sv-overlay" onClick={onClose}>
-      <div className="tr-sv-box" onClick={e => e.stopPropagation()}>
-        {current.img
-          ? <img src={current.img} alt={current.name} className="tr-sv-img" />
-          : <div style={{ width: "100%", height: "100%", background: `linear-gradient(135deg,${current.color}33,#040e29)`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "4rem", color: current.color, opacity: 0.7 }}>{current.initials}</div>
+      <div className="tr-sv-box" onClick={(e) => e.stopPropagation()}>
+        {current.img ? (
+          <img src={current.img} alt={current.name} className="tr-sv-img" />
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: `linear-gradient(135deg,${current.color}33,#040e29)`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "'Syne',sans-serif",
+                fontWeight: 800,
+                fontSize: "4rem",
+                color: current.color,
+                opacity: 0.7,
+              }}
+            >
+              {current.initials}
             </div>
-        }
+          </div>
+        )}
         <div className="tr-sv-progress">
           {stories.map((_, i) => (
             <div key={i} className="tr-sv-bar">
               {i === idx && <div className="tr-sv-fill" key={`fill-${idx}`} />}
-              {i < idx && <div style={{ width: "100%", height: "100%", background: "#fff", borderRadius: 2 }} />}
+              {i < idx && (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    background: "#fff",
+                    borderRadius: 2,
+                  }}
+                />
+              )}
             </div>
           ))}
         </div>
-        <div style={{ position: "absolute", top: 28, left: 0, right: 0, display: "flex", alignItems: "center", gap: 8, padding: "0 14px" }}>
-          <div style={{ width: 34, height: 34, borderRadius: "50%", background: `${current.color}33`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "0.78rem", color: current.color }}>{current.initials}</div>
+        <div
+          style={{
+            position: "absolute",
+            top: 28,
+            left: 0,
+            right: 0,
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "0 14px",
+          }}
+        >
+          <div
+            style={{
+              width: 34,
+              height: 34,
+              borderRadius: "50%",
+              background: `${current.color}33`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "'Syne',sans-serif",
+              fontWeight: 800,
+              fontSize: "0.78rem",
+              color: current.color,
+            }}
+          >
+            {current.initials}
+          </div>
           <div style={{ flex: 1 }}>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: "0.82rem", fontFamily: "'Syne',sans-serif" }}>{current.name}</div>
-            <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.65rem", display: "flex", alignItems: "center", gap: 4 }}>
+            <div
+              style={{
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "0.82rem",
+                fontFamily: "'Syne',sans-serif",
+              }}
+            >
+              {current.name}
+            </div>
+            <div
+              style={{
+                color: "rgba(255,255,255,0.5)",
+                fontSize: "0.65rem",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
               5m ago · <Eye size={10} /> 142
             </div>
           </div>
-          <button className="tr-sv-close" onClick={onClose}><X size={20} /></button>
+          <button className="tr-sv-close" onClick={onClose}>
+            <X size={20} />
+          </button>
         </div>
-        {idx > 0 && <button className="tr-sv-nav" style={{ left: 10 }} onClick={goPrev}><ChevronLeft size={18} /></button>}
-        {idx < stories.length - 1 && <button className="tr-sv-nav" style={{ right: 10 }} onClick={goNext}><ChevronR size={18} /></button>}
+        {idx > 0 && (
+          <button className="tr-sv-nav" style={{ left: 10 }} onClick={goPrev}>
+            <ChevronLeft size={18} />
+          </button>
+        )}
+        {idx < stories.length - 1 && (
+          <button className="tr-sv-nav" style={{ right: 10 }} onClick={goNext}>
+            <ChevronR size={18} />
+          </button>
+        )}
         <div className="tr-sv-gradient" />
         <div className="tr-sv-bottom">
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <input className="tr-sv-input" placeholder={`Reply to ${current.name}…`} value={reply} onChange={e => setReply(e.target.value)} />
-            <button style={{ background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)", border: "none", borderRadius: "50%", width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
+            <input
+              className="tr-sv-input"
+              placeholder={`Reply to ${current.name}…`}
+              value={reply}
+              onChange={(e) => setReply(e.target.value)}
+            />
+            <button
+              style={{
+                background: "linear-gradient(135deg,#fbc2eb,#a6c0ee)",
+                border: "none",
+                borderRadius: "50%",
+                width: 36,
+                height: 36,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+            >
               <Send size={14} color="#2a0038" />
             </button>
           </div>
@@ -844,37 +1982,123 @@ function StoryViewer({ story, stories, onClose, d }) {
 function ShareModal({ d, onClose, postId }) {
   const [copied, setCopied] = useState(false);
   const copy = () => {
-    navigator.clipboard?.writeText(`https://twinrally.com/post/${postId}`).catch(() => {});
+    navigator.clipboard
+      ?.writeText(`https://twinrally.com/post/${postId}`)
+      .catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
   return (
     <div className="tr-share-overlay">
       <div className="tr-share-bg" onClick={onClose} />
-      <div className="tr-share-box" style={{ background: d.surface, borderTop: `1px solid ${d.border}` }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem" }}>
-          <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "1rem", color: d.text }}>Share Post</div>
-          <button style={{ background: "none", border: "none", cursor: "pointer", color: d.mutedText }} onClick={onClose}><X size={18} /></button>
+      <div
+        className="tr-share-box"
+        style={{ background: d.surface, borderTop: `1px solid ${d.border}` }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "1rem",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "'Syne',sans-serif",
+              fontWeight: 800,
+              fontSize: "1rem",
+              color: d.text,
+            }}
+          >
+            Share Post
+          </div>
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: d.mutedText,
+            }}
+            onClick={onClose}
+          >
+            <X size={18} />
+          </button>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: "1rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4,1fr)",
+            gap: 8,
+            marginBottom: "1rem",
+          }}
+        >
           {[
             { icon: Twitter, label: "X / Twitter", color: "#1d9bf0" },
             { icon: Users, label: "WhatsApp", color: "#25d366" },
             { icon: Link2, label: "Instagram", color: "#e1306c" },
             { icon: Share2, label: "Facebook", color: "#1877f2" },
           ].map(({ icon: Icon, label, color }) => (
-            <button key={label} className="tr-share-opt" style={{ borderColor: d.border, color: d.mutedText }}>
+            <button
+              key={label}
+              className="tr-share-opt"
+              style={{ borderColor: d.border, color: d.mutedText }}
+            >
               <Icon size={20} style={{ color }} />
-              <span style={{ color: d.text, fontSize: "0.68rem", fontWeight: 600 }}>{label}</span>
+              <span
+                style={{ color: d.text, fontSize: "0.68rem", fontWeight: 600 }}
+              >
+                {label}
+              </span>
             </button>
           ))}
         </div>
-        <div style={{ display: "flex", gap: 8, padding: "0.6rem 0.8rem", background: d.inputBg, borderRadius: 100, border: `1px solid ${d.border}` }}>
-          <span style={{ flex: 1, fontSize: "0.78rem", color: d.mutedText, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            padding: "0.6rem 0.8rem",
+            background: d.inputBg,
+            borderRadius: 100,
+            border: `1px solid ${d.border}`,
+          }}
+        >
+          <span
+            style={{
+              flex: 1,
+              fontSize: "0.78rem",
+              color: d.mutedText,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
             twinrally.com/post/{postId}
           </span>
-          <button style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 4, fontSize: "0.75rem", fontWeight: 700, color: d.accent1, flexShrink: 0 }} onClick={copy}>
-            {copied ? <><Check size={13} /> Copied!</> : <><Copy size={13} /> Copy</>}
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              color: d.accent1,
+              flexShrink: 0,
+            }}
+            onClick={copy}
+          >
+            {copied ? (
+              <>
+                <Check size={13} /> Copied!
+              </>
+            ) : (
+              <>
+                <Copy size={13} /> Copy
+              </>
+            )}
           </button>
         </div>
       </div>
@@ -884,17 +2108,33 @@ function ShareModal({ d, onClose, postId }) {
 
 /* ---- NAV ITEMS ---- */
 function NavItems({ items, selected, onSelect, d }) {
-  const main  = items.filter(i => !i.section || i.section === "main");
-  const other = items.filter(i => i.section === "other");
+  const main = items.filter((i) => !i.section || i.section === "main");
+  const other = items.filter((i) => i.section === "other");
   const renderItem = (el) => {
     const Icon = el.icon;
     const isActive = selected === el.id;
     return (
-      <div key={el.id} className={`tr-nav-item${isActive ? " active" : ""}`}
-        style={{ background: isActive ? d.activeItem : "transparent", color: isActive ? d.activeText : d.mutedText }}
-        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = d.hover; e.currentTarget.style.color = d.text; } }}
-        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = d.mutedText; } }}
-        onClick={() => onSelect(el.id)}>
+      <div
+        key={el.id}
+        className={`tr-nav-item${isActive ? " active" : ""}`}
+        style={{
+          background: isActive ? d.activeItem : "transparent",
+          color: isActive ? d.activeText : d.mutedText,
+        }}
+        onMouseEnter={(e) => {
+          if (!isActive) {
+            e.currentTarget.style.background = d.hover;
+            e.currentTarget.style.color = d.text;
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isActive) {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = d.mutedText;
+          }
+        }}
+        onClick={() => onSelect(el.id)}
+      >
         <Icon size={17} />
         <span>{el.label}</span>
         {el.badge && <span className="tr-nav-badge">{el.badge}</span>}
@@ -903,8 +2143,20 @@ function NavItems({ items, selected, onSelect, d }) {
   };
   return (
     <>
-      <div><div className="tr-sec-label" style={{ color: d.text }}>Menu</div>{(main.length ? main : items).map(renderItem)}</div>
-      {other.length > 0 && <div style={{ marginTop: "0.5rem" }}><div className="tr-sec-label" style={{ color: d.text }}>Other</div>{other.map(renderItem)}</div>}
+      <div>
+        <div className="tr-sec-label" style={{ color: d.text }}>
+          Menu
+        </div>
+        {(main.length ? main : items).map(renderItem)}
+      </div>
+      {other.length > 0 && (
+        <div style={{ marginTop: "0.5rem" }}>
+          <div className="tr-sec-label" style={{ color: d.text }}>
+            Other
+          </div>
+          {other.map(renderItem)}
+        </div>
+      )}
     </>
   );
 }

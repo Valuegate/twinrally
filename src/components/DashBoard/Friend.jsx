@@ -13,8 +13,6 @@ import {
   Zap,
   UserCheck,
   Clock,
-  Sun,
-  Moon,
   Bell,
   BellOff,
   ChevronRight,
@@ -82,42 +80,12 @@ export const allTwins = [
     twinBond: "Since birth — inseparable since day one",
     achievements: ["Vogue Africa Feature", "Top Twin Pair 2024", "Festival Speaker"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1558171813-3b69d1a4b8f2?w=400&q=80",
-        likes: 842,
-        comments: 67,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80",
-        likes: 1203,
-        comments: 94,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80",
-        likes: 566,
-        comments: 38,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80",
-        likes: 729,
-        comments: 51,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80",
-        likes: 913,
-        comments: 72,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=400&q=80",
-        likes: 441,
-        comments: 29,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1558171813-3b69d1a4b8f2?w=400&q=80", likes: 842, comments: 67 },
+      { id: 2, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80", likes: 1203, comments: 94 },
+      { id: 3, img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80", likes: 566, comments: 38 },
+      { id: 4, img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80", likes: 729, comments: 51 },
+      { id: 5, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80", likes: 913, comments: 72 },
+      { id: 6, img: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=400&q=80", likes: 441, comments: 29 },
     ],
   },
   {
@@ -144,42 +112,12 @@ export const allTwins = [
     twinBond: "Coding since age 12 together",
     achievements: ["Forbes 30 Under 30", "$2M Seed Raised", "YC Alumni"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80",
-        likes: 1820,
-        comments: 140,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80",
-        likes: 930,
-        comments: 78,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
-        likes: 742,
-        comments: 55,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&q=80",
-        likes: 615,
-        comments: 42,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&q=80",
-        likes: 528,
-        comments: 36,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80",
-        likes: 881,
-        comments: 63,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80", likes: 1820, comments: 140 },
+      { id: 2, img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80", likes: 930, comments: 78 },
+      { id: 3, img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80", likes: 742, comments: 55 },
+      { id: 4, img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&q=80", likes: 615, comments: 42 },
+      { id: 5, img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&q=80", likes: 528, comments: 36 },
+      { id: 6, img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80", likes: 881, comments: 63 },
     ],
   },
   {
@@ -204,48 +142,14 @@ export const allTwins = [
     twinType: "Identical",
     verified: false,
     twinBond: "Moving in perfect sync since 1998",
-    achievements: [
-      "La Scala Guest Performance",
-      "100K YouTube Subs",
-      "TwinRally Stage 2024",
-    ],
+    achievements: ["La Scala Guest Performance", "100K YouTube Subs", "TwinRally Stage 2024"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&q=80",
-        likes: 2340,
-        comments: 192,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=400&q=80",
-        likes: 1870,
-        comments: 154,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1542773998-9325f0a098d7?w=400&q=80",
-        likes: 1102,
-        comments: 88,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
-        likes: 788,
-        comments: 60,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80",
-        likes: 943,
-        comments: 71,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&q=80",
-        likes: 667,
-        comments: 48,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&q=80", likes: 2340, comments: 192 },
+      { id: 2, img: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=400&q=80", likes: 1870, comments: 154 },
+      { id: 3, img: "https://images.unsplash.com/photo-1542773998-9325f0a098d7?w=400&q=80", likes: 1102, comments: 88 },
+      { id: 4, img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80", likes: 788, comments: 60 },
+      { id: 5, img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80", likes: 943, comments: 71 },
+      { id: 6, img: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&q=80", likes: 667, comments: 48 },
     ],
   },
   {
@@ -272,45 +176,14 @@ export const allTwins = [
     twinBond: "Twin Frequency — the beat never stops",
     achievements: ["Melon Chart Top 10", "29K Followers", "SXSW Showcase 2024"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80",
-        likes: 5230,
-        comments: 413,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80",
-        likes: 3870,
-        comments: 298,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80",
-        likes: 2940,
-        comments: 221,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80",
-        likes: 2100,
-        comments: 167,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80",
-        likes: 1780,
-        comments: 134,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80",
-        likes: 1340,
-        comments: 98,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80", likes: 5230, comments: 413 },
+      { id: 2, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80", likes: 3870, comments: 298 },
+      { id: 3, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80", likes: 2940, comments: 221 },
+      { id: 4, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80", likes: 2100, comments: 167 },
+      { id: 5, img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80", likes: 1780, comments: 134 },
+      { id: 6, img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80", likes: 1340, comments: 98 },
     ],
   },
-  // suggested
   {
     id: 5,
     name: "Zara & Zuri Johnson",
@@ -335,42 +208,12 @@ export const allTwins = [
     twinBond: "Matching fits and matching energy",
     achievements: ["Brand Collab x ASOS", "6.7K Followers", "TwinRally Content Award"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80",
-        likes: 1340,
-        comments: 103,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80",
-        likes: 890,
-        comments: 67,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80",
-        likes: 720,
-        comments: 54,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=400&q=80",
-        likes: 550,
-        comments: 41,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80",
-        likes: 430,
-        comments: 32,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1558171813-3b69d1a4b8f2?w=400&q=80",
-        likes: 380,
-        comments: 27,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80", likes: 1340, comments: 103 },
+      { id: 2, img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80", likes: 890, comments: 67 },
+      { id: 3, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80", likes: 720, comments: 54 },
+      { id: 4, img: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=400&q=80", likes: 550, comments: 41 },
+      { id: 5, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80", likes: 430, comments: 32 },
+      { id: 6, img: "https://images.unsplash.com/photo-1558171813-3b69d1a4b8f2?w=400&q=80", likes: 380, comments: 27 },
     ],
   },
   {
@@ -397,42 +240,12 @@ export const allTwins = [
     twinBond: "Different strengths, one vision",
     achievements: ["Berghain Warm-Up Set", "Agency of the Year (Berlin 2023)", "3.4K Followers"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80",
-        likes: 780,
-        comments: 59,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80",
-        likes: 640,
-        comments: 48,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80",
-        likes: 510,
-        comments: 38,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80",
-        likes: 420,
-        comments: 31,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80",
-        likes: 330,
-        comments: 24,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80",
-        likes: 280,
-        comments: 19,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80", likes: 780, comments: 59 },
+      { id: 2, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80", likes: 640, comments: 48 },
+      { id: 3, img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80", likes: 510, comments: 38 },
+      { id: 4, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80", likes: 420, comments: 31 },
+      { id: 5, img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80", likes: 330, comments: 24 },
+      { id: 6, img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80", likes: 280, comments: 19 },
     ],
   },
   {
@@ -459,42 +272,12 @@ export const allTwins = [
     twinBond: "Pair programming — literally always",
     achievements: ["Google Developer Expert", "GDG Lagos Lead", "TwinRally Tech Spotlight"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80",
-        likes: 560,
-        comments: 43,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80",
-        likes: 430,
-        comments: 33,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80",
-        likes: 350,
-        comments: 26,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1531297484001-80022131e5a1?w=400&q=80",
-        likes: 280,
-        comments: 20,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&q=80",
-        likes: 220,
-        comments: 16,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
-        likes: 190,
-        comments: 13,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80", likes: 560, comments: 43 },
+      { id: 2, img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80", likes: 430, comments: 33 },
+      { id: 3, img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80", likes: 350, comments: 26 },
+      { id: 4, img: "https://images.unsplash.com/photo-1531297484001-80022131e5a1?w=400&q=80", likes: 280, comments: 20 },
+      { id: 5, img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&q=80", likes: 220, comments: 16 },
+      { id: 6, img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80", likes: 190, comments: 13 },
     ],
   },
   {
@@ -521,42 +304,12 @@ export const allTwins = [
     twinBond: "Two souls, one artistic vision",
     achievements: ["Dubai Art Week 2024", "Artsy Top 100", "TwinRally Art Award"],
     recentPosts: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&q=80",
-        likes: 2100,
-        comments: 167,
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80",
-        likes: 1780,
-        comments: 141,
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?w=400&q=80",
-        likes: 1430,
-        comments: 112,
-      },
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=400&q=80",
-        likes: 1100,
-        comments: 87,
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400&q=80",
-        likes: 890,
-        comments: 70,
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=400&q=80",
-        likes: 740,
-        comments: 58,
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&q=80", likes: 2100, comments: 167 },
+      { id: 2, img: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80", likes: 1780, comments: 141 },
+      { id: 3, img: "https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?w=400&q=80", likes: 1430, comments: 112 },
+      { id: 4, img: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=400&q=80", likes: 1100, comments: 87 },
+      { id: 5, img: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400&q=80", likes: 890, comments: 70 },
+      { id: 6, img: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=400&q=80", likes: 740, comments: 58 },
     ],
   },
 ];
@@ -610,31 +363,17 @@ export const TwinAvatars = ({ a, b, size = 48, t }) => (
       src={a}
       alt=""
       style={{
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        objectFit: "cover",
-        position: "absolute",
-        left: 0,
-        top: 0,
-        border: `2.5px solid ${t.bg}`,
-        zIndex: 2,
+        width: size, height: size, borderRadius: "50%", objectFit: "cover",
+        position: "absolute", left: 0, top: 0, border: `2.5px solid ${t.bg}`, zIndex: 2,
       }}
     />
     <img
       src={b}
       alt=""
       style={{
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        objectFit: "cover",
-        position: "absolute",
-        left: Math.round(size * 0.28),
-        top: 0,
-        border: `2.5px solid ${t.bg}`,
-        zIndex: 1,
-        opacity: 0.88,
+        width: size, height: size, borderRadius: "50%", objectFit: "cover",
+        position: "absolute", left: Math.round(size * 0.28), top: 0,
+        border: `2.5px solid ${t.bg}`, zIndex: 1, opacity: 0.88,
       }}
     />
   </div>
@@ -643,15 +382,9 @@ export const TwinAvatars = ({ a, b, size = 48, t }) => (
 const OnlineDot = ({ status, t }) => (
   <span
     style={{
-      width: 8,
-      height: 8,
-      borderRadius: "50%",
-      display: "inline-block",
+      width: 8, height: 8, borderRadius: "50%", display: "inline-block",
       background: status === "online" ? t.online : t.textMuted,
-      border: `2px solid ${t.bgCard}`,
-      marginRight: 4,
-      verticalAlign: "middle",
-      flexShrink: 0,
+      border: `2px solid ${t.bgCard}`, marginRight: 4, verticalAlign: "middle", flexShrink: 0,
     }}
   />
 );
@@ -659,15 +392,11 @@ const OnlineDot = ({ status, t }) => (
 const PillBadge = ({ label, t, variant = "blue" }) => (
   <span
     style={{
-      fontSize: 10,
-      fontWeight: 700,
-      padding: "2px 9px",
-      borderRadius: 20,
+      fontSize: 10, fontWeight: 700, padding: "2px 9px", borderRadius: 20,
       background: variant === "pink" ? `${t.pink}1a` : `${t.blue}1a`,
       color: variant === "pink" ? t.pink : t.blue,
       border: `1px solid ${variant === "pink" ? t.pink : t.blue}30`,
-      letterSpacing: "0.03em",
-      whiteSpace: "nowrap",
+      letterSpacing: "0.03em", whiteSpace: "nowrap",
     }}
   >
     {label}
@@ -675,9 +404,11 @@ const PillBadge = ({ label, t, variant = "blue" }) => (
 );
 
 // ─── MAIN FRIEND COMPONENT ─────────────────────────────────────────────────
-export const Friend = () => {
+// `dark` is controlled by the dashboard topbar toggle, passed in as a prop.
+// FIX: default value added so the component never receives `undefined` and
+// silently falls into a broken state before the parent's state settles.
+export const Friend = ({ dark = true }) => {
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState("friends");
   const [searchQuery, setSearchQuery] = useState("");
   const [connected, setConnected] = useState({});
@@ -685,7 +416,7 @@ export const Friend = () => {
   const [accepted, setAccepted] = useState({});
   const [rejected, setRejected] = useState({});
 
-  const t = darkMode ? THEME.dark : THEME.light;
+  const t = dark ? THEME.dark : THEME.light;
 
   const myFriends = allTwins.slice(0, 4);
   const suggested = allTwins.slice(4);
@@ -709,7 +440,7 @@ export const Friend = () => {
 
   const goToProfile = (twin) =>
     navigate(`/dashboard/friends/profile/${twin.id}`, {
-      state: { twin, darkMode },
+      state: { twin, darkMode: dark },
     });
 
   const cVariants = {
@@ -719,9 +450,7 @@ export const Friend = () => {
   const cardV = {
     hidden: { opacity: 0, y: 22, scale: 0.97 },
     show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
+      opacity: 1, y: 0, scale: 1,
       transition: { type: "spring", stiffness: 85, damping: 15 },
     },
   };
@@ -750,9 +479,7 @@ export const Friend = () => {
           setConnected((c) => ({ ...c, [twin.id]: !c[twin.id] }));
         }}
         style={{
-          background: connected[twin.id]
-            ? t.overlay
-            : `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
+          background: connected[twin.id] ? t.overlay : `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
           border: connected[twin.id] ? `1px solid ${t.border}` : "none",
           borderRadius: 10,
           padding: compact ? "6px 12px" : "7px 15px",
@@ -760,23 +487,13 @@ export const Friend = () => {
           fontSize: compact ? 11 : 12,
           fontWeight: 800,
           color: connected[twin.id] ? t.textSub : t.darkText,
-          display: "flex",
-          alignItems: "center",
-          gap: 5,
+          display: "flex", alignItems: "center", gap: 5,
           boxShadow: connected[twin.id] ? "none" : `0 4px 14px ${t.pink}40`,
           transition: "all 0.22s cubic-bezier(.4,0,.2,1)",
           whiteSpace: "nowrap",
         }}
       >
-        {connected[twin.id] ? (
-          <>
-            <UserCheck size={12} /> Connected
-          </>
-        ) : (
-          <>
-            <UserPlus size={12} /> Connect
-          </>
-        )}
+        {connected[twin.id] ? (<><UserCheck size={12} /> Connected</>) : (<><UserPlus size={12} /> Connect</>)}
       </motion.button>
 
       <motion.button
@@ -794,22 +511,12 @@ export const Friend = () => {
           fontSize: compact ? 11 : 12,
           fontWeight: 700,
           color: followed[twin.id] ? t.blue : t.textMuted,
-          display: "flex",
-          alignItems: "center",
-          gap: 5,
+          display: "flex", alignItems: "center", gap: 5,
           transition: "all 0.22s",
           whiteSpace: "nowrap",
         }}
       >
-        {followed[twin.id] ? (
-          <>
-            <Bell size={12} /> Following
-          </>
-        ) : (
-          <>
-            <BellOff size={12} /> Follow
-          </>
-        )}
+        {followed[twin.id] ? (<><Bell size={12} /> Following</>) : (<><BellOff size={12} /> Follow</>)}
       </motion.button>
 
       <motion.button
@@ -822,8 +529,7 @@ export const Friend = () => {
           padding: compact ? "6px 10px" : "7px 12px",
           cursor: "pointer",
           color: t.textMuted,
-          display: "flex",
-          alignItems: "center",
+          display: "flex", alignItems: "center",
           transition: "all 0.2s",
         }}
       >
@@ -833,7 +539,14 @@ export const Friend = () => {
   );
 
   return (
+    // FIX: key={dark ? "dark" : "light"} forces React/Framer Motion to fully
+    // remount this subtree whenever the theme flips, instead of patching styles
+    // in place. This prevents motion elements from getting stuck at their
+    // `initial` (opacity: 0) state when the theme toggle interrupts an
+    // in-progress animation — which is what produces "empty container until
+    // refresh" symptoms.
     <div
+      key={dark ? "dark" : "light"}
       style={{
         background: t.bg,
         minHeight: "100vh",
@@ -843,30 +556,21 @@ export const Friend = () => {
         transition: "background 0.3s, color 0.3s",
       }}
     >
-      {/* HEADER */}
+      {/* HEADER — dark/light toggle button removed; controlled by dashboard topbar now */}
       <motion.div
         initial={{ opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: 26,
-          flexWrap: "wrap",
-          gap: 12,
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          marginBottom: 26, flexWrap: "wrap", gap: 12,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{
-              width: 38,
-              height: 38,
-              borderRadius: 11,
+              width: 38, height: 38, borderRadius: 11,
               background: `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
+              display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
             }}
           >
             <Users size={18} color={t.darkText} />
@@ -874,13 +578,9 @@ export const Friend = () => {
           <div>
             <h1
               style={{
-                margin: 0,
-                fontSize: 20,
-                fontWeight: 900,
-                letterSpacing: "-0.03em",
+                margin: 0, fontSize: 20, fontWeight: 900, letterSpacing: "-0.03em",
                 background: `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}
             >
               Twin Connections
@@ -890,28 +590,6 @@ export const Friend = () => {
             </p>
           </div>
         </div>
-
-        <motion.button
-          whileTap={{ scale: 0.92 }}
-          onClick={() => setDarkMode((d) => !d)}
-          style={{
-            background: t.overlay,
-            border: `1px solid ${t.border}`,
-            borderRadius: 50,
-            padding: "7px 15px",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 7,
-            color: t.text,
-            fontSize: 12,
-            fontWeight: 700,
-            transition: "all 0.2s",
-          }}
-        >
-          {darkMode ? <Sun size={14} color={t.pink} /> : <Moon size={14} color={t.blue} />}
-          {darkMode ? "Light" : "Dark"}
-        </motion.button>
       </motion.div>
 
       {/* SEARCH */}
@@ -919,29 +597,16 @@ export const Friend = () => {
         <Search
           size={15}
           color={t.textMuted}
-          style={{
-            position: "absolute",
-            left: 15,
-            top: "50%",
-            transform: "translateY(-50%)",
-            pointerEvents: "none",
-          }}
+          style={{ position: "absolute", left: 15, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}
         />
         <input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search twins by name, interest, location..."
           style={{
-            width: "100%",
-            boxSizing: "border-box",
-            background: t.bgInput,
-            border: `1px solid ${t.border}`,
-            borderRadius: 13,
-            padding: "12px 15px 12px 40px",
-            color: t.text,
-            fontSize: 13,
-            outline: "none",
-            transition: "border-color 0.2s",
+            width: "100%", boxSizing: "border-box", background: t.bgInput,
+            border: `1px solid ${t.border}`, borderRadius: 13, padding: "12px 15px 12px 40px",
+            color: t.text, fontSize: 13, outline: "none", transition: "border-color 0.2s",
           }}
           onFocus={(e) => (e.target.style.borderColor = t.pink)}
           onBlur={(e) => (e.target.style.borderColor = t.border)}
@@ -950,15 +615,8 @@ export const Friend = () => {
           <button
             onClick={() => setSearchQuery("")}
             style={{
-              position: "absolute",
-              right: 12,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              color: t.textMuted,
-              padding: 0,
+              position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
+              background: "none", border: "none", cursor: "pointer", color: t.textMuted, padding: 0,
             }}
           >
             <X size={14} />
@@ -971,13 +629,8 @@ export const Friend = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.1 } }}
         style={{
-          display: "flex",
-          background: t.bgTab,
-          borderRadius: 13,
-          padding: 4,
-          marginBottom: 22,
-          border: `1px solid ${t.border}`,
-          gap: 3,
+          display: "flex", background: t.bgTab, borderRadius: 13, padding: 4,
+          marginBottom: 22, border: `1px solid ${t.border}`, gap: 3,
         }}
       >
         {tabs.map((tab) => {
@@ -988,30 +641,19 @@ export const Friend = () => {
               onClick={() => setActiveTab(tab.id)}
               whileTap={{ scale: 0.97 }}
               style={{
-                flex: 1,
-                padding: "9px 6px",
-                borderRadius: 10,
-                border: "none",
-                cursor: "pointer",
-                fontSize: 12,
-                fontWeight: 800,
+                flex: 1, padding: "9px 6px", borderRadius: 10, border: "none",
+                cursor: "pointer", fontSize: 12, fontWeight: 800,
                 background: active ? `linear-gradient(135deg, ${t.pink}, ${t.blue})` : "transparent",
                 color: active ? t.darkText : t.textSub,
-                transition: "all 0.22s",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 5,
+                transition: "all 0.22s", display: "flex", alignItems: "center",
+                justifyContent: "center", gap: 5,
                 boxShadow: active ? `0 3px 14px ${t.pink}38` : "none",
               }}
             >
               {tab.label}
               <span
                 style={{
-                  fontSize: 10,
-                  fontWeight: 800,
-                  padding: "1px 6px",
-                  borderRadius: 20,
+                  fontSize: 10, fontWeight: 800, padding: "1px 6px", borderRadius: 20,
                   background: active ? "rgba(4,14,41,0.18)" : t.overlay,
                   color: active ? t.darkText : t.textMuted,
                 }}
@@ -1033,11 +675,7 @@ export const Friend = () => {
             initial="hidden"
             animate="show"
             exit={{ opacity: 0 }}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))",
-              gap: 14,
-            }}
+            style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))", gap: 14 }}
           >
             {filteredFriends.map((twin) => (
               <motion.div
@@ -1051,15 +689,9 @@ export const Friend = () => {
                   {twin.verified && (
                     <span
                       style={{
-                        position: "absolute",
-                        top: 8,
-                        right: 10,
-                        fontSize: 10,
-                        fontWeight: 800,
+                        position: "absolute", top: 8, right: 10, fontSize: 10, fontWeight: 800,
                         background: `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
-                        color: t.darkText,
-                        padding: "2px 9px",
-                        borderRadius: 20,
+                        color: t.darkText, padding: "2px 9px", borderRadius: 20,
                       }}
                     >
                       ✦ Verified
@@ -1089,14 +721,8 @@ export const Friend = () => {
 
                   <p
                     style={{
-                      margin: "6px 0 10px",
-                      fontSize: 12,
-                      color: t.textSub,
-                      lineHeight: 1.55,
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
+                      margin: "6px 0 10px", fontSize: 12, color: t.textSub, lineHeight: 1.55,
+                      display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
                     }}
                   >
                     {twin.bio}
@@ -1108,12 +734,8 @@ export const Friend = () => {
                       <span
                         key={i}
                         style={{
-                          fontSize: 10,
-                          padding: "2px 8px",
-                          borderRadius: 20,
-                          background: t.overlay,
-                          color: t.textSub,
-                          border: `1px solid ${t.border}`,
+                          fontSize: 10, padding: "2px 8px", borderRadius: 20,
+                          background: t.overlay, color: t.textSub, border: `1px solid ${t.border}`,
                         }}
                       >
                         #{tag}
@@ -1131,15 +753,8 @@ export const Friend = () => {
 
                 <div
                   style={{
-                    position: "absolute",
-                    bottom: 14,
-                    right: 14,
-                    opacity: 0.3,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 3,
-                    fontSize: 11,
-                    color: t.textSub,
+                    position: "absolute", bottom: 14, right: 14, opacity: 0.3,
+                    display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: t.textSub,
                   }}
                 >
                   View profile <ChevronRight size={12} />
@@ -1160,11 +775,8 @@ export const Friend = () => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   style={{
-                    ...cardBase,
-                    padding: "12px 16px",
-                    marginBottom: 10,
-                    borderColor: `${t.online}40`,
-                    background: `${t.online}08`,
+                    ...cardBase, padding: "12px 16px", marginBottom: 10,
+                    borderColor: `${t.online}40`, background: `${t.online}08`,
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -1179,16 +791,7 @@ export const Friend = () => {
 
             {filteredPending.filter((p) => p.type === "received" && !accepted[p.id]).length > 0 && (
               <div style={{ marginBottom: 22 }}>
-                <p
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 900,
-                    letterSpacing: "0.1em",
-                    color: t.textMuted,
-                    textTransform: "uppercase",
-                    margin: "0 0 10px",
-                  }}
-                >
+                <p style={{ fontSize: 10, fontWeight: 900, letterSpacing: "0.1em", color: t.textMuted, textTransform: "uppercase", margin: "0 0 10px" }}>
                   Received
                 </p>
 
@@ -1200,15 +803,7 @@ export const Friend = () => {
                         <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                           <TwinAvatars a={invite.avatar} b={invite.avatarB} size={50} t={t} />
                           <div style={{ flex: 1 }}>
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                flexWrap: "wrap",
-                                gap: 6,
-                                marginBottom: 2,
-                              }}
-                            >
+                            <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 6, marginBottom: 2 }}>
                               <div>
                                 <h3 style={{ margin: 0, fontSize: 14, fontWeight: 800 }}>{invite.name}</h3>
                                 <p style={{ margin: 0, fontSize: 11, color: t.pink }}>{invite.username}</p>
@@ -1241,16 +836,9 @@ export const Friend = () => {
                                 onClick={() => setAccepted((a) => ({ ...a, [invite.id]: true }))}
                                 style={{
                                   background: `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
-                                  border: "none",
-                                  borderRadius: 10,
-                                  padding: "8px 18px",
-                                  cursor: "pointer",
-                                  fontSize: 12,
-                                  fontWeight: 800,
-                                  color: t.darkText,
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: 5,
+                                  border: "none", borderRadius: 10, padding: "8px 18px", cursor: "pointer",
+                                  fontSize: 12, fontWeight: 800, color: t.darkText,
+                                  display: "flex", alignItems: "center", gap: 5,
                                   boxShadow: `0 4px 14px ${t.pink}40`,
                                 }}
                               >
@@ -1261,17 +849,9 @@ export const Friend = () => {
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setRejected((r) => ({ ...r, [invite.id]: true }))}
                                 style={{
-                                  background: t.overlay,
-                                  border: `1px solid ${t.border}`,
-                                  borderRadius: 10,
-                                  padding: "8px 14px",
-                                  cursor: "pointer",
-                                  fontSize: 12,
-                                  fontWeight: 700,
-                                  color: t.textMuted,
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: 5,
+                                  background: t.overlay, border: `1px solid ${t.border}`, borderRadius: 10,
+                                  padding: "8px 14px", cursor: "pointer", fontSize: 12, fontWeight: 700,
+                                  color: t.textMuted, display: "flex", alignItems: "center", gap: 5,
                                 }}
                               >
                                 <X size={13} /> Decline
@@ -1287,16 +867,7 @@ export const Friend = () => {
 
             {filteredPending.filter((p) => p.type === "sent").length > 0 && (
               <div>
-                <p
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 900,
-                    letterSpacing: "0.1em",
-                    color: t.textMuted,
-                    textTransform: "uppercase",
-                    margin: "0 0 10px",
-                  }}
-                >
+                <p style={{ fontSize: 10, fontWeight: 900, letterSpacing: "0.1em", color: t.textMuted, textTransform: "uppercase", margin: "0 0 10px" }}>
                   Sent
                 </p>
 
@@ -1320,13 +891,8 @@ export const Friend = () => {
 
                         <span
                           style={{
-                            fontSize: 11,
-                            fontWeight: 700,
-                            padding: "4px 11px",
-                            borderRadius: 20,
-                            background: `${t.blue}18`,
-                            color: t.blue,
-                            border: `1px solid ${t.blue}30`,
+                            fontSize: 11, fontWeight: 700, padding: "4px 11px", borderRadius: 20,
+                            background: `${t.blue}18`, color: t.blue, border: `1px solid ${t.blue}30`,
                           }}
                         >
                           Pending
@@ -1360,15 +926,9 @@ export const Friend = () => {
                 >
                   <div
                     style={{
-                      padding: "7px 14px",
-                      borderBottom: `1px solid ${t.border}`,
-                      fontSize: 11,
-                      color: t.blue,
-                      fontWeight: 700,
-                      background: `${t.blue}09`,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 4,
+                      padding: "7px 14px", borderBottom: `1px solid ${t.border}`, fontSize: 11,
+                      color: t.blue, fontWeight: 700, background: `${t.blue}09`,
+                      display: "flex", alignItems: "center", gap: 4,
                     }}
                   >
                     <Zap size={11} />
@@ -1390,14 +950,8 @@ export const Friend = () => {
 
                     <p
                       style={{
-                        margin: "0 0 8px",
-                        fontSize: 12,
-                        color: t.textSub,
-                        lineHeight: 1.55,
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
+                        margin: "0 0 8px", fontSize: 12, color: t.textSub, lineHeight: 1.55,
+                        display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
                       }}
                     >
                       {twin.bio}
@@ -1408,12 +962,8 @@ export const Friend = () => {
                         <span
                           key={i}
                           style={{
-                            fontSize: 10,
-                            padding: "2px 8px",
-                            borderRadius: 20,
-                            background: `${t.pink}12`,
-                            color: t.pink,
-                            border: `1px solid ${t.pink}25`,
+                            fontSize: 10, padding: "2px 8px", borderRadius: 20,
+                            background: `${t.pink}12`, color: t.pink, border: `1px solid ${t.pink}25`,
                           }}
                         >
                           ✦ {ci}
@@ -1445,24 +995,15 @@ export const Friend = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             style={{
-              textAlign: "center",
-              padding: "52px 24px",
-              border: `1px dashed ${t.border}`,
-              borderRadius: 18,
-              background: t.overlay,
-              marginTop: 18,
+              textAlign: "center", padding: "52px 24px", border: `1px dashed ${t.border}`,
+              borderRadius: 18, background: t.overlay, marginTop: 18,
             }}
           >
             <div
               style={{
-                width: 56,
-                height: 56,
-                borderRadius: "50%",
-                margin: "0 auto 14px",
+                width: 56, height: 56, borderRadius: "50%", margin: "0 auto 14px",
                 background: `linear-gradient(135deg, ${t.pink}20, ${t.blue}20)`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                display: "flex", alignItems: "center", justifyContent: "center",
               }}
             >
               <Users size={24} color={t.pink} />
@@ -1476,14 +1017,9 @@ export const Friend = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSearchQuery("")}
                 style={{
-                  background: `linear-gradient(135deg, ${t.pink}, ${t.blue})`,
-                  border: "none",
-                  borderRadius: 10,
-                  padding: "8px 18px",
-                  cursor: "pointer",
-                  fontSize: 12,
-                  fontWeight: 800,
-                  color: t.darkText,
+                  background: `linear-gradient(135deg, ${t.pink}, ${t.blue})`, border: "none",
+                  borderRadius: 10, padding: "8px 18px", cursor: "pointer", fontSize: 12,
+                  fontWeight: 800, color: t.darkText,
                 }}
               >
                 Clear Search

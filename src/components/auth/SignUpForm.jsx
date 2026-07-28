@@ -110,8 +110,8 @@ function InputField({
               error
                 ? "rgba(248,113,113,0.5)"
                 : focused
-                ? "rgba(251,194,235,0.55)"
-                : "rgba(255,255,255,0.10)"
+                  ? "rgba(251,194,235,0.55)"
+                  : "rgba(255,255,255,0.10)"
             }`,
             boxShadow: focused ? "0 0 0 3px rgba(251,194,235,0.10)" : "none",
           }}
@@ -212,7 +212,7 @@ function HeroPanel() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center gap-2.5">
+        {/* <div className="flex items-center gap-2.5">
           <motion.div
             className="w-9 h-9 rounded-xl flex items-center justify-center"
             style={{
@@ -233,7 +233,14 @@ function HeroPanel() {
           >
             TwinRally
           </span>
-        </div>
+        </div> */}
+
+        <motion.img
+          src="/twinrally_lg_06-removebg-preview (1).png"
+          alt="TwinRally"
+          style={{ height: "80px", width: "auto", objectFit: "contain" }}
+          whileHover={{ scale: 1.05 }}
+        />
       </motion.div>
 
       {/* Bottom content */}
@@ -375,18 +382,17 @@ const SignUpPage = () => {
       setErrors(errs);
       return;
     }
-    
+
     setLoading(true);
-    
+
     try {
       // 1. Your simulated network delay
       await new Promise((r) => setTimeout(r, 1400));
-      
+
       console.log("Form successfully validated and submitted!", formData);
 
       // ✅ 2. Route directly to the dashboard using the local navigate hook!
       navigate("/dashboard");
-
     } catch (error) {
       console.error("Signup error:", error);
     } finally {
@@ -801,7 +807,7 @@ const SignUpPage = () => {
                           onClick={() =>
                             handleInputChange(
                               "agreeToTerms",
-                              !formData.agreeToTerms
+                              !formData.agreeToTerms,
                             )
                           }
                           className="flex-shrink-0 w-5 h-5 rounded-md flex items-center justify-center transition-colors duration-200 mt-0.5"

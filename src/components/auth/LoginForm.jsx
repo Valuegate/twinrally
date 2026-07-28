@@ -130,7 +130,7 @@ function HeroPanel() {
         transition={{ delay: 0.2, duration: 0.5 }}
         className="relative z-10 p-8"
       >
-        <div className="flex items-center gap-2.5">
+        {/* <div className="flex items-center gap-2.5">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center"
             style={{
@@ -150,7 +150,16 @@ function HeroPanel() {
           >
             TwinRally
           </span>
-        </div>
+        </div> */}
+
+
+<img
+  src="/twinrally_lg_06-removebg-preview (1).png"
+  alt="TwinRally"
+  style={{ height: "80px", width: "auto", objectFit: "contain" }}
+/>
+
+
       </motion.div>
 
       {/* Bottom — headline + quote + stats */}
@@ -369,7 +378,7 @@ const LoginPage = () => {
             </button>
 
             {/* Mobile logo */}
-            <div className="flex items-center gap-2 lg:hidden">
+            {/* <div className="flex items-center gap-2 lg:hidden">
               <img
                 src="/twinrally_icon-removebg-preview (1).png"
                 alt="TwinRally"
@@ -381,7 +390,18 @@ const LoginPage = () => {
               >
                 TwinRally
               </span>
-            </div>
+            </div> */}
+
+
+<div className="flex items-center gap-2 lg:hidden">
+  <img
+    src="/twinrally_lg_06-removebg-preview (1).png"
+    alt="TwinRally"
+    style={{ height: "80px", width: "auto", objectFit: "contain" }}
+  />
+</div>
+
+
             <div className="w-16" />
           </div>
 
